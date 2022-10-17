@@ -8,4 +8,27 @@
   <button>View and Edit</button>
 </a>
 <button>Take Test</button>
-{% endfor %} {% endblock content %}
+{% endfor %}
+<hr />
+<div>
+  <h3>Add more Assessments Here</h3>
+
+  <form>
+    <div class="mb-3">
+      <label class="form-label">User</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Assessment Name</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Assessment Duration</label>
+      <input type="number" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  {% comment %} TODO Here we have to implement a functnality where users will be
+  able to add more Assessments for the students {% endcomment %}
+</div>
+{% endblock content %}
