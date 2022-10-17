@@ -1,7 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-<p>All the assessments will be available here</p>
-{% for exam in exams %} {{exam}}
-<br />
-<button>View and Edit</button>
+<h2>All the assessments will be available here</h2>
+{% for exam in exams %}
+<h1>
+  <span> {{exam}} Duration-{{exam.duration}} minutes </span>
+</h1>
+<a href="./view/{{exam}}">
+  <button>View and Edit</button>
+</a>
 <button>Take Test</button>
 {% endfor %} {% endblock content %}

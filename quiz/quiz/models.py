@@ -19,7 +19,7 @@ class Profile(models.Model):
         return str(self.user)
 
 class Assessment(models.Model):
-    user = models.OneToOneField(User, null = True, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, null = False, on_delete = models.CASCADE)
     name = models.CharField(max_length = 255, default="Exam")
     duration = models.IntegerField()
     time = models.DateTimeField(auto_now_add=True)
@@ -28,7 +28,7 @@ class Assessment(models.Model):
 
 
 class QuestionSet(models.Model):
-    assessment = models.OneToOneField(Assessment, null = True, on_delete = models.CASCADE)
+    assessment = models.ForeignKey(Assessment, null = False, on_delete = models.CASCADE)
     # TODO add question image feature 
     questionTitle = models.CharField(max_length = 1023, default= "question statement")
     information = models.CharField(max_length = 10000)
