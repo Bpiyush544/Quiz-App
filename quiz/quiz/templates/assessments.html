@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<p>All the assessments will be available here</p>
+{% for exam in exams %} {{exam}}
+<br />
+<button>View and Edit</button>
+<button>Take Test</button>
+{% endfor %} {% endblock content %}

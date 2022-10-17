@@ -24,7 +24,7 @@ class Assessment(models.Model):
     duration = models.IntegerField()
     time = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return(self.user + '-' +self.name)
+        return(self.name)
 
 
 class QuestionSet(models.Model):
