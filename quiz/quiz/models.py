@@ -32,3 +32,6 @@ class QuestionSet(models.Model):
     # TODO add question image feature 
     questionTitle = models.CharField(max_length = 1023, default= "question statement")
     information = models.CharField(max_length = 10000)
+
+    def __str__(self):
+        return(str(self.assessment) + "  " +self.information[:10])

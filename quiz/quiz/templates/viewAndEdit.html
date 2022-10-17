@@ -1,1 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+
+<h3>Here all the questions and their options would be displayed</h3>
+{% for obj in newObj %} <br />
+{{obj.assessment}} <br />
+{{obj.questionTitle}} <br />
+{{obj.information}}
+<br />
+<br />
+<a href="/questionView/{{obj.id}}/">
+  <button>Edit</button>
+</a>
+<button>Delete</button>
+<br />
+<hr />
+<br />
+{% endfor %} {% endblock content %}

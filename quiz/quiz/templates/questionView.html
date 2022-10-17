@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %} {% for info in question %}
+{{info}}
+<br />
+{{info.id}}
+<br />
+{{info.assessment}}
+<br />
+{{info.questionTitle}}
+<br />
+{{info.information}} {% endfor %} {% endblock content %}
