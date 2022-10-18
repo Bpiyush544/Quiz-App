@@ -4,9 +4,11 @@
 {% for obj in newObj %} <br />
 {{obj.assessment}} <br />
 {{obj.questionTitle}} <br />
-{{obj.information}}
 <br />
 <br />
+{% for opt in options %}
+<p>{{opt.optionStatement}}</p>
+{% endfor %}
 <a href="/questionView/{{obj.id}}/">
   <button>Edit</button>
 </a>

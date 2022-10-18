@@ -1,7 +1,8 @@
+from optparse import Option
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment,QuestionSet
+from .models import Assessment,QuestionSet,OptionSet
 
 # Create your views here.
 def home(request):
@@ -12,7 +13,6 @@ def assessments(request):
         user = request.POST.get('user')
         name = request.POST.get('name')
         duration = request.POST.get('duration')
-        allUsers = User.objects.all()
         findUser = User.objects.get(username = user)
         ass = Assessment(user=findUser,name = name, duration = duration)
         ass.save()
@@ -25,15 +25,29 @@ def viewAndEdit(request, ass):
     for obj in QuestionSet.objects.all():
         if str(obj.assessment) == ass:
             newObj.append(obj)
-    print(newObj)
+    # print(newObj)
+    # print(ass)
+    options = []
+    # options = OptionSet.objects.get(Question = ass)
+    for obj in OptionSet.objects.all():
+        if str(obj.Question) == ass:
+            options.append(obj)
+    # print(options)
     # all the questions would be displayed here
-    return render(request, 'viewAndEdit.html',{'newObj':newObj})
+    return render(request, 'viewAndEdit.html',{'newObj':newObj, 'options': options})
 
 
 def questionView(request, pk):
-    # print(pk)
-    # for obj in QuestionSet.objects.all():
-    #     print(obj.id)
     findQuestion = QuestionSet.objects.filter(id = 1)
-    # print(findQuestion)
     return render(request, 'questionView.html',{'question':findQuestion})
+
+
+
+
+
+
+
+
+
+# so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well
+# and at last the functnality where child gave test and got reportcard

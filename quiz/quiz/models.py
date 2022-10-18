@@ -33,11 +33,11 @@ class QuestionSet(models.Model):
     questionTitle = models.CharField(max_length = 1023, default= "question statement")
     mark = models.IntegerField()
     def __str__(self):
-        return(str(self.assessment) + "  " +self.information[:10])
+        return(str(self.assessment))
 
 class OptionSet(models.Model):
     Question = models.ForeignKey(QuestionSet, null = True, on_delete = models.CASCADE)
     optionStatement = models.CharField(max_length = 1023)
     correct = models.BooleanField(default=False)
     def __str__(self):
-        return(self.Question)
+        return(str(self.Question))
