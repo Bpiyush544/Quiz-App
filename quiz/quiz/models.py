@@ -40,4 +40,4 @@ class OptionSet(models.Model):
     optionStatement = models.CharField(max_length = 1023)
     correct = models.BooleanField(default=False)
     def __str__(self):
-        return(str(self.Question))
+        return(self.optionStatement)

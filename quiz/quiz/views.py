@@ -25,28 +25,21 @@ def viewAndEdit(request, ass):
     for obj in QuestionSet.objects.all():
         if str(obj.assessment) == ass:
             newObj.append(obj)
-    # print(newObj)
-    # print(ass)
     options = []
-    # options = OptionSet.objects.get(Question = ass)
     for obj in OptionSet.objects.all():
         if str(obj.Question) == ass:
             options.append(obj)
-    # print(options)
     # all the questions would be displayed here
     return render(request, 'viewAndEdit.html',{'newObj':newObj, 'options': options})
 
 
 def questionView(request, pk):
-    findQuestion = QuestionSet.objects.filter(id = 1)
-    return render(request, 'questionView.html',{'question':findQuestion})
-
-
-
-
-
-
-
+    # here we have to figure out which id i have to pass currently we are doing it incorrectly
+    findQuestion = QuestionSet.objects.filter(id = pk)
+    # print(findQuestion[0].questionTitle)
+    options = OptionSet.objects.filter(Question = findQuestion[0])
+    # print(options)
+    return render(request, 'questionView.html',{'question':findQuestion,'options': options})
 
 
 # so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well

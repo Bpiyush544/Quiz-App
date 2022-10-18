@@ -1,9 +1,5 @@
 {% extends 'base.html' %} {% block content %} {% for info in question %}
-{{info}}
-<br />
-{{info.id}}
-<br />
-{{info.assessment}}
+{{info.id}} - {{info.assessment}}
 <br />
 {{info.questionTitle}}
 <br />
@@ -11,6 +7,13 @@
 <br />
 <br />
 <br />
-<br />
-<br />
-Here we will try to access the question we have used {% endblock content %}
+{% for opt in options %}
+<p>{{opt}}</p>
+{% endfor %} Here we will give functnality to add more options Add More Options
+<form action="" method="POST">
+  <label for="text" name = "addOption"></label>
+  <input type="text" />
+  
+  <button type="submit">Submit</button>
+</form>
+{% endblock content %}
