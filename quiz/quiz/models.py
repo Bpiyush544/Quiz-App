@@ -31,7 +31,13 @@ class QuestionSet(models.Model):
     assessment = models.ForeignKey(Assessment, null = False, on_delete = models.CASCADE)
     # TODO add question image feature 
     questionTitle = models.CharField(max_length = 1023, default= "question statement")
-    information = models.CharField(max_length = 10000)
-
+    mark = models.IntegerField()
     def __str__(self):
         return(str(self.assessment) + "  " +self.information[:10])
+
+class OptionSet(models.Model):
+    Question = models.ForeignKey(QuestionSet, null = True, on_delete = models.CASCADE)
+    optionStatement = models.CharField(max_length = 1023)
+    correct = models.BooleanField(default=False)
+    def __str__(self):
+        return(self.Question)
