@@ -1,10 +1,22 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.shortcuts import redirect
 from .models import Assessment,QuestionSet
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
 def assessments(request):
+    if request.method == 'POST':
+        user = request.POST.get('user')
+        name = request.POST.get('name')
+        duration = request.POST.get('duration')
+        allUsers = User.objects.all()
+        findUser = User.objects.get(username = user)
+        ass = Assessment(user=findUser,name = name, duration = duration)
+        ass.save()
+        return redirect('home')
     exams = Assessment.objects.all()
     return render(request, 'assessments.html', {'exams':exams})
 
