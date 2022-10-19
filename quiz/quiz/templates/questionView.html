@@ -9,11 +9,29 @@
 <br />
 {% for opt in options %}
 <p>{{opt}}</p>
-{% endfor %} Here we will give functnality to add more options Add More Options
+{% endfor %} Here we will give functnality to add more options <br />
+<h3>
+  <b> Add More Options </b>
+</h3>
 <form action="" method="POST">
-  <label for="text" name = "addOption"></label>
-  <input type="text" />
-  
+  {% csrf_token %}
+  <label for="text" name="addOption">Enter the Option Statement</label>
+  <input id="optionStatement" type="text" name="optionStatement" required />
+  <br />
+  <label for="checkbox">Is this option correct</label>
+  <input id="optionCheckbox" type="checkbox" name="optionCheckbox" />
+  <br />
   <button type="submit">Submit</button>
 </form>
-{% endblock content %}
+{% endblock content %} {% block script %}
+
+<script>
+  window.addEventListener("load", (event) => {
+    const optionStatement = document.getElementById("optionStatement");
+    const optionCheckbox = document.getElementById("optionCheckbox");
+    optionStatement.value = "";
+    optionCheckbox.checked = false;
+  });
+</script>
+
+{% endblock script %}

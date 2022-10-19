@@ -34,6 +34,13 @@ def viewAndEdit(request, ass):
 
 
 def questionView(request, pk):
+    # print(pk)
+    if request.method == "POST":
+        optionStatement = request.POST.get('optionStatement')
+        optionCheckbox = request.POST.get('optionCheckbox')
+        print(optionStatement, optionCheckbox)
+        print("hello")
+        return redirect(".")
     # here we have to figure out which id i have to pass currently we are doing it incorrectly
     findQuestion = QuestionSet.objects.filter(id = pk)
     # print(findQuestion[0].questionTitle)
