@@ -38,8 +38,16 @@ def questionView(request, pk):
     if request.method == "POST":
         optionStatement = request.POST.get('optionStatement')
         optionCheckbox = request.POST.get('optionCheckbox')
-        print(optionStatement, optionCheckbox)
-        print("hello")
+        check = False
+        if optionCheckbox == "on":
+            check = True
+        Question = QuestionSet.objects.get(id = pk)
+        opt = OptionSet(Question = Question, optionStatement = optionStatement, correct = check)
+        opt.save()
+        # print("hello")
+        # print(opt)
+        # print(optionStatement, optionCheckbox)
+        # print("hello")
         return redirect(".")
     # here we have to figure out which id i have to pass currently we are doing it incorrectly
     findQuestion = QuestionSet.objects.filter(id = pk)
