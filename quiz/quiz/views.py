@@ -29,12 +29,12 @@ def viewAndEdit(request, ass):
     for obj in OptionSet.objects.all():
         if str(obj.Question) == ass:
             options.append(obj)
+    # only update and delete funcnality remains for test , question statement and question options
     # all the questions would be displayed here
     return render(request, 'viewAndEdit.html',{'newObj':newObj, 'options': options})
 
 
 def questionView(request, pk):
-    # print(pk)
     if request.method == "POST":
         optionStatement = request.POST.get('optionStatement')
         optionCheckbox = request.POST.get('optionCheckbox')
@@ -44,16 +44,10 @@ def questionView(request, pk):
         Question = QuestionSet.objects.get(id = pk)
         opt = OptionSet(Question = Question, optionStatement = optionStatement, correct = check)
         opt.save()
-        # print("hello")
-        # print(opt)
-        # print(optionStatement, optionCheckbox)
-        # print("hello")
         return redirect(".")
     # here we have to figure out which id i have to pass currently we are doing it incorrectly
     findQuestion = QuestionSet.objects.filter(id = pk)
-    # print(findQuestion[0].questionTitle)
     options = OptionSet.objects.filter(Question = findQuestion[0])
-    # print(options)
     return render(request, 'questionView.html',{'question':findQuestion,'options': options})
 
 

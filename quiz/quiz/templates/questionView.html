@@ -8,7 +8,11 @@
 <br />
 <br />
 {% for opt in options %}
-<p>{{opt}}</p>
+<div>
+  <p>{{opt}}</p>
+  <button>Edit</button>
+  <button>Delete</button>
+</div>
 {% endfor %} Here we will give functnality to add more options <br />
 <h3>
   <b> Add More Options </b>
@@ -35,3 +39,5 @@
 </script>
 
 {% endblock script %}
+
+
