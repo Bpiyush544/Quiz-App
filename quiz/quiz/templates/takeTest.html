@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %} Hello time to take test
 <hr />
+Assignment Name - {{assessment.name}}
+<br>
 Time Alloted to complete the test is {{assessment.duration}} minutes
 
 <hr />
@@ -7,9 +9,18 @@ Time Alloted to complete the test is {{assessment.duration}} minutes
 <br />
 {% for ques in questions %} {{ques.questionTitle}} 
     {% for opt in options %} 
-        {% if {{ques.questionTitle}} == {{opt.Question}} %}
+        {% if ques == opt.Question %}
             <p>{{opt.optionStatement}}</p>
-        {% endif %} 
+        {% else %}
+            {% comment %} <p>{{ques}}  and {{opt.Question}}</p> {% endcomment %}
+            <br>
+        {% endif %}
 {% endfor %}
 <br />
 {% endfor %} {% endblock content%}
+
+<script>
+    we need to have a timer which will make the test auto submit if the user dont submit
+
+
+</script>

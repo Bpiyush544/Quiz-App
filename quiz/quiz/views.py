@@ -91,10 +91,8 @@ def optionDelete(request,pk):
 
 
 def testAssessment(request, pk):
-    print(pk)
     assessment = Assessment.objects.get(id = pk)
-    print(assessment)
+    # so basically we have to use this technique we dont have any other option
     questions = QuestionSet.objects.filter(assessment = assessment)
-    print(questions)
     options = OptionSet.objects.all()
     return render(request, 'takeTest.html',{"assessment":assessment, "questions": questions, "options": options})
