@@ -16,4 +16,16 @@
 <br />
 <hr />
 <br />
-{% endfor %} {% endblock content %}
+
+{% endfor %} Add More questions
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <label for="question">Add question Statement</label>
+  <input type="text" name="questionTitle" />
+  <br />
+  <label for="marks">Allot Marks</label>
+  <input type="number" name="mark" />
+  <button>Submit</button>
+</form>
+{% endblock content %}

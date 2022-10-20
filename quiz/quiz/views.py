@@ -1,4 +1,3 @@
-from optparse import Option
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
@@ -21,6 +20,19 @@ def assessments(request):
     return render(request, 'assessments.html', {'exams':exams})
 
 def viewAndEdit(request, ass):
+    if request.method == "POST" and request.POST.get('questionTitle') and request.POST.get('mark') :
+        print(ass)
+        assessment = []
+        for obj in Assessment.objects.all():
+            if str(obj.name) == ass:
+                assessment.append(obj)
+                break
+        print(assessment)
+        questionTitle = request.POST.get("questionTitle")
+        mark = request.POST.get("mark")
+        question = QuestionSet(assessment = assessment[0], questionTitle = questionTitle , mark = mark)
+        question.save()
+        return redirect(".")
     newObj = []
     for obj in QuestionSet.objects.all():
         if str(obj.assessment) == ass:
@@ -32,6 +44,11 @@ def viewAndEdit(request, ass):
     # only update and delete funcnality remains for test , question statement and question options
     # all the questions would be displayed here
     return render(request, 'viewAndEdit.html',{'newObj':newObj, 'options': options})
+
+def deleteAssessment(request,pk):
+    deleteAss = Assessment.objects.get(id = pk)
+    deleteAss.delete()
+    return redirect("home")
 
 
 def questionView(request, pk):
