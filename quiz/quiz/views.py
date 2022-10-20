@@ -92,4 +92,5 @@ def optionDelete(request,pk):
 
 def testAssessment(request, pk):
     print(pk)
+    
     return render(request, 'takeTest.html')
