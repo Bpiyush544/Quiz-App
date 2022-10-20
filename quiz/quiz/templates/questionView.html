@@ -1,6 +1,11 @@
-{% extends 'base.html' %} {% block content %} {% for info in question %}
-{{info.id}} - {{info.assessment}}
+{% extends 'base.html' %} {% block content %} We are at questionView page
 <br />
+
+{% for info in question %}
+<h2>Assessment name</h2>
+{{info.assessment}}
+<br />
+<h3>QuestionTitle</h3>
 {{info.questionTitle}}
 <br />
 {{info.information}} {% endfor %}
@@ -10,8 +15,10 @@
 {% for opt in options %}
 <div>
   <p>{{opt}}</p>
-  <button>Edit</button>
-  <button>Delete</button>
+  <button>EditOption</button>
+  <a href="/optionDelete/{{opt.id}}/">
+    <button>DeleteOption</button>
+  </a>
 </div>
 {% endfor %} Here we will give functnality to add more options <br />
 <h3>
@@ -39,5 +46,3 @@
 </script>
 
 {% endblock script %}
-
-

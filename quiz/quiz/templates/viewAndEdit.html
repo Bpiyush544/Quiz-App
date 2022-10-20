@@ -1,18 +1,21 @@
-{% extends 'base.html' %} {% block content %}
-
+{% extends 'base.html' %} {% block content %} View and Edit page
 <h3>Here all the questions and their options would be displayed</h3>
 {% for obj in newObj %} <br />
+<h2>Assessment Name</h2>
 {{obj.assessment}} <br />
+<h3>Question Title</h3>
 {{obj.questionTitle}} <br />
 <br />
-<br />
+<h5>Options down here</h5>
 {% for opt in options %}
 <p>{{opt.optionStatement}}</p>
 {% endfor %}
 <a href="/questionView/{{obj.id}}/">
-  <button>Edit</button>
+  <button>Edit Question</button>
 </a>
-<button>Delete</button>
+<a href="/questionDelete/{{obj.id}}/">
+  <button>Delete Question</button>
+</a>
 <br />
 <hr />
 <br />

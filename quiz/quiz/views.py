@@ -63,10 +63,28 @@ def questionView(request, pk):
         opt.save()
         return redirect(".")
     # here we have to figure out which id i have to pass currently we are doing it incorrectly
+    print(pk)
     findQuestion = QuestionSet.objects.filter(id = pk)
+    print(findQuestion[0])
     options = OptionSet.objects.filter(Question = findQuestion[0])
+    print(options)
     return render(request, 'questionView.html',{'question':findQuestion,'options': options})
 
+
+def questionDelete(request,pk):
+    print(pk)
+    question = QuestionSet.objects.get(id = pk)
+    print(question)
+    question.delete()
+    return redirect("..")
+
+
+def optionDelete(request,pk):
+    print(pk)
+    option = OptionSet.objects.get(id = pk)
+    option.delete()
+    # print(option)
+    return render(request,"secret.html")
 
 # so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well
 # and at last the functnality where child gave test and got reportcard
