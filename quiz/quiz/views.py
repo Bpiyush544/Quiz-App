@@ -88,3 +88,8 @@ def optionDelete(request,pk):
 
 # so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well
 # and at last the functnality where child gave test and got reportcard
+
+
+def testAssessment(request, pk):
+    print(pk)
+    return render(request, 'takeTest.html')

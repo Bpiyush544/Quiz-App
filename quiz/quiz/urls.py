@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import home,assessments, optionDelete, questionDelete,viewAndEdit,questionView,deleteAssessment
+from .views import home,assessments, optionDelete, questionDelete,viewAndEdit,questionView,deleteAssessment,testAssessment
 
 urlpatterns = [
     path('', home , name="home"),
     path('assessments/', assessments , name="home"),
+    path('assessments/test', testAssessment , name="testAssessment"),
     path('assessments/view/<str:ass>/', viewAndEdit , name="edit"),
     path('assessments/delete/<int:pk>/', deleteAssessment , name="delete"),
     path('questionView/<int:pk>/', questionView , name="questionView"),
