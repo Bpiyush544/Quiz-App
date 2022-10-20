@@ -1,3 +1,15 @@
-{% extends 'base.html' %} {% block content %}Hello time to take test
+{% extends 'base.html' %} {% block content %} Hello time to take test
 <hr />
-{% endblock content %}
+Time Alloted to complete the test is {{assessment.duration}} minutes
+
+<hr />
+        Questions 
+<br />
+{% for ques in questions %} {{ques.questionTitle}} 
+    {% for opt in options %} 
+        {% if {{ques.questionTitle}} == {{opt.Question}} %}
+            <p>{{opt.optionStatement}}</p>
+        {% endif %} 
+{% endfor %}
+<br />
+{% endfor %} {% endblock content%}

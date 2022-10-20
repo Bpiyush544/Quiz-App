@@ -92,5 +92,9 @@ def optionDelete(request,pk):
 
 def testAssessment(request, pk):
     print(pk)
-    
-    return render(request, 'takeTest.html')
+    assessment = Assessment.objects.get(id = pk)
+    print(assessment)
+    questions = QuestionSet.objects.filter(assessment = assessment)
+    print(questions)
+    options = OptionSet.objects.all()
+    return render(request, 'takeTest.html',{"assessment":assessment, "questions": questions, "options": options})
