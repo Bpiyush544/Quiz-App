@@ -108,3 +108,13 @@ def testAssessment(request, pk):
         print(ques.questionTitle)
     print(data)
     return render(request, 'takeTest.html', {"assessment": assessment, "questions": questions, "options": options, 'data': data})
+
+
+def result(request):
+    if request.method == 'POST':
+        assessment = request.POST.get('assessment_id')
+        user = request.POST.get('user_id')
+        information = request.POST.get('information')
+        print(assessment, user, information)
+        print("hello")
+    return render(request, 'result.html')

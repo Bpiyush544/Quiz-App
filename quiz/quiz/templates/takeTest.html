@@ -14,7 +14,7 @@ Time Alloted to complete the test is {{assessment.duration}} minutes
     <br>
         {% for opt in options %} 
             {% if ques == opt.Question %}
-            <input type="checkbox" id="{{ques.pk}},{{opt.pk}}">
+            <input type="checkbox" id="{{ques.pk}}-{{opt.pk}}">
             <label for="vehicle1"> {{opt.optionStatement}} {{opt.pk}}</label><br>
             {% else %}
                 {% comment %} <p>{{ques}}  and {{opt.Question}}</p> {% endcomment %}
@@ -42,19 +42,30 @@ Time Alloted to complete the test is {{assessment.duration}} minutes
     <label>Contact No. :</label>
     <input type="text" name="contact" id="contact" placeholder="Contact No." />
 </form> {% endcomment %}
+<form action="http://127.0.0.1:8000/result/" method="post">
+    {% csrf_token %}
+    <input type="text" id="assessment.id" value="{{assessment.pk}}" name="assessment.id">
+    <input type="text" id="user_id" name="user_id">
+    <input type="text" id="information" name="information">
+    <button type="submit">Submit</button>
+</form>
 </div>
 </div>
 {% endblock content%}
     {% block script %}
 
     function myFunction(){
+        var information = ""
         console.log("{{assessment.name}}")
         inputs= document.getElementsByTagName('input');
         console.log(document.getElementsByTagName("input").length)
-        console.log(inputs[0].id)
         for(var index = 0; index < document.getElementsByTagName("input").length; index++){
-            console.log(inputs[index])
+            if(inputs[index].checked){
+                information+= inputs[index].id + ',';
+            }
         }
+        console.log(information);
+        document.getElementById("information").value = information;
     }
 
 
