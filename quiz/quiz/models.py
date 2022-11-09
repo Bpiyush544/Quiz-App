@@ -41,3 +41,8 @@ class OptionSet(models.Model):
     correct = models.BooleanField(default=False)
     def __str__(self):
         return(self.optionStatement)
+    
+class Evaluation(models.Model):
+    candidate = models.ForeignKey(User, null = True, on_delete = models.CASCADE)
+    marks = models.IntegerField()
+    

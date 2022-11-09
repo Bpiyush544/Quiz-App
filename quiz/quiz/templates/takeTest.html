@@ -2,25 +2,83 @@
 <hr />
 Assignment Name - {{assessment.name}}
 <br>
+{{data}}
+<br>
 Time Alloted to complete the test is {{assessment.duration}} minutes
 
 <hr />
         Questions 
 <br />
-{% for ques in questions %} {{ques.questionTitle}} 
-    {% for opt in options %} 
-        {% if ques == opt.Question %}
-            <p>{{opt.optionStatement}}</p>
-        {% else %}
-            {% comment %} <p>{{ques}}  and {{opt.Question}}</p> {% endcomment %}
-            <br>
-        {% endif %}
-{% endfor %}
+{% for ques in questions %} 
+    {{ques.questionTitle}} {{ques.pk}}
+    <br>
+        {% for opt in options %} 
+            {% if ques == opt.Question %}
+            <input type="checkbox" id="{{ques.pk}},{{opt.pk}}">
+            <label for="vehicle1"> {{opt.optionStatement}} {{opt.pk}}</label><br>
+            {% else %}
+                {% comment %} <p>{{ques}}  and {{opt.Question}}</p> {% endcomment %}
+                <br>
+            {% endif %}
+        {% endfor %}
 <br />
-{% endfor %} {% endblock content%}
+{% endfor %}
+<button onclick="myFunction()">Click me</button>
+<div class="container">
+<div class="main">
+{% comment %} <form action="/" method="post" id="form">
+    {% csrf_token %}
+    <h2>Javascript AutoSubmit Form Example</h2>
+    <span>Form will automatically submit in <b id="timer">20000</b> <b>seconds</b>.</span>
+    <label>Name :</label>
+    <input type="text" name="name" id="name" placeholder="Name" />
+    <label>Email :</label>
+    <input type="text" name="email" id="email" placeholder="Valid Email" />
+    <label>Gender :</label>
+    <input type="radio" name="gender" value="Male" id="male" />
+    <label>Male</label>
+    <input type="radio" name="gender" value="Female" id="female" />
+    <label>Female</label>
+    <label>Contact No. :</label>
+    <input type="text" name="contact" id="contact" placeholder="Contact No." />
+</form> {% endcomment %}
+</div>
+</div>
+{% endblock content%}
+    {% block script %}
 
-<script>
-    we need to have a timer which will make the test auto submit if the user dont submit
+    function myFunction(){
+        console.log("{{assessment.name}}")
+        inputs= document.getElementsByTagName('input');
+        console.log(document.getElementsByTagName("input").length)
+        console.log(inputs[0].id)
+        for(var index = 0; index < document.getElementsByTagName("input").length; index++){
+            console.log(inputs[index])
+        }
+    }
 
 
-</script>
+    window.onload = function() {
+        
+        var x = 20000000;
+        var y = document.getElementById("timer");
+        // Display count down for 20s
+        setInterval(function() {
+            if (x <= 200001 && x >= 1) {
+                x--;
+                y.innerHTML = '' + x + '';
+                if (x == 1) {
+                    x = 200001;
+                }
+            }
+        }, 1000000);
+        // Form Submitting after 20s
+        var auto_refresh = setInterval(function() {
+            submitform();
+        }, 200000000);
+        function submitform() {
+            console.log(document.getElementById('name').value)
+        }
+        }
+        
+    {% endblock script %}
