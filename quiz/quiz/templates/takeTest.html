@@ -44,7 +44,7 @@ Time Alloted to complete the test is {{assessment.duration}} minutes
 </form> {% endcomment %}
 <form action="http://127.0.0.1:8000/result/" method="post">
     {% csrf_token %}
-    <input type="text" id="assessment.id" value="{{assessment.pk}}" name="assessment.id">
+    <input type="text" id="assessment.id" value="{{assessment.id}}" name="assessment_id">
     <input type="text" id="user_id" name="user_id">
     <input type="text" id="information" name="information">
     <button type="submit">Submit</button>
@@ -64,7 +64,7 @@ Time Alloted to complete the test is {{assessment.duration}} minutes
                 information+= inputs[index].id + ',';
             }
         }
-        console.log(information);
+        console.log(information,"{{assessment.id}}");
         document.getElementById("information").value = information;
     }
 
