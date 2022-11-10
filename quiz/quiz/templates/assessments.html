@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+
+{% if user.is_superuser %} 
 <h2>All the assessments will be available here</h2>
 {% for exam in exams %}
 <h1>
@@ -14,12 +16,12 @@
 <a href="./test/{{exam.id}}/">
   <button>Take Test</button>
 </a>
-  <button onclick="myFunction({{exam.id}})">Copy Link</button>
+<button onclick="myFunction({{exam.id}})">Copy Link</button>
 {% endfor %}
 <hr />
 <div>
   <h3>Add more Assessments Here</h3>
-
+  
   <form method="POST" action= '{% url 'home' %}'>
     {% csrf_token %}
     <div class="mb-3">
@@ -39,17 +41,20 @@
   {% comment %} TODO Here we have to implement a functnality where users will be
   able to add more Assessments for the students {% endcomment %}
 </div>
+{% else %}
+You are not allowed here
+{% endif %}
 {% endblock content %}
 
 {% block script %}
 
 function myFunction(name) {
   {% comment %} var copyText = document.getElementById("myInput");
-
+  
   // Select the text field
   copyText.select();
   copyText.setSelectionRange(0, 99999); // For mobile devices
-
+  
   // Copy the text inside the text field {% endcomment %}
   {% comment %} console.log("{{exam.id}}") {% endcomment %}
   var text = "http://localhost:8000/assessments/test/" + name + '/';
