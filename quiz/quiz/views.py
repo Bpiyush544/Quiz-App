@@ -117,16 +117,13 @@ def result(request):
         information = request.POST.get('information')
         print(assessment, user, information)
         ass = Assessment.objects.get(id=assessment)
-        # print(ass, 'This is the assessment')
         options = information.split(',')
-        print(options)
         answerSet = {}
         allQuestions = QuestionSet.objects.all()
         for ques in allQuestions:
             answerSet[ques.pk] = []
             originalOptions = OptionSet.objects.filter(Question=ques)
             for opts in originalOptions:
-                # if()
                 print(opts.correct)
                 if opts.correct == True:
                     answerSet[ques.pk].append(opts.pk)
@@ -136,16 +133,13 @@ def result(request):
 
         for opt in range(len(options)-1):
             check = options[opt].split('-')
-            print(check[0], check[1])
+            # print(check[0], check[1])
             if int(check[0]) not in query:
                 query[int(check[0])] = []
                 query[int(check[0])].append(int(check[1]))
             else:
                 query[int(check[0])].append(int(check[1]))
-                # print("yes not in info")
-        # print("hello")
         print(query, 'This is querySet')
-
         # now time to check the answers
         score = 0
         for q in query:
@@ -153,7 +147,5 @@ def result(request):
             answerSet[q].sort()
             if query[q] == answerSet[q]:
                 score += QuestionSet.objects.get(pk=q).mark
-                # print("YESS THEY MATCH!")
-
         print(score)
-    return render(request, 'result.html')
+    return render(request, 'result.html', {'score': score, 'ass': ass})
