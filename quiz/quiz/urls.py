@@ -3,7 +3,7 @@ from .views import home, assessments, optionDelete, questionDelete, viewAndEdit,
 
 urlpatterns = [
     path('', home, name="home"),
-    path('assessments/', assessments, name="home"),
+    path('assessments/', assessments, name="assessments"),
     path('assessments/test/<int:pk>/', testAssessment, name="testAssessment"),
     path('assessments/view/<str:ass>/', viewAndEdit, name="edit"),
     path('assessments/delete/<int:pk>/', deleteAssessment, name="delete"),
