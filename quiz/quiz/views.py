@@ -111,6 +111,7 @@ def testAssessment(request, pk):
 
 
 def result(request):
+    score = 0
     if request.method == 'POST':
         assessment = request.POST.get('assessment_id')
         user = request.POST.get('user_id')
@@ -141,11 +142,10 @@ def result(request):
                 query[int(check[0])].append(int(check[1]))
         print(query, 'This is querySet')
         # now time to check the answers
-        score = 0
         for q in query:
             query[q].sort()
             answerSet[q].sort()
             if query[q] == answerSet[q]:
                 score += QuestionSet.objects.get(pk=q).mark
         print(score)
-    return render(request, 'result.html', {'score': score, 'ass': ass})
+    return render(request, 'result.html', {'score': score})
