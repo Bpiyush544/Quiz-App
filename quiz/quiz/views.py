@@ -48,7 +48,7 @@ def viewAndEdit(request, ass):
             options.append(obj)
     # only update and delete funcnality remains for test , question statement and question options
     # all the questions would be displayed here
-    return render(request, 'viewAndEdit.html', {'newObj': newObj, 'options': options})
+    return render(request, 'viewAndEdit2.html', {'newObj': newObj, 'options': options})
 
 
 def deleteAssessment(request, pk):
