@@ -20,7 +20,7 @@ def assessments(request):
         ass.save()
         return redirect('home')
     exams = Assessment.objects.all()
-    return render(request, 'assessments.html', {'exams': exams})
+    return render(request, 'assessments2.html', {'exams': exams})
 
 
 def viewAndEdit(request, ass):
