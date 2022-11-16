@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, assessments, optionDelete, questionDelete, viewAndEdit, questionView, deleteAssessment, testAssessment, result
+from .views import home, assessments, optionDelete, questionDelete, viewAndEdit, questionView, deleteAssessment, testAssessment, result, addQues
 
 urlpatterns = [
     path('', home, name="home"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('questionDelete/<int:pk>/', questionDelete, name="questionDelete"),
     path('optionDelete/<int:pk>/', optionDelete, name="optionDelete"),
     path('result/', result, name="result"),
+    path('addQues/<str:ass>/', addQues, name="addQues"),
 ]

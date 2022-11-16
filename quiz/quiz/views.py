@@ -1,7 +1,9 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from .models import Assessment, QuestionSet, OptionSet
+import datetime
 
 # Create your views here.
 
@@ -39,6 +41,8 @@ def viewAndEdit(request, ass):
         question.save()
         return redirect(".")
     newObj = []
+    # print("This is my ASS", ass)
+    print(QuestionSet.objects.all())
     for obj in QuestionSet.objects.all():
         if str(obj.assessment) == ass:
             newObj.append(obj)
@@ -46,15 +50,22 @@ def viewAndEdit(request, ass):
     for obj in OptionSet.objects.all():
         if str(obj.Question) == ass:
             options.append(obj)
+    # print(newObj, "     NEWOBJ")
     # only update and delete funcnality remains for test , question statement and question options
     # all the questions would be displayed here
-    return render(request, 'viewAndEdit2.html', {'newObj': newObj, 'options': options})
+    return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options})
 
 
 def deleteAssessment(request, pk):
     deleteAss = Assessment.objects.get(id=pk)
     deleteAss.delete()
     return redirect("home")
+
+
+def addQues(request):
+    now = datetime.datetime.now()
+    html = "<html><body>It is now %s.</body></html>" % now
+    return HttpResponse(html)
 
 
 def questionView(request, pk):
