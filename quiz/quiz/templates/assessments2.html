@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
@@ -77,11 +77,12 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
 <body>
     <section class="dashboard">
       <aside class="sidebar">
-        <div class="logo"><img src="c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg"><span style="color: white;">Techsnap</span></div>
+        <div class="logo"><img src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}"><span style="color: white;">Techsnap</span></div>
+        {% comment %} <div class="logo"><img src="c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg"><span style="color: white;">Techsnap</span></div> {% endcomment %}
         <ul>
             <a href="index.html"><li> <i class="fa fa-rocket"></i> <span>Dashboard</span></li></a>   
               <a href="library.html"><li ><i class="fa fa-folder-open"></i> <span>Library</span></li> </a>             
-              <a href="test.html"><li><i class="fa fa-ranking-star"></i> <span>View Tests</span></li></a>              
+              <a href="{% url 'assessments' %}"><li><i class="fa fa-ranking-star"></i> <span>View Tests</span></li></a>              
             <a href="students.html"><li class="reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a>
            
 
@@ -248,7 +249,9 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
                         <div >
                             <i class="fa fa-question" ></i><span class="ml-5">4 </span><i class="fa fa-calendar-alt ml-5"></i><span class="ml-5">20/5/1997</span><i class="fa fa-clock mx-5"></i> <span class="mr-5">9:20</span> | <span class="ml-5">20 Invited <i class="fa fa-arrow-right"></i> 14 Attempted</span>
                          </div>
-                         <div class="test"><button class="button mr-3">View</button></div>
+                         <a href="./view/1/">
+                             <div class="test"><button class="button mr-3">View</button></div>
+                         </a>
                     </div>
                     <div class="d-flex">
                         <div class="my-2">
