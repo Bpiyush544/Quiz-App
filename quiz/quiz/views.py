@@ -115,20 +115,24 @@ def candidateSettings(request):
         resume = request.POST.get('resume')
         disclaimer = request.POST.get('disclaimer')
         disclaimerCheck = request.POST.get('disclaimerCheck')
+        dataFields = ["fullName", "workExperience", "city", "rollNo", "email", "gradYear", "cgpa",
+                      "gpa", "collegeName", "contactNo", "contactRec", "stream", "major", "degree", "gender", "jobRole", "resume", "disclaimerCheck"]
         data = [fullName, workExperience, city, rollNo, email, gradYear, cgpa,
                 gpa, collegeName, contactNo, contactRec, stream, major, degree, gender, jobRole, resume, disclaimerCheck]
         updatedData = []
+        assessmentName = "newtest"
+        assessment = Assessment.objects.get(name=assessmentName)
 
-        for query in data:
-            if query == "on":
+        for i in range(0, len(data)):
+            if data[i] == "on":
                 updatedData.append(True)
             else:
                 updatedData.append(False)
         print(data)
         print(updatedData)
-        assessmentName = "newtest"
-        assessment = Assessment.objects.get(name=assessmentName)
         print(assessment)
+        CandidateDetail.objects.filter(assessment=assessment).update(
+            fullName=updatedData[0], workExperience=updatedData[1], city=updatedData[2], rollNo=updatedData[3], email=updatedData[4], gradYear=updatedData[5], cgpa=updatedData[6], gpa=updatedData[7], collegeName=updatedData[8], contactNo=updatedData[9], stream=updatedData[10], major=updatedData[11], degree=updatedData[12], gender=updatedData[13], jobRole=updatedData[14], resume=updatedData[15], disclaimerCheck=updatedData[16])
         # assDetail = CandidateDetail.objects.get(assessment=assessment).update()
     return render(request, 'candidateSettings.html')
 
