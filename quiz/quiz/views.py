@@ -82,7 +82,13 @@ def addQues(request, assgn):
         options = optionInformation.split('##')
         print(options)
         for i in range(0, len(options), 2):
-            print(options[i], options[i+1])
+            chk = False
+            if(options[i+1] == "on"):
+                chk = True
+            option = OptionSet(Question=question,
+                               optionStatement=options[i], correct=chk)
+            print(option)
+            # print(options[i], options[i+1])
     print(assgn)
     return render(request, 'addQues.html', {'assignment': assgn})
 
