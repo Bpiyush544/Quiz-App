@@ -73,7 +73,6 @@ class CandidateDetail(models.Model):
     contactNo = models.BooleanField(default=False)
     contactRec = models.BooleanField(default=False)
     stream = models.BooleanField(default=False)
-    branch = models.BooleanField(default=False)
     major = models.BooleanField(default=False)
     degree = models.BooleanField(default=False)
     gender = models.BooleanField(default=False)
