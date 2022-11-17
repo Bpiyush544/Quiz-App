@@ -336,14 +336,20 @@
     for(var i=0; i< options.length; i++){
         console.log(options[i])
         console.log(checks[i])
-        console.log(checks[i].className , checks[i].className.length,"this is value")
-        if(checks[i].className.length > 5){
-            console.log("This is our answer")
-        }
         info += options[i].value.trim();
+        info += "##";
+        if(checks[i].className.length > 5){
+            info += "on";
+        }else{
+            info += "off";
+        }
+        if(options.length-1 != i){
+            info += "##";
+        }
     }
     console.log(info);
     document.getElementById('optionInformation').innerText = info;
+    document.getElementById('myForm').submit();
   }
 
 </script>
