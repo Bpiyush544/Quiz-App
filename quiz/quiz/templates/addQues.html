@@ -157,7 +157,7 @@
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
                                 ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea  style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
                         </div>
   
@@ -167,7 +167,7 @@
                             <label
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>b</span> <div class="round"></div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                                <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                                <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6">
                             
                             </textarea>
@@ -180,7 +180,7 @@
                             <label
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
                         </div>
                             <!-- -------------------------------------------------------------------->
@@ -189,7 +189,7 @@
                             <label
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>d</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
                         </div>
                     </div>
@@ -199,13 +199,13 @@
                     <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
 
                     <div class="btn-grp">
-                        <button>Save Questions</button> <i>or</i> <button>Save & Add another</button>
+                        <button>Save Questions</button> <i>or</i> <button onclick = "myFunc()">Save & Add another</button>
                     </div>
                 </form>
             </div>
         </main> 
     </section>
-    <script src="main.js">
+    <script src="{% static 'js/main.js' %}">
 
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -226,7 +226,7 @@
                            <label onclick="togglebg(this)"
                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>${valarr[index]}</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                <button onclick="togbtn(this)" type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                           <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                           <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                rows="6"></textarea>
                        </div>`
                 edit.insertAdjacentHTML("beforeend",nwitm);
@@ -315,7 +315,7 @@
   
 
         $(".edit-txt div").hover(function name() {
-            console.log($(this).children("button"));
+            // console.log($(this).children("button"));
           $(this).children("button").toggle();
         
          
@@ -327,6 +327,14 @@
     $(this).toggleClass("rotateicon")
   })
 
+
+  function myFunc(){
+    options = document.getElementsByClassName('option');
+    console.log(options);
+    for(var i=0; i< options.length; i++){
+        console.log(options[i])
+    }
+  }
 
 </script>
 
