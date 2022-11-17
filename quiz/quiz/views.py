@@ -65,7 +65,13 @@ def deleteAssessment(request, pk):
 def addQues(request, assgn):
     if request.method == "POST":
         problemName = request.POST.get('problemName')
-        print(problemName)
+        score = request.POST.get('score')
+        time = request.POST.get('time')
+        description = request.POST.get('description')
+        optionInformation = request.POST.get('optionInformation')
+        # problemName = request.POST.get('problemName')
+        print(optionInformation, "this is so much information")
+        print(problemName, score, time, description, optionInformation)
     print(assgn)
     return render(request, 'addQues.html')
 

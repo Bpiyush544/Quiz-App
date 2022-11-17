@@ -154,7 +154,7 @@
 
                     <div class="edit-txt">
                         <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
-                            <label
+                            <label class="check"
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
                                 ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
@@ -166,7 +166,7 @@
 
                         <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
                             <label
-                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>b</span> <div class="round"></div><i class="fas fa-check"></i></label>
+                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>b</span> <div class="round"></div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
                                 <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6">
@@ -179,7 +179,7 @@
 
                         <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
                             <label
-                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
                             <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
@@ -188,7 +188,7 @@
 
                         <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
                             <label
-                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>d</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>d</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
                             <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
@@ -198,10 +198,9 @@
                         <!-- ------------------Add one more choice-------------------------->
 
                     <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
-
-                    <div class="btn-grp">
-                        <button onclick = "myFunc()">Save Questions</button> <i>or</i> <button>Save & Add another</button>
-                    </div>
+                    <textarea name="optionInformation" id="optionInformation" cols="30" rows="10"></textarea>
+                    <button onclick = "myFunc()">CHECK</button>
+                    
                 </form>
             </div>
         </main> 
@@ -226,7 +225,7 @@
                let nwitm=`   <div onmouseover='showhide(this)' onmouseout="normal(this)" style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
                            <label onclick="togglebg(this)"
                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>${valarr[index]}</span> <div class="round"> </div><i class="fas fa-check"></i></label>
-                               <button onclick="togbtn(this)" type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                               <button onclick="togbtn(this)" class="check" type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                rows="6"></textarea>
                        </div>`
@@ -331,11 +330,20 @@
 
   function myFunc(){
     options = document.getElementsByClassName('option');
+    checks = document.getElementsByClassName('check');
+    var info = "";
     console.log(options);
     for(var i=0; i< options.length; i++){
         console.log(options[i])
+        console.log(checks[i])
+        console.log(checks[i].className , checks[i].className.length,"this is value")
+        if(checks[i].className.length > 5){
+            console.log("This is our answer")
+        }
+        info += options[i].value.trim();
     }
-    document.getElementsById('myForm').submit();
+    console.log(info);
+    document.getElementById('optionInformation').innerText = info;
   }
 
 </script>
