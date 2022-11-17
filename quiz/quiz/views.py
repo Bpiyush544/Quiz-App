@@ -94,7 +94,7 @@ def addQues(request, assgn):
     return render(request, 'addQues.html', {'assignment': assgn})
 
 
-def candidateSettings(request):
+def candidateSettings(request, assgn):
     if request.method == "POST":
         fullName = request.POST.get('fullName')
         workExperience = request.POST.get('workExperience')
@@ -120,7 +120,7 @@ def candidateSettings(request):
         data = [fullName, workExperience, city, rollNo, email, gradYear, cgpa,
                 gpa, collegeName, contactNo, contactRec, stream, major, degree, gender, jobRole, resume, disclaimerCheck]
         updatedData = []
-        assessmentName = "newtest"
+        assessmentName = str(assgn)
         assessment = Assessment.objects.get(name=assessmentName)
 
         for i in range(0, len(data)):
@@ -134,6 +134,7 @@ def candidateSettings(request):
         CandidateDetail.objects.filter(assessment=assessment).update(
             fullName=updatedData[0], workExperience=updatedData[1], city=updatedData[2], rollNo=updatedData[3], email=updatedData[4], gradYear=updatedData[5], cgpa=updatedData[6], gpa=updatedData[7], collegeName=updatedData[8], contactNo=updatedData[9], stream=updatedData[10], major=updatedData[11], degree=updatedData[12], gender=updatedData[13], jobRole=updatedData[14], resume=updatedData[15], disclaimerCheck=updatedData[16])
         # assDetail = CandidateDetail.objects.get(assessment=assessment).update()
+    print(assgn)
     return render(request, 'candidateSettings.html')
 
 
