@@ -117,7 +117,7 @@
                  
                  <form method="POST" action="." id="myForm"> 
                     {% csrf_token %}
-                    <input type="text" value="{{assignment}}" hidden>
+                    <input type="text" value="{{assignment}}" name="assignment" hidden>
                     <div class="frm-grp" style="margin-bottom: 30px;">
                         <div>
                             <label for="problem">PROBLEM NAME</label>
