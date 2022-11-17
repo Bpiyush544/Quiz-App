@@ -1,0 +1,317 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Add questions </title>
+    <style>.togmenu li{
+        padding: 8px 3px !important;
+      }
+
+      .tog.rotateicon .fa-caret-down{
+        transform: rotate(-180deg);
+      }
+    
+</style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+<section class="dashboard">
+  <aside class="sidebar">
+    <div class="logo"><img src="c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg"><span style="color: white;">Techsnap</span></div>
+    <ul>
+        <a href="index.html"><li> <i class="fa fa-rocket"></i> <span>Dashboard</span></li></a>   
+          <a href="library.html"><li ><i class="fa fa-folder-open"></i> <span>Library</span></li> </a>             
+          <a href="{% url 'assessments' %}"><li><i class="fa fa-ranking-star"></i> <span>View Tests</span></li></a>              
+        <a href="students.html"><li class="reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a>
+       
+
+    </ul>
+
+
+    <ul>
+        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Edit Test</span> <i class="fa fa-caret-down" style="cursor: pointer;"></i></h3>
+       <div class="togmenu">
+        <a href="view_question.html"><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
+        <a href="candidate_setting.html"><li><i class="fa fa-code"></i> <span>Candidate settings</span></li> </a>             
+        <a href="test_settings.html"><li><i class="fa fa-bullseye"></i> <span>Test settings</span></li></a>              
+      <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+      <a href="#"><li><i class="fa fa-lightbulb"></i> <span>Messaging</span></li></a>
+       </div>
+
+    </ul>
+
+    <ul style="border: none;">
+        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
+        <div class="togmenu">
+        <a href="invited.html"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
+        <a href="invited.html"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
+        <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
+          <a href="attempted.html"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
+          <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
+        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+        <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
+        <div class="togmenu" style="display: none;">
+         
+              
+          <a href="test_settings.html"><li class="d-flex justify-content-between"> <span><i class="fa fa-check"></i> Complete</span><span>1</span></li></a>              
+        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-eye"></i> To Evalute</span><span >1</span></li></a>
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-up"></i> Qualified</span><span >1</span></li></a>
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-down"></i> Failed</span><span >1</span></li></a>
+       
+         </div>
+
+         <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>Archived</span></li></a>   
+        </div>
+
+    </ul>
+   <div> <button>Get Support</button></div>
+    <span class="cut">&times;</span>
+</aside>
+    <main>
+      <div class="header">
+        <div>
+            <i class="fa fa-bars" onclick="togside()"></i>
+       <span class="font-weight-bold mr-5 bread d-none d-lg-inline" style=" text-transform: capitalize;"> <span>Tests <i class="fa fa-angle-right"></i> Techsnap Front-End Developer Hiring Test <i class="fa fa-angle-right"></i> Questions</span></span>
+        </div>
+        <div class="logout_part">
+            <div class="dropdown ">
+              <i class="far fa-bell  dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"  style="color: rgb(0, 0, 0);"></i>
+              <div class="dropdown-menu belldrop" aria-labelledby="dropdownMenuButton">
+                <div class="d-flex justify-content-between "><h6>Notification</h4><div><i class="fa fa-check"></i><i class="fa fa-cog ml-3"></i></div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, aut.</p>
+                <div class="d-flex justify-content-between"><small>27 days ago</small> <a href="#">view full Notification</a></div>
+                <i class="fa fa-caret-up text-dark"></i>
+              </div>
+            </div>
+<div class="dropdown">
+
+<span class="user-icon dropdown-toggle" data-toggle="dropdown" data-target="dropdownMenuButton1" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;"></span>
+<div class="dropdown-menu" style="    left: -34px;" aria-labelledby="dropdownMenuButton1">
+<a class="dropdown-item" href="#">Action 5</a>
+<a class="dropdown-item" href="#">Another action</a>
+<a class="dropdown-item" href="#">Something else here</a>
+</div>
+</div>
+            </div>
+          
+        </div>
+    </div>
+             
+             <div class="content test" style="overflow: hidden;"> 
+                <ul class="nav nav-pills">
+                    <li class="active"><a class="active" data-toggle="pill" href="#home">Candidate Details</a></li>
+                    <li><a data-toggle="pill" href="#menu1">Access</a></li>
+                    
+                  </ul>
+                  
+                  <div class="tab-content">
+                      
+                    <div id="home" class=" checklabel tab-pane show fade in active form p-sm-3 p-2 mt-3">
+                        <h2 style="font-size: 25px;">Candidate Details</h2>
+                        <p style="text-transform:initial; color:red">You may wish to collect some details from your Candidates before thay begin their test.Select from the list below  or add a field of your own. Note these settings will show up in the candidate's report.</p>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="name"> <label class="mb-0 ml-2" for="name">Full Name <sup>*</sup></label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="exp"> <label class="mb-0 ml-2" for="exp">Work Experience <sup>*</sup></label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="city"> <label class="mb-0 ml-2" for="city">city </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="roll"> <label class="mb-0 ml-2" for="roll">Student roll no </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="email"> <label class="mb-0 ml-2" for="email">personal email address </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="graduatin"> <label class="mb-0 ml-2" for="graduatin">graduation year </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="cgpa"> <label style="text-transform: uppercase;" class="mb-0 ml-2" for="cgpa"> cgpa </label>
+                        </div>
+                        <div class="d-flex align-items-center mb-3" style="text-transform: uppercase;">
+                            <input type="checkbox" name="" id="gpa"> <label style="text-transform: uppercase;" class="mb-0 ml-2" for="gpa">gpa  </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="collage"> <label class="mb-0 ml-2" for="collage">Collage name  </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="contact"> <label class="mb-0 ml-2" for="contact"> contact no  </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="recrutier"> <label class="mb-0 ml-2" for="recrutier"> contact recruiter </label>
+                        </div>
+
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="strem/branch"> <label class="mb-0 ml-2" for="strem/branch"> stream/branch </label>
+                        </div>
+
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="major"> <label class="mb-0 ml-2" for="major"> major</label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="degree"> <label class="mb-0 ml-2" for="degree"> degree </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="gender"> <label class="mb-0 ml-2" for="gender"> gender </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="jobrole"> <label class="mb-0 ml-2" for="jobrole"> job role </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="resume"> <label class="mb-0 ml-2" for="resume"> resume </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="post"> <label class="mb-0 ml-2" for="post"> post graduation degree </label>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <input type="checkbox" name="" id="during"> <label class="mb-0 ml-2" for="during"> city (during graduation) </label>
+                        </div>
+
+                        <p class="text-primary" style="cursor: pointer;"><i class="fa fa-plus"></i> Add a custom field</p>
+
+                        <div class="mt-4 border-top pt-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5  class="font-weight-bold">Disclaimer</h5>
+                                <input type="checkbox" name="" id="">
+                            </div>
+                            <p  style="text-transform: initial;color:red;">When enabled this declaration will appear on the test login page along with a checkbox.Candidates will not be able to commence this test unless they check the box, expressing assent</p>
+                          
+                        </div>
+                        <textarea style="text-transform: initial;color:rgb(134, 134, 134)" class="w-100" name="" id="" value="" cols="30" rows="5">I agree not to copy code from any source(including websites, books or friends and colleagues) to complete this assessment. I may, however, reference programming language documentation or use an IDE that has code completion features
+                        </textarea>
+
+                        <div class="mt-4"><button class="save-btn">Save changes</button> <button class="save-btn bg-dark">Cancel</button></div>
+
+                        <div class="mt-4 border-top pt-4">
+                           <h5 class="font-weight-bold">Test Instructions</h5>
+                            <p  style="text-transform: initial;color:red;">These instruction will be displayed on the test's login page.</p>
+                          
+                        </div>
+
+
+                        
+                        <div class="mt-3 border">
+                            <ol class="p-4 pl-5">
+                                <li style="text-transform:initial ;" class="mb-3">This  is a timed test.Please make sure you are not intrrupted during the test, as the timer can not be paused once started.</li>
+                                
+                                <li style="text-transform:initial ;" class="mb-3"> Please ensure you have a stable internet connection .</li>
+
+                                <li style="text-transform:initial ;" class="mb-3">We recommend you to try the sample question for a couple of minutes before taking the main test.</li>
+
+                                <li style="text-transform:initial ;" class="mb-3">Before taking the test, please go through the FAQ to resolve your queries related to the test or the Hacker Rank platform.</li>
+                            </ol>
+                        </div>
+                          
+                    </div>
+
+
+
+
+                    <div id="menu1" class="access checklabel tab-pane  fade in  form p-sm-3 p-2 mt-3">
+                       <div class="d-flex justify-content-between align-items-center py-3">
+                           <h5 class="font-weight-bold">Shuffle Questions</h5>
+                           <input  type="checkbox" name="" id="">
+                       </div>
+                       <p style="font-weight: normal; text-transform:initial">Each candidate will view the questions in a random order if this switch is on</p>
+
+
+
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                        <h5 class="font-weight-bold"> Questions Points</h5>
+                        <input  type="checkbox" name="" id="">
+                    </div>
+                    <p style="font-weight: normal; text-transform:initial"> Candidate can view the points for each questions if this switch is ON.</p>
+
+
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                        <h5 class="font-weight-bold"> Copy/Paste Tracking</h5>
+                        <input  type="checkbox" name="" id="">
+                    </div>
+                    <p style="font-weight: normal; text-transform:initial">Enabling this will help you the pasted code in the candidate's report. We recommend to switch this on capture any cheating behaviour during the test.</p>
+
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                        <h5 class="font-weight-bold"> Show the prompt to candidate</h5>
+                        <input  type="checkbox" name="" id="">
+                    </div>
+                    <p style="font-weight: normal; text-transform:initial">Enabling this will alert the candidate's if they try to copy code from other sources.</p>
+
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                        <h5 class="font-weight-bold"> Tab Proctoring</h5>
+                        <input  type="checkbox" name="" id="">
+                    </div>
+                    <p style="font-weight: normal; text-transform:initial">Enabling this will track the candidte moved out of the tab during the test.</p>
+
+
+                    <div class="mt-5"><button class="save-btn">Save changes</button> <button class="save-btn bg-dark">Cancel</button></div>
+                  
+                    </div>
+
+
+                 
+
+
+                  
+                   
+                </div>
+            </div>
+        </main> 
+    </section>
+
+    <script>
+ 
+    </script>
+    <script src="main.js">
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    
+    <script>
+
+$(".accor").click(function(params) {
+    $(this).toggleClass("togg")
+})
+
+
+$(".tog").click(function(params) {
+    console.log($(this).next().toggle())
+    $(this).toggleClass("rotateicon")
+  })
+</script>
+
+
+</body>
+
+</html>

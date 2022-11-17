@@ -94,6 +94,10 @@ def addQues(request, assgn):
     return render(request, 'addQues.html', {'assignment': assgn})
 
 
+def candidateSettings(request):
+    return render(request, 'candidateSettings.html')
+
+
 def questionView(request, pk):
     if request.method == "POST":
         optionStatement = request.POST.get('optionStatement')
