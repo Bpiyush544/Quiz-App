@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Assignment Name - {{assignment}}</title>
     <title>Add questions </title>
     <style>
          .togmenu li{
@@ -116,6 +117,7 @@
                  
                  <form method="POST" action="." id="myForm"> 
                     {% csrf_token %}
+                    <input type="text" value="{{assignment}}" hidden>
                     <div class="frm-grp" style="margin-bottom: 30px;">
                         <div>
                             <label for="problem">PROBLEM NAME</label>

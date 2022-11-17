@@ -70,10 +70,15 @@ def addQues(request, assgn):
         description = request.POST.get('description')
         optionInformation = request.POST.get('optionInformation')
         # problemName = request.POST.get('problemName')
+        asses = Assessment.objects.get(name="newtest")
+        print("this is assess", asses)
+
+        options = optionInformation.split('##')
+        print(options)
         print(optionInformation, "this is so much information")
         print(problemName, score, time, description, optionInformation)
     print(assgn)
-    return render(request, 'addQues.html')
+    return render(request, 'addQues.html', {'assignment': assgn})
 
 
 def questionView(request, pk):
