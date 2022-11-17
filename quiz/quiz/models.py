@@ -83,4 +83,4 @@ class CandidateDetail(models.Model):
     disclaimerCheck = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.assessment
+        return str(self.assessment)

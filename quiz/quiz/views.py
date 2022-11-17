@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment, QuestionSet, OptionSet
+from .models import Assessment, QuestionSet, OptionSet,CandidateDetail
 import datetime
 
 # Create your views here.
@@ -116,6 +116,10 @@ def candidateSettings(request):
         disclaimer = request.POST.get('disclaimer')
         disclaimerCheck = request.POST.get('disclaimerCheck')
 
+        assessment = "newtest"
+        
+        assDetail = CandidateDetail.objects.get(assessment = assessment)
+        
     return render(request, 'candidateSettings.html')
 
 
