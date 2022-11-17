@@ -114,27 +114,28 @@
              <div class="content test" style="overflow: hidden;"> 
                 
                  
-                 <form>
+                 <form method="POST" action="." id="myForm"> 
+                    {% csrf_token %}
                     <div class="frm-grp" style="margin-bottom: 30px;">
                         <div>
                             <label for="problem">PROBLEM NAME</label>
-                            <input type="text" id="problem" required>
+                            <input type="text" id="problem" name="problemName" required>
                         </div>
 
                         <div>
                             <label for="score">Score</label>
-                            <input type="number" placeholder="Enter Score" id="score" required>
+                            <input type="number" placeholder="Enter Score" id="score" name="score" required>
                         </div>
 
                         <div>
                             <label for="time"> time</label>
-                            <input type="number" placeholder="minutes" id="time" required style="width:85px ;">
+                            <input type="number" placeholder="minutes" id="time" name="time" required style="width:85px ;">
                         </div>
                     </div>
 
                     <div style="margin-bottom: 30px;">
                         <label for="discription">Problem Discription</label>
-                        <textarea placeholder="write here..." id="discription" style="width: 100%;" cols="30" rows="10" required></textarea>
+                        <textarea placeholder="write here..." id="discription" style="width: 100%;" name="description" cols="30" rows="10" required></textarea>
                     </div>
 
                     <div class="CHOICES" style="display:flex;align-items: center;margin-bottom: 30px;">
@@ -199,7 +200,7 @@
                     <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
 
                     <div class="btn-grp">
-                        <button>Save Questions</button> <i>or</i> <button onclick = "myFunc()">Save & Add another</button>
+                        <button onclick = "myFunc()">Save Questions</button> <i>or</i> <button>Save & Add another</button>
                     </div>
                 </form>
             </div>
@@ -334,6 +335,7 @@
     for(var i=0; i< options.length; i++){
         console.log(options[i])
     }
+    document.getElementsById('myForm').submit();
   }
 
 </script>
