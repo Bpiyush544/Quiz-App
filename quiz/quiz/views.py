@@ -95,6 +95,11 @@ def addQues(request, assgn):
 
 
 def candidateSettings(request):
+    if request.method == "POST":
+        fullName = request.POST.get('fullName')
+        gender = request.POST.get('gender')
+
+        print(fullName, gender)
     return render(request, 'candidateSettings.html')
 
 

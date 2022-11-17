@@ -12,5 +12,5 @@ urlpatterns = [
     path('optionDelete/<int:pk>/', optionDelete, name="optionDelete"),
     path('result/', result, name="result"),
     path('addQues/<str:assgn>/', addQues, name="addQues"),
-    path('candidateSettings', candidateSettings, name="candidateSettings"),
+    path('candidateSettings/', candidateSettings, name="candidateSettings"),
 ]
