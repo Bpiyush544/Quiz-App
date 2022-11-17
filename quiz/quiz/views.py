@@ -71,12 +71,12 @@ def addQues(request, assgn):
         description = request.POST.get('description')
         optionInformation = request.POST.get('optionInformation')
         # problemName = request.POST.get('problemName')
-        asses = Assessment.objects.get(name="newtest")
+        asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
         question = QuestionSet(
             assessment=asses, questionTitle=problemName, mark=score)
 
-        # question.save()
+        question.save()
 
         print(question, "this is my question")
         options = optionInformation.split('##')
@@ -88,6 +88,7 @@ def addQues(request, assgn):
             option = OptionSet(Question=question,
                                optionStatement=options[i], correct=chk)
             print(option)
+            option.save()
             # print(options[i], options[i+1])
     print(assgn)
     return render(request, 'addQues.html', {'assignment': assgn})
