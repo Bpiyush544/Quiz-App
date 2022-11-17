@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment, QuestionSet, OptionSet,CandidateDetail
+from .models import Assessment, QuestionSet, OptionSet, CandidateDetail
 import datetime
 
 # Create your views here.
@@ -115,11 +115,21 @@ def candidateSettings(request):
         resume = request.POST.get('resume')
         disclaimer = request.POST.get('disclaimer')
         disclaimerCheck = request.POST.get('disclaimerCheck')
+        data = [fullName, workExperience, city, rollNo, email, gradYear, cgpa,
+                gpa, collegeName, contactNo, contactRec, stream, major, degree, gender, jobRole, resume, disclaimerCheck]
+        updatedData = []
 
-        assessment = "newtest"
-        
-        assDetail = CandidateDetail.objects.get(assessment = assessment)
-        
+        for query in data:
+            if query == "on":
+                updatedData.append(True)
+            else:
+                updatedData.append(False)
+        print(data)
+        print(updatedData)
+        assessmentName = "newtest"
+        assessment = Assessment.objects.get(name=assessmentName)
+        print(assessment)
+        # assDetail = CandidateDetail.objects.get(assessment=assessment).update()
     return render(request, 'candidateSettings.html')
 
 
