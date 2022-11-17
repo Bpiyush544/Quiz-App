@@ -11,5 +11,5 @@ urlpatterns = [
     path('questionDelete/<int:pk>/', questionDelete, name="questionDelete"),
     path('optionDelete/<int:pk>/', optionDelete, name="optionDelete"),
     path('result/', result, name="result"),
-    path('addQues/<str:ass>/', addQues, name="addQues"),
+    path('addQues/<str:assgn>/', addQues, name="addQues"),
 ]

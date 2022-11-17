@@ -53,7 +53,7 @@ def viewAndEdit(request, ass):
     # print(newObj, "     NEWOBJ")
     # only update and delete funcnality remains for test , question statement and question options
     # all the questions would be displayed here
-    return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options})
+    return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options, 'test': ass})
 
 
 def deleteAssessment(request, pk):
@@ -62,10 +62,9 @@ def deleteAssessment(request, pk):
     return redirect("home")
 
 
-def addQues(request):
-    now = datetime.datetime.now()
-    html = "<html><body>It is now %s.</body></html>" % now
-    return HttpResponse(html)
+def addQues(request, assgn):
+    print(assgn)
+    return render(request, 'addQues.html')
 
 
 def questionView(request, pk):

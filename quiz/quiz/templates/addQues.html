@@ -1,0 +1,336 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Add questions </title>
+    <style>
+         .togmenu li{
+        padding: 8px 3px !important;
+      }
+
+      .tog.rotateicon .fa-caret-down{
+        transform: rotate(-180deg);
+      }
+    
+    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   
+</style>
+</head>
+
+<body>
+<section class="dashboard">
+  <aside class="sidebar">
+    <div class="logo"><img src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}"><span style="color: white;">Techsnap</span></div>
+    <ul>
+        <a href="index.html"><li> <i class="fa fa-rocket"></i> <span>Dashboard</span></li></a>   
+          <a href="library.html"><li ><i class="fa fa-folder-open"></i> <span>Library</span></li> </a>             
+          <a href="{% url 'assessments' %}"><li><i class="fa fa-ranking-star"></i> <span>View Tests</span></li></a>              
+        <a href="students.html"><li class="reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a>
+       
+
+    </ul>
+
+
+    <ul>
+        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Edit Test</span> <i class="fa fa-caret-down" style="cursor: pointer;"></i></h3>
+       <div class="togmenu">
+        <a href="view_question.html"><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
+        <a href="candidate_setting.html"><li><i class="fa fa-code"></i> <span>Candidate settings</span></li> </a>             
+        <a href="test_settings.html"><li><i class="fa fa-bullseye"></i> <span>Test settings</span></li></a>              
+      <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+      <a href="#"><li><i class="fa fa-lightbulb"></i> <span>Messaging</span></li></a>
+       </div>
+
+    </ul>
+
+    <ul style="border: none;">
+        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
+        <div class="togmenu">
+        <a href="invited.html"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
+        <a href="invited.html"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
+        <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
+          <a href="attempted.html"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
+          <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
+        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+        <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
+        <div class="togmenu" style="display: none;">
+         
+              
+          <a href="test_settings.html"><li class="d-flex justify-content-between"> <span><i class="fa fa-check"></i> Complete</span><span>1</span></li></a>              
+        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-eye"></i> To Evalute</span><span >1</span></li></a>
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-up"></i> Qualified</span><span >1</span></li></a>
+        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-down"></i> Failed</span><span >1</span></li></a>
+       
+         </div>
+
+         <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>Archived</span></li></a>   
+        </div>
+
+    </ul>
+   <div> <button>Get Support</button></div>
+    <span class="cut">&times;</span>
+</aside>
+    <main>
+      <div class="header">
+        <div>
+            <i class="fa fa-bars" onclick="togside()"></i>
+       <span class="font-weight-bold mr-5 bread d-none d-lg-inline" style=" text-transform: capitalize;"> <span>Tests <i class="fa fa-angle-right"></i> Techsnap Front-End Developer Hiring Test <i class="fa fa-angle-right"></i> Questions</span></span>
+        </div>
+        <div class="logout_part">
+            <div class="dropdown ">
+              <i class="far fa-bell  dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false"  style="color: rgb(0, 0, 0);"></i>
+              <div class="dropdown-menu belldrop" aria-labelledby="dropdownMenuButton">
+                <div class="d-flex justify-content-between "><h6>Notification</h4><div><i class="fa fa-check"></i><i class="fa fa-cog ml-3"></i></div>
+                </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, aut.</p>
+                <div class="d-flex justify-content-between"><small>27 days ago</small> <a href="#">view full Notification</a></div>
+                <i class="fa fa-caret-up text-dark"></i>
+              </div>
+            </div>
+<div class="dropdown">
+
+<span class="user-icon dropdown-toggle" data-toggle="dropdown" data-target="dropdownMenuButton1" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;"></span>
+<div class="dropdown-menu" style="    left: -34px;" aria-labelledby="dropdownMenuButton1">
+<a class="dropdown-item" href="#">Action 5</a>
+<a class="dropdown-item" href="#">Another action</a>
+<a class="dropdown-item" href="#">Something else here</a>
+</div>
+</div>
+            </div>
+          
+        </div>
+    </div>
+
+              <!-- ----------------------------form start---------------------------------------->
+             <div class="content test" style="overflow: hidden;"> 
+                
+                 
+                 <form>
+                    <div class="frm-grp" style="margin-bottom: 30px;">
+                        <div>
+                            <label for="problem">PROBLEM NAME</label>
+                            <input type="text" id="problem" required>
+                        </div>
+
+                        <div>
+                            <label for="score">Score</label>
+                            <input type="number" placeholder="Enter Score" id="score" required>
+                        </div>
+
+                        <div>
+                            <label for="time"> time</label>
+                            <input type="number" placeholder="minutes" id="time" required style="width:85px ;">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <label for="discription">Problem Discription</label>
+                        <textarea placeholder="write here..." id="discription" style="width: 100%;" cols="30" rows="10" required></textarea>
+                    </div>
+
+                    <div class="CHOICES" style="display:flex;align-items: center;margin-bottom: 30px;">
+                        <p class="mb-0">CHOICES</p>
+                        <div style=" margin-left: 20px;">
+                            <input type="checkbox" class="chkbox" id="checkbox">
+                            <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <label style="display:inline" for="checkbox">Allow candidate to select more then one
+                                answer</label>
+                        </div>
+                    </div>
+
+
+                    <!-- ------------------------ans area start------------------>
+                  
+
+                    <div class="edit-txt">
+                        <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
+                            <label
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+                                ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <textarea  style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                                rows="6"></textarea>
+                        </div>
+  
+                        <!-- -------------------------------------------------------------------->
+
+                        <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
+                            <label
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>b</span> <div class="round"></div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                                <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                                rows="6">
+                            
+                            </textarea>
+                            
+                        </div>
+
+                          <!-- -------------------------------------------------------------------->
+
+                        <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
+                            <label
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                                rows="6"></textarea>
+                        </div>
+                            <!-- -------------------------------------------------------------------->
+
+                        <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
+                            <label
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>d</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                                rows="6"></textarea>
+                        </div>
+                    </div>
+
+                        <!-- ------------------Add one more choice-------------------------->
+
+                    <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
+
+                    <div class="btn-grp">
+                        <button>Save Questions</button> <i>or</i> <button>Save & Add another</button>
+                    </div>
+                </form>
+            </div>
+        </main> 
+    </section>
+    <script src="main.js">
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    
+    <script>
+           //--------------------add new logic --------------------------------------------
+
+       let edit = document.querySelector('.edit-txt');
+       let valarr = ['e','f',"g",'h',"i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+       let index=0;
+       let addnew = document.querySelector('.addnew')
+       function adchoice(params) {
+           
+           if (index<=21) {
+               let nwitm=`   <div onmouseover='showhide(this)' onmouseout="normal(this)" style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
+                           <label onclick="togglebg(this)"
+                               style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>${valarr[index]}</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                               <button onclick="togbtn(this)" type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                           <textarea style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                               rows="6"></textarea>
+                       </div>`
+                edit.insertAdjacentHTML("beforeend",nwitm);
+                index++;
+           }else{
+               params.innerText="max limit reached"
+           }
+          
+        
+           }
+       
+
+           function showhide(params) {
+             $(params).children("button").show();
+           }
+
+           function normal(params) {
+             $(params).children("button").hide();
+           }
+
+           $(".edit-txt button").click(function() {
+               if ($(this).text()=="mark as answer") {
+                   $(this).text("unmark as answer")
+                   $(this).prev().addClass("ok")
+               }else{
+                   $(this).text("mark as answer");
+                   $(this).prev().removeClass("ok")
+               }
+           })
+
+           function togbtn(params) {
+            if ($(params).text()=="mark as answer") {
+                   $(params).text("unmark as answer")
+                   $(params).prev().addClass("ok")
+               }else{
+                   $(params).text("mark as answer");
+                   $(params).prev().removeClass("ok")
+               }
+           }
+
+
+        //    function showhide(params) {
+        //        $(params).hover(function name(params) {
+        //            $(this).children("button").toggle();
+        //        })
+        //    }
+          
+          
+
+    //    let label=edit.querySelectorAll("label");  
+    //        label.forEach(function(params) {
+    //        params.addEventListener("click",(e)=>{
+    //        e.currentTarget.classList.toggle("ok"); 
+    //        if (e.currentTarget.n) {
+               
+    //        } 
+    //        })
+    //    }) 
+    
+    $("label").click(function name() {
+        $(this).toggleClass("ok");
+        if ($(this).next().text()=="mark as answer") {
+               $(this).next().text("unmark as answer");
+           }else{
+            $(this).next().text("mark as answer");
+           }
+    })
+
+  
+
+ 
+      
+       function togglebg(params) {
+           params.classList.toggle("ok");
+           if ($(params).next().text()=="mark as answer") {
+               $(params).next().text("unmark as answer");
+           }else{
+            $(params).next().text("mark as answer");
+           }
+           
+       }
+    </script>
+<script>
+    $(document).ready(function name() {
+           $(".edit-txt button").hide();
+  
+
+        $(".edit-txt div").hover(function name() {
+            console.log($(this).children("button"));
+          $(this).children("button").toggle();
+        
+         
+          })
+        })
+  
+        $(".tog").click(function(params) {
+    console.log($(this).next().toggle())
+    $(this).toggleClass("rotateicon")
+  })
+
+
+</script>
+
+
+</body>
+
+</html>
