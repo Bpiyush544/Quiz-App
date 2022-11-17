@@ -97,9 +97,25 @@ def addQues(request, assgn):
 def candidateSettings(request):
     if request.method == "POST":
         fullName = request.POST.get('fullName')
+        workExperience = request.POST.get('workExperience')
+        city = request.POST.get('city')
+        rollNo = request.POST.get('rollNo')
+        email = request.POST.get('email')
+        gradYear = request.POST.get('gradYear')
+        cgpa = request.POST.get('cgpa')
+        gpa = request.POST.get('gpa')
+        collegeName = request.POST.get('collegeName')
+        contactNo = request.POST.get('contactNo')
+        contactRec = request.POST.get('contactRec')
+        stream = request.POST.get('stream')
+        major = request.POST.get('major')
+        degree = request.POST.get('degree')
         gender = request.POST.get('gender')
+        jobRole = request.POST.get('jobRole')
+        resume = request.POST.get('resume')
+        disclaimer = request.POST.get('disclaimer')
+        disclaimerCheck = request.POST.get('disclaimerCheck')
 
-        print(fullName, gender)
     return render(request, 'candidateSettings.html')
 
 
