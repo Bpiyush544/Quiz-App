@@ -16,11 +16,15 @@ def assessments(request):
     if request.method == 'POST':
         user = request.POST.get('user')
         name = request.POST.get('name')
-        duration = request.POST.get('duration')
+        print(user, name)
+        duration = 20
         findUser = User.objects.get(username=user)
         ass = Assessment(user=findUser, name=name, duration=duration)
         ass.save()
-        return redirect('home')
+        
+        details = CandidateDetail(assessment = ass)
+        details.save()
+        # return redirect('home')
     exams = Assessment.objects.all()
     return render(request, 'assessments2.html', {'exams': exams})
 
