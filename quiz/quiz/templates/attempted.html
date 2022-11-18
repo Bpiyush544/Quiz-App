@@ -78,10 +78,10 @@
         <ul style="border: none;">
             <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
             <div class="togmenu">
-            <a href="invited.html"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
-            <a href="invited.html"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
+            <a href="{% url 'invites' %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
+            <a href="{% url 'unused' %}"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
             <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
-              <a href="attempted.html"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
+              <a href="{% url 'attempted' %}"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
               <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
             <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
             <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
@@ -135,7 +135,7 @@
         </div>
 
         <div class="content  test mt-3">
-          <h2>Invited</h2>
+          <h2>Attempted</h2>
 
           <div class="my-3" style="max-width:300px"><input placeholder="search"  type="text" name="" id=""></div>
             <div class="  mt-3">

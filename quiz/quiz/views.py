@@ -259,4 +259,4 @@ def unused(request):
 
 
 def attempted(request):
-    return render(request, 'unused.html', {'invites': Invitation.objects.all()})
+    return render(request, 'attempted.html', {'invites': Invitation.objects.all()})
