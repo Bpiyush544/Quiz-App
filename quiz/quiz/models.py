@@ -94,9 +94,9 @@ class Invitation(models.Model):
     assessment = models.ForeignKey(
         Assessment, null=False, on_delete=models.CASCADE)
     isAttempted = models.BooleanField(default=False)
-    score = models.IntegerField()
+    score = models.IntegerField(default=0)
     status = models.CharField(max_length=100, default="none")
-    link = models.CharField(max_length=1024)
+    link = models.CharField(max_length=1024, default="")
 
     def __str__(self):
         return str(self.invitedBy) + " " + str(self.assessment)

@@ -78,10 +78,10 @@
         <ul style="border: none;">
             <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
             <div class="togmenu">
-            <a href="{% url 'invites' %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
-            <a href="{% url 'unused' %}"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
+            <a href="invited.html"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
+            <a href="invited.html"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
             <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
-              <a href="{% url 'attempted' %}"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
+              <a href="attempted.html"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
               <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
             <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
             <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
@@ -156,42 +156,26 @@
                     </thead>
                     <tbody>
                       {% for invite in invites %}
-                        <tr>
-                          <th scope="row" class="d-flex align-items-center"><span class="cicon mr-2">A</span>{{invite.invitedTo}}</th>
-                          <td class=" pt-3">{{invite.status}}</td>
-                          <td class=" pt-3">{{invite.score}}%</td>
-                          <td class=" pt-3">{{invite.invitedBy}}</td>
-                          <td class="text-right pt-3">{{invite.assessment}}</td>
-                          <td class="text-right dropleft pt-3" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">Try question</a>
-                              <a class="dropdown-item" href="#">remove</a>
-                            </div>
-                          </td>
-                          
-                        </tr>
+                        {% if invite.isAttempted == True %}
+                            <tr>
+                                <th scope="row" class="d-flex align-items-center"><span class="cicon mr-2">A</span>{{invite.invitedTo}}</th>
+                                <td class=" pt-3">{{invite.status}}</td>
+                                <td class=" pt-3">{{invite.score}}%</td>
+                                <td class=" pt-3">{{invite.invitedBy}}</td>
+                                <td class="text-right pt-3">{{invite.assessment}}</td>
+                                <td class="text-right dropleft pt-3" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Try question</a>
+                                    <a class="dropdown-item" href="#">remove</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endif %}
                       {% endfor %}
                      
                       </tbody>
                   </table>
                 </div>
-
-
-                <div class="form-group">
-                  <h2>Invite more People</h2>
-                  <form action="." method="POST">
-                    {% csrf_token %}
-                      <input type="text" name="user" value="{{user}}" hidden>
-                      <label for="">UserName</label>
-                      <input type="text" name="userName">
-                      <label for="">Assessment</label>
-                      <input type="text" name="assessment">
-                      <br>
-                    <button class="my-2" type="submit">Submit</button>
-                  </form>
-                </div>
-
-
               </div>
             <!-- Modal -->
 <div class="modal fade"  data-backdrop="static" style="min-height: 100vh;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

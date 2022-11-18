@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment, QuestionSet, OptionSet, CandidateDetail
+from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation
 import datetime
 
 # Create your views here.
@@ -241,5 +241,22 @@ def invites(request):
         user = request.POST.get('user')
         userName = request.POST.get('userName')
         assessment = request.POST.get('assessment')
-        print(user, userName, assessment)
-    return render(request, 'invites.html')
+        invitedBy = User.objects.get(username=user)
+        invitedTo = User.objects.get(username=userName)
+        assessmentTaken = Assessment.objects.get(name=assessment)
+        invite = Invitation(invitedBy=invitedBy,
+                            invitedTo=invitedTo, assessment=assessmentTaken)
+        # http://127.0.0.1:8000/assessments/test/5/
+        print(invite)
+        invite.save()
+        # print(invitedBy, invitedTo, assessmentTaken)
+
+    return render(request, 'invites.html', {'invites': Invitation.objects.all()})
+
+
+def unused(request):
+    return render(request, 'unused.html', {'invites': Invitation.objects.all()})
+
+
+def attempted(request):
+    return render(request, 'unused.html', {'invites': Invitation.objects.all()})
