@@ -237,4 +237,9 @@ def result(request):
 
 
 def invites(request):
+    if request.method == "POST":
+        user = request.POST.get('user')
+        userName = request.POST.get('userName')
+        assessment = request.POST.get('assessment')
+        print(user, userName, assessment)
     return render(request, 'invites.html')
