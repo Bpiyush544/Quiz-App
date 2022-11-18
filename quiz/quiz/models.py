@@ -84,3 +84,19 @@ class CandidateDetail(models.Model):
 
     def __str__(self):
         return str(self.assessment)
+
+
+class Invitation(models.Model):
+    invitedBy = models.ForeignKey(
+        User, null=False, on_delete=models.CASCADE, related_name="teacher")
+    invitedTo = models.ForeignKey(
+        User, null=False, on_delete=models.CASCADE, related_name="student")
+    assessment = models.ForeignKey(
+        Assessment, null=False, on_delete=models.CASCADE)
+    isAttempted = models.BooleanField(default=False)
+    score = models.IntegerField()
+    status = models.CharField(max_length=100, default="none")
+    link = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return str(self.invitedBy) + " " + str(self.assessment)

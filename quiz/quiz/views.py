@@ -21,8 +21,8 @@ def assessments(request):
         findUser = User.objects.get(username=user)
         ass = Assessment(user=findUser, name=name, duration=duration)
         ass.save()
-        
-        details = CandidateDetail(assessment = ass)
+
+        details = CandidateDetail(assessment=ass)
         details.save()
         # return redirect('home')
     exams = Assessment.objects.all()
@@ -234,3 +234,7 @@ def result(request):
                 score += QuestionSet.objects.get(pk=q).mark
         print(score)
     return render(request, 'result.html', {'score': score})
+
+
+def invites(request):
+    return render(request, 'invites.html')
