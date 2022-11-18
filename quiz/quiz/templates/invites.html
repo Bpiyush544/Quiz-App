@@ -52,7 +52,7 @@
 <body>
     <section class="dashboard">
       <aside class="sidebar">
-        <div class="logo"><img src="c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg"><span style="color: white;">Techsnap</span></div>
+        <div class="logo"><img src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}"><span style="color: white;">Techsnap</span></div>
         <ul>
             <a href="index.html"><li> <i class="fa fa-rocket"></i> <span>Dashboard</span></li></a>   
               <a href="library.html"><li ><i class="fa fa-folder-open"></i> <span>Library</span></li> </a>             
@@ -187,7 +187,22 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+
+
+                <div class="form-group">
+                  <h2>Invite more People</h2>
+                  <form action="." method="POST">
+                      <label for="">UserName</label>
+                      <input type="text" name="userName">
+                      <label for="">Assessment</label>
+                      <input type="text" name="assessment">
+                      <br>
+                    <button class="my-2" type="submit">Submit</button>
+                  </form>
+                </div>
+
+
+              </div>
             <!-- Modal -->
 <div class="modal fade"  data-backdrop="static" style="min-height: 100vh;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" style="min-height: 100vh;">
