@@ -40,20 +40,22 @@ def viewAndEdit(request, ass):
     assessment = Assessment.objects.get(name=ass)
     # from this i can grab all the sections contained in this assessment
     sections = Section.objects.filter(assessment=assessment)
-    print(len(sections))
+    # print(len(sections))
 
     information = {}
 
     for section in sections:
         # print(section.name)
-        information[section.name] = {}
-        information[section.name]['id'] = section.id
-        information[section.name]['question'] = []
+        information[section.name] = []
+        information[section.name].append(section.id)
 
     for question in QuestionSet.objects.filter(assessment=assessment):
-        information[question.section.name]['question'].append(question)
+        information[question.section.name].append(question)
     print(information)
-    return render(request, 'viewAndEdit2.html', {'test': ass})
+
+    for info in information:
+        print(information[info]) 
+    return render(request, 'viewAndEdit2.html', {'test': ass, 'information': information})
 
 
 # def viewAndEdit(request, ass):

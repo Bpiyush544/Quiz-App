@@ -163,39 +163,44 @@
           </div>
             <div class=" container mt-3">
                 <!-- <div class="my-3 Question_head"><i class="fas fa-clock"></i><span class=" mx-2 font-weight-bold">Test Duration (mins)</span><i class="fa fa-info"></i><span class="mx-2">45</span><i class="fa fa-edit"></i></div> -->
-              <h2>Section 1</h2>
-                <div class="table-responsive-xl">
+
+
+              {% comment %} I think the for loop should start from here... {% endcomment %}
+              {% for info in information %}
+              <h2>{{info}}</h2>
+              <div class="table-responsive-xl">
                 <table class="table border   px-5" style="box-shadow:0px 2px 3px 0px rgba(0,0,0,0.3) ;">
-                    <thead class="mx-5">
-                      <tr>
-                        <th scope="col">QUESTIONS(2000) (TODO)</th>
-                        <th scope="col">TYPE</th>
-                        <th scope="col">TIME</th>
-                        <th scope="col">SKILLS</th>
-                        <th scope="col" class="text-center">SCORE(80)</th>
-                        <th scope="col"class="text-center">ACTIONS</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                        {% for question in questions %}
-                        <tr>
-                            <th scope="row">Question will come here - {{question.questionTitle}}</th>
-                            <td>Question type</td>
-                        <td>19 mins</td>
-                        <td>html</td>
-                        <td class="text-center">5</td>
-                        <td class="text-center dropleft" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Try question</a>
-                                <a class="dropdown-item" href="#">remove</a>
-                            </div>
-                        </td>
+                  <thead class="mx-5">
+                    <tr>
+                      <th scope="col">QUESTIONS(2000) (TODO)</th>
+                      <th scope="col">TYPE</th>
+                      <th scope="col">TIME</th>
+                      <th scope="col">SKILLS</th>
+                      <th scope="col" class="text-center">SCORE(80)</th>
+                      <th scope="col"class="text-center">ACTIONS</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for question in info.question %}
+                    <tr>
+                      <th scope="row">{{question}}</th>
+                      <td>Question type</td>
+                      <td>19 mins</td>
+                      <td>html</td>
+                      <td class="text-center">5</td>
+                      <td class="text-center dropleft" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Try question</a>
+                          <a class="dropdown-item" href="#">remove</a>
+                        </div>
+                      </td>
                     </tr>
                     {% endfor %}
-                    </tbody>
-                  </table>
-                </div>
+                  </tbody>
+                </table>
+              </div>
+              {% endfor %}
             </div>
 <!-- Button trigger modal -->
 
