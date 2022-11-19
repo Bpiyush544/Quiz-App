@@ -31,6 +31,15 @@ class Assessment(models.Model):
         return(self.name)
 
 
+class Section(models.Model):
+    assessment = models.ForeignKey(
+        Assessment, null=False, on_delete=models.CASCADE)
+    name = models.CharField(max_length=1024)
+
+    def __str__(self):
+        return str(self.assessment) + " " + self.name
+
+
 class QuestionSet(models.Model):
     assessment = models.ForeignKey(
         Assessment, null=False, on_delete=models.CASCADE)
@@ -38,6 +47,7 @@ class QuestionSet(models.Model):
     questionTitle = models.CharField(
         max_length=1023, default="question statement")
     mark = models.IntegerField()
+    section = models.IntegerField(default=1)
 
     def __str__(self):
         return(str(self.assessment))

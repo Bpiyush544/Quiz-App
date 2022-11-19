@@ -69,6 +69,7 @@ def deleteAssessment(request, pk):
 def addQues(request, assgn):
     if request.method == "POST":
         assignmentName = request.POST.get('assignment')
+        sectionNumber = request.POST.get('sectionNumnber')
         problemName = request.POST.get('problemName')
         score = request.POST.get('score')
         time = request.POST.get('time')
@@ -78,7 +79,7 @@ def addQues(request, assgn):
         asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
         question = QuestionSet(
-            assessment=asses, questionTitle=problemName, mark=score)
+            assessment=asses, questionTitle=problemName, mark=score, sectionNumber=sectionNumber)
 
         question.save()
 
