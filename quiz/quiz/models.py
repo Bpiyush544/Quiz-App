@@ -43,11 +43,11 @@ class Section(models.Model):
 class QuestionSet(models.Model):
     assessment = models.ForeignKey(
         Assessment, null=False, on_delete=models.CASCADE)
+    section = models.ForeignKey(Section, null=False, on_delete=models.CASCADE)
     # TODO add question image feature
     questionTitle = models.CharField(
         max_length=1023, default="question statement")
     mark = models.IntegerField()
-    section = models.IntegerField(default=1)
 
     def __str__(self):
         return(str(self.assessment))
