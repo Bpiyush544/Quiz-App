@@ -209,19 +209,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <form action="." method="POST">
+        {% csrf_token %}
       <div class="modal-body">
         <div class="row">
           <div class="col-6">
             <img class="w-100" src="https://i.pinimg.com/736x/dd/01/a1/dd01a1ef021bcf2c7d8e9e9d391d2910.jpg" alt="">
           </div>
-
-          <div class="col-6"><input type="text" class="form-control" name="" placeholder="enter section here" id=""><div class="text-center">
-            <button class="btn btn-success w-100 mt-4">Add</button></div></div>
+          <div class="col-6"><input type="text" name="sectionName" class="form-control" name="" placeholder="enter section here" id="">
+            <div class="text-center">
+              <button class="btn btn-success w-100 mt-4">Add</button></div></div>
+            </div>
+          </div>
+          
         </div>
       </div>
-      
-    </div>
-  </div>
+    </form>
 </div>
 
 <div class="modal fade"  data-backdrop="static" style="min-height: 100vh;" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

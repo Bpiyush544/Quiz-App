@@ -31,34 +31,44 @@ def assessments(request):
 
 
 def viewAndEdit(request, ass):
-    if request.method == "POST" and request.POST.get('questionTitle') and request.POST.get('mark'):
-        print(ass)
-        assessment = []
-        for obj in Assessment.objects.all():
-            if str(obj.name) == ass:
-                assessment.append(obj)
-                break
-        print(assessment)
-        questionTitle = request.POST.get("questionTitle")
-        mark = request.POST.get("mark")
-        question = QuestionSet(
-            assessment=assessment[0], questionTitle=questionTitle, mark=mark)
-        question.save()
-        return redirect(".")
-    newObj = []
-    # print("This is my ASS", ass)
-    print(QuestionSet.objects.all())
-    for obj in QuestionSet.objects.all():
-        if str(obj.assessment) == ass:
-            newObj.append(obj)
-    options = []
-    for obj in OptionSet.objects.all():
-        if str(obj.Question) == ass:
-            options.append(obj)
-    # print(newObj, "     NEWOBJ")
-    # only update and delete funcnality remains for test , question statement and question options
-    # all the questions would be displayed here
-    return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options, 'test': ass})
+    print("The name of the Assignment is : ", ass)
+    if request.method == 'POST':
+        assessment = Assessment.objects.get(name=ass)
+        sectionName = request.POST.get('sectionName')
+        section = Section(assessment=assessment, name=sectionName)
+        section.save()
+    return render(request, 'viewAndEdit2.html', {'test': ass})
+
+
+# def viewAndEdit(request, ass):
+#     if request.method == "POST" and request.POST.get('questionTitle') and request.POST.get('mark'):
+#         print(ass)
+#         assessment = []
+#         for obj in Assessment.objects.all():
+#             if str(obj.name) == ass:
+#                 assessment.append(obj)
+#                 break
+#         print(assessment)
+#         questionTitle = request.POST.get("questionTitle")
+#         mark = request.POST.get("mark")
+#         question = QuestionSet(
+#             assessment=assessment[0], questionTitle=questionTitle, mark=mark)
+#         question.save()
+#         return redirect(".")
+#     newObj = []
+#     # print("This is my ASS", ass)
+#     print(QuestionSet.objects.all())
+#     for obj in QuestionSet.objects.all():
+#         if str(obj.assessment) == ass:
+#             newObj.append(obj)
+#     options = []
+#     for obj in OptionSet.objects.all():
+#         if str(obj.Question) == ass:
+#             options.append(obj)
+#     # print(newObj, "     NEWOBJ")
+#     # only update and delete funcnality remains for test , question statement and question options
+#     # all the questions would be displayed here
+#     return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options, 'test': ass})
 
 
 def deleteAssessment(request, pk):
@@ -70,7 +80,7 @@ def deleteAssessment(request, pk):
 def addQues(request, assgn):
     if request.method == "POST":
         assignmentName = request.POST.get('assignment')
-        sectionNumber = request.POST.get('sectionNumnber')
+        sectionName = request.POST.get('sectionName')
         problemName = request.POST.get('problemName')
         score = request.POST.get('score')
         time = request.POST.get('time')
@@ -79,8 +89,11 @@ def addQues(request, assgn):
         # problemName = request.POST.get('problemName')
         asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
+        print(sectionName)
+        requiredSection = Section.objects.get(name=sectionName)
+        print(requiredSection)
         question = QuestionSet(
-            assessment=asses, questionTitle=problemName, mark=score, sectionNumber=sectionNumber)
+            assessment=asses, questionTitle=problemName, mark=score, section=requiredSection)
 
         question.save()
 
