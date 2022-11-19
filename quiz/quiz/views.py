@@ -37,6 +37,16 @@ def viewAndEdit(request, ass):
         sectionName = request.POST.get('sectionName')
         section = Section(assessment=assessment, name=sectionName)
         section.save()
+    assessment = Assessment.objects.get(name=ass)
+    # from this i can grab all the sections contained in this assessment
+    sections = Section.objects.filter(assessment=assessment)
+    print(len(sections))
+
+    information = []
+
+    for section in sections:
+        information.append(section)
+    print(information)
     return render(request, 'viewAndEdit2.html', {'test': ass})
 
 
