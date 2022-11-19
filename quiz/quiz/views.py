@@ -54,7 +54,7 @@ def viewAndEdit(request, ass):
     print(information)
 
     for info in information:
-        print(information[info]) 
+        print(information[info])
     return render(request, 'viewAndEdit2.html', {'test': ass, 'information': information})
 
 
