@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation
+from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation, Section
 import datetime
 
 # Create your views here.
@@ -21,7 +21,8 @@ def assessments(request):
         findUser = User.objects.get(username=user)
         ass = Assessment(user=findUser, name=name, duration=duration)
         ass.save()
-
+        section = Section(assessment=ass)
+        section.save()
         details = CandidateDetail(assessment=ass)
         details.save()
         # return redirect('home')

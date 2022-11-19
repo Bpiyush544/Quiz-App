@@ -34,7 +34,7 @@ class Assessment(models.Model):
 class Section(models.Model):
     assessment = models.ForeignKey(
         Assessment, null=False, on_delete=models.CASCADE)
-    name = models.CharField(max_length=1024)
+    name = models.CharField(max_length=1024, default="Section")
 
     def __str__(self):
         return str(self.assessment) + " " + self.name
