@@ -4,10 +4,13 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation, Section
 import datetime
+# from django.template.defaulttags import register
 
 # Create your views here.
 
 
+# @register.filter
+# def getList()
 def home(request):
     return render(request, 'home.html')
 
@@ -58,7 +61,7 @@ def viewAndEdit(request, ass):
         sections.append(Section.objects.get(name=info))
     print(questions)
     print(sections)
-    return render(request, 'viewAndEdit2.html', {'test': ass, 'information': information})
+    return render(request, 'viewAndEdit2.html', {'test': ass, 'questions': questions, 'sections': sections, 'information': information})
 
 
 # def viewAndEdit(request, ass):
