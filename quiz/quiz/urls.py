@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, assessments, optionDelete, questionDelete, viewAndEdit, questionView, deleteAssessment, testAssessment, result, addQues, candidateSettings, invites, unused,attempted
+from .views import home, assessments, optionDelete, questionDelete, viewAndEdit, questionView, deleteAssessment, testAssessment, result, addQues, candidateSettings, invites, unused, attempted, testDetails
 
 urlpatterns = [
     path('', home, name="home"),
@@ -17,4 +17,5 @@ urlpatterns = [
     path('invites/', invites, name="invites"),
     path('unused/', unused, name="unused"),
     path('attempted/', attempted, name="attempted"),
+    path('testDetails/<str:test>', testDetails, name="testDetails"),
 ]

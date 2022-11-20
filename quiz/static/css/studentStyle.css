@@ -1,0 +1,632 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url(fonts/Poppins-Regular.ttf);
+}
+
+body,
+html {
+    overflow-x: hidden;
+    background-color: #f2f8f8;
+}
+
+.header {
+    background-color: white;
+    padding: 20px 10% 20px 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.header .bread {
+    margin-left: 230px;
+}
+
+.header .logout_part i {
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logout_part span {
+    font-family: 'Poppins-Regular';
+    font-size: 14px;
+}
+
+.sidebar {
+    background-color: #09182d;
+    top: 0px;
+    bottom: 0px;
+    font-family: 'Poppins-Regular';
+    position: fixed;
+    box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.221);
+    padding: 10px 15px;
+    min-width: 85px;
+    z-index: 2;
+    overflow-y: scroll;
+
+
+}
+
+.question-tab{
+    background-color: #0e141e!important;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.sidebar a {
+    text-decoration: none;
+    color: #f4fdff;
+    font-size: 15px;
+}
+
+
+
+.sidebar .cut {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.sidebar ul:nth-child(3) a,
+.sidebar ul:nth-child(4) a {
+    color: #636f7d;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: 1px solid #303d40;
+    padding-bottom: 10px;
+}
+
+.sidebar.show ul {
+    margin-top: 20px;
+    text-align: start;
+}
+
+.sidebar h3 {
+    color: white;
+    font-size: 20px;
+    font-family: 'Poppins-Regular';
+    font-weight: normal;
+    margin-bottom: 5px;
+    text-align: start;
+}
+
+.sidebar li {
+    list-style: none;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    padding: 3px;
+    text-align: start;
+}
+
+.sidebar button {
+    background-color: #7833fd;
+    color: #fae4ff;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logout_part .fa-bell {
+    font-size: 20px;
+}
+
+.logout_part .user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2a8e52;
+    display: block;
+    margin-left: 20px;
+}
+
+.logout_part {
+    display: flex;
+    align-items: center;
+}
+
+
+.sidebar span {
+    margin-left: 10px;
+    display: inline;
+}
+
+.sidebar.show {
+    text-align: start;
+}
+
+.sidebar {
+    font-size: 20px;
+    text-align: start;
+}
+
+.edit-txt button {
+    position: absolute !important;
+    right: 0px !important;
+    top: -29px !important;
+    font-size: 14px !important;
+    padding: 2px !important
+}
+
+.sidebar.show .logo {
+    text-align: start;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo img {
+    width: 100%;
+    max-width: 30px;
+    cursor: pointer;
+}
+
+.sidebar.show span {
+    display: inline;
+}
+
+.dashboard {
+    display: flex;
+    font-family: 'Poppins-Regular';
+}
+
+.fa-bars {
+    font-size: 20px;
+    color: #09182d;
+    cursor: pointer;
+    font-size: 25px;
+
+}
+
+main {
+    width: 100%;
+    margin-top: 100px;
+}
+
+main .content {
+    margin-left: 300px;
+    margin-right: 150px;
+}
+
+.testrow-1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.test {
+    font-weight: bold;
+    font-family: 'Poppins-Regular';
+}
+
+.test label {
+    display: block;
+}
+
+.test .accor {
+    background-color: #c4c4c4;
+    cursor: pointer;
+}
+
+.test .button {
+    background-color: #021af8;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+}
+
+.accor.togg .right {
+    visibility: hidden;
+}
+
+.accor.togg .fa-angle-down {
+    transform: rotate(180deg);
+}
+
+.test .lbl {
+    -webkit-clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
+    background-color: black;
+    padding: 5px 20px 5px 28px;
+    color: white;
+    display: inline-block;
+}
+
+.test select {
+    background-color: #c4c4c4;
+    font-weight: bold;
+    font-family: 'Poppins-Regular';
+    cursor: pointer;
+    padding: 5px 40px;
+}
+
+.test h2 {
+    color: #041cee;
+    font-family: 'Poppins-Regular';
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.fa-ellipsis-v {
+    cursor: pointer;
+}
+
+.create-test {
+    background-color: #bc02fb;
+    border: none;
+    color: white;
+    font-family: 'Poppins-Regular';
+    font-size: 14px;
+    align-self: flex-end;
+    padding: 8px 15px;
+
+}
+
+.sidebar {
+    transform: translateX(0%);
+}
+
+.sidebar.show {
+    transform: translateX(0%);
+}
+
+form {
+    padding: 20px 30px;
+}
+
+
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+form .frm-grp {
+    display: flex;
+}
+
+form textarea {
+    border: 1px solid #ccccce;
+    outline: none;
+    resize: vertical !important;
+    padding: 10px;
+    font-size: 14px;
+}
+
+form input {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccccce;
+    outline: none;
+    font-size: 14px;
+}
+
+form .frm-grp :nth-child(1) {
+    width: 100%;
+    max-width: 500px;
+}
+
+form .frm-grp div:nth-child(1) :nth-child(2) {
+    width: 100%;
+}
+
+form .frm-grp div:nth-child(2) {
+    margin-left: 15px;
+}
+
+form .frm-grp div:nth-child(3) {
+    margin-left: 15px;
+}
+
+
+form .btn-grp button {
+    padding: 8px 15px;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form .btn-grp button:nth-child(1) {
+    background-color: #2dc067;
+    color: white;
+    border: 1px solid #2a8e52;
+    transition: all 0.5s;
+}
+
+form .btn-grp button:nth-child(1):hover {
+    background-color: transparent;
+    color: #2dc067;
+    border: 1px solid #2a8e52;
+}
+
+form .btn-grp button:nth-child(3) {
+    border: 1px solid #bbbabf;
+}
+
+
+form .adchoice {
+    font-size: 14px;
+    cursor: pointer;
+    color: #54bff1;
+}
+
+form .edit-txt {
+    color: #8d8d8d;
+    max-width: 678px;
+    ;
+}
+
+
+form .edit-txt textarea {
+    max-width: 678px;
+}
+
+
+
+
+
+form .round {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #bbbabf;
+}
+
+form .edit-txt label {
+    cursor: pointer;
+    border: 1px solid #bbbabf;
+    border-radius: 3px;
+    background-color: #eeeef0
+}
+
+form .edit-txt label:hover {
+    cursor: pointer;
+    border: 1px solid #bbbabf;
+    border-radius: 3px;
+    background-color: #e7e7e7
+}
+
+
+form .edit-txt label.ok {
+
+    color: white;
+    background-color: #2ec461;
+}
+
+form .edit-txt label .fa-check {
+    color: white;
+    display: none;
+}
+
+form .edit-txt label.ok .fa-check {
+    display: block;
+}
+
+
+form .edit-txt label.ok .round {
+    display: none;
+}
+
+
+form .addnew {
+    display: none;
+}
+
+
+
+.sec-select {
+    margin-right: 245px;
+
+}
+
+
+/* style test page */
+.test .nav-pills {
+    background-color: #09182d;
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+
+.test .tab-content input,
+.test .tab-content textarea {
+    border: none;
+    border: 1px solid #bbbabf;
+    outline: none;
+    padding: 0px 0px 0px 10px;
+
+}
+
+.test .tab-content .form {
+    background-color: white;
+    border-radius: 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+
+
+
+}
+
+
+
+.test .nav-pills li {
+    margin-right: 30px;
+}
+
+
+.test .nav-pills a {
+    color: white;
+    font-family: 'Poppins-Regular';
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.nav-pills .active {
+    color: #bc02fb !important;
+}
+
+.save-btn {
+    background-color: #bc02fb;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+}
+
+.checklabel label,
+.checklabel h5 {
+    text-transform: capitalize;
+}
+
+.access h5 {
+    font-size: 18px;
+}
+
+.cicon {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #041cee;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px !important;
+}
+
+/* respnsive css */
+
+@media(max-width:1200px) {
+    .sec-select {
+        margin-right: 150px;
+
+    }
+}
+
+@media(max-width:1150px) {
+    .header .bread {
+        margin-right: 276px;
+    }
+}
+
+@media(max-width:1110px) {
+    main .content {
+        margin-left: 245px;
+        margin-right: 103px;
+    }
+
+
+}
+
+@media (max-width:992px) {
+    form .frm-grp {
+        flex-direction: column;
+
+    }
+
+    main .content {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    form .frm-grp :nth-child(1) {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    form .frm-grp div:nth-child(1) :nth-child(2) {
+        width: 100%;
+    }
+
+    form .frm-grp div:nth-child(2) {
+        margin: 20px 0px;
+    }
+
+    form .frm-grp div:nth-child(3) {
+        margin-left: 0px;
+    }
+
+    form .CHOICES {
+        flex-direction: column;
+    }
+
+    form .CHOICES p {
+        margin-bottom: 10px;
+    }
+
+    main {
+        margin-left: 0px;
+    }
+
+    .sidebar {
+        transform: translateX(-150%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0%);
+    }
+
+    .sidebar .cut {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        font-size: 25px;
+        cursor: pointer;
+        display: block;
+        color: rgb(255, 255, 255);
+
+    }
+
+    .header .bread {
+        margin-left: 276px;
+    }
+
+
+}
+
+
+
+
+@media(max-width:768px) {
+
+
+    .create-test {
+        background-color: #bc02fb;
+        border: none;
+        color: white;
+        font-family: 'Poppins-Regular';
+        font-size: 14px;
+        align-self: flex-start;
+        padding: 8px 15px;
+
+    }
+}
+

@@ -299,3 +299,7 @@ def unused(request):
 
 def attempted(request):
     return render(request, 'attempted.html', {'invites': Invitation.objects.all()})
+
+
+def testDetails(request):
+    return render(request, 'testDetails.html')

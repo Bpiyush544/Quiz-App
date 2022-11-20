@@ -1,0 +1,5590 @@
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_app-3b5293d9.css */
+.ui-svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.grouped-mcq__question{
+    padding: 0px 20px !important;
+}
+
+.grouped-mcq__question form{
+padding: 0px;
+}
+
+.ui-radio{
+
+   margin: 0px;
+   border-bottom: 1px solid rgb(75, 75, 75);
+   padding:10px 10px;
+   font-family: 'Poppins-Regular';
+}
+
+.ui-checkbox .radio{
+    max-width: 95%;
+}
+
+.ui-checkbox{
+  
+    margin: 0px;
+    border-bottom: 1px solid rgb(75, 75, 75);
+    padding:10px 10px;
+}
+
+@media(max-width:575px){
+    .grouped-mcq__question{
+        padding: 0px!important;
+    }
+}
+
+[class^=ui-icon-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[class^=ui-icon-]:before {
+    font-family: UIKitIcon;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-icon-btn {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: inherit;
+    line-height: 0;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.ui-icon-btn:disabled {
+    box-shadow: none;
+    color: #b7c9cc;
+    cursor: not-allowed;
+}
+
+.ui-icon-btn:focus {
+    outline-width: 0;
+}
+
+.ui-icon-btn .ui-svg-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn.ui-btn-primary {
+    border: 1px solid #179342;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 8px 0 rgba(27, 169, 76, .4);
+}
+
+.ui-btn.ui-btn-primary:active {
+    background: #147d38;
+    box-shadow: none;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.ui-btn.ui-btn-link {
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-link:active,
+.ui-btn.ui-btn-link:focus,
+.ui-btn.ui-btn-link:hover {
+    text-decoration: none;
+}
+
+.ui-btn.ui-btn-link .ui-content {
+    height: 100%;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn.ui-btn-primary {
+    background-color: var(--color-btn-primary-bg, var(--color-primary));
+    border-color: var(--color-btn-primary-bg, var(--color-primary));
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .5);
+}
+
+.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .4);
+}
+
+.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: none;
+}
+
+.theme-m .ui-btn.ui-btn-line-primary {
+    background-color: var(--color-btn-line-primary-bg, transparent);
+    color: var(--color-btn-line-primary-text, var(--color-primary));
+    border-color: var(--color-primary);
+    border: 1px solid var(--color-btn-line-primary-border, var(--color-primary));
+}
+
+.theme-m .ui-btn.ui-btn-line-primary:active {
+    background-color: var(--color-btn-line-primary-active-bg, var(--color-shade-lighter));
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/hackerrank_r_app-fa3b4d34.css */
+.popover-wrapper {
+    position: relative;
+}
+
+.popover-wrapper-right {
+    position: absolute;
+}
+
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .justify-content-between {
+    justify-content: space-between !important;
+}
+
+.theme-m .align-items-start {
+    align-items: flex-start !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .bold {
+    font-weight: 700;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+[class^=ui-icon-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[class^=ui-icon-]:before {
+    font-family: UIKitIcon;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root [aria-label] {
+    --balloon-color: rgba(14, 20, 30, 0.95);
+}
+
+.theme-dark [aria-label] {
+    --balloon-color: #eef4fc;
+}
+
+body :focus {
+    outline-color: var(--color-outline, #097bbf);
+}
+
+body.theme-m .ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+}
+
+body.theme-m .ui-btn.ui-btn-primary {
+    box-shadow: 0 6px 16px 0 rgba(var(--shadow-btn-primary), .2);
+}
+
+body.theme-m .ui-btn.ui-btn-primary:focus,
+body.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary), .15);
+}
+
+body.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary), .1);
+}
+
+body.theme-m .ui-btn.ui-btn-line-primary {
+    color: var(--color-btn-line-primary-text, #068932);
+    box-sizing: border-box;
+    border: 1px solid #068932;
+    border-color: var(--color-btn-line-primary-border, #068932);
+}
+
+body.theme-m .ui-btn:disabled,
+body.theme-m .ui-btn:disabled:active,
+body.theme-m .ui-btn:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, #e7eeef);
+    color: var(--color-btn-disabled-text, #b7c9cc);
+    border: none;
+    box-shadow: none;
+}
+
+body.theme-m .ui-btn.ui-btn-link {
+    text-decoration: none;
+}
+
+body.theme-m [aria-label]:after {
+    color: var(--color-tooltip-text, #fff);
+    padding: 10px 13px;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: var(--font-family-text) !important;
+    line-height: 1.4;
+}
+
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-color: #111827;
+    border-style: solid;
+    border-width: 0 2px;
+    background-color: #585d68;
+}
+
+.theme-dark ::-moz-selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.theme-dark ::selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.body-wrap,
+.root-container,
+.ui-kit-root {
+    height: 100%;
+}
+
+.body-wrap {
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~custom_input~feedback_form~hackerrank_r_competition_landing~hackerrank_r_krackjack~hackerran~1af5dd35-9fbee0ca.css */
+.ui-tooltip-wrapper {
+    display: inline;
+    width: 100%;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~coding_question_view~custom_input~frontend_question_view~rba_question_view~sudorank_view~tes~fc76f5ad-659bf1d0.css */
+.selectable-dropdown-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.selectable-dropdown-menu__toggle {
+    cursor: pointer;
+}
+
+.dropdown,
+.dropdown-handle {
+    display: inline-block;
+}
+
+.dropdown-handle {
+    cursor: pointer;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~hackerrank_r_login_view~testbase-4384f01c.css */
+.ui-btn.skip-to-main-content {
+    position: absolute;
+    top: -999px;
+    left: -999px;
+    z-index: -10000;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+}
+
+.ui-btn.skip-to-main-content:focus,
+.ui-btn.skip-to-main-content:hover {
+    top: auto;
+    left: 0;
+    z-index: 10000;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 40px;
+}
+
+#main-content:focus {
+    outline-width: 0;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/testbase-f31c0755.css */
+.test-container {
+    --content-height: calc(100vh - 60px);
+    height: var(--content-height);
+}
+
+.test-container__content {
+    background-color: var(--color-base-bg, #f3f7f7);
+    position: relative;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.test-container.low-width-layout {
+    --content-height: calc(100vh - 90px);
+}
+
+.main-header {
+    --header-height: 60px;
+    --logo-max-height: 40px;
+    --logo-padding: 10px 20px;
+    --test-details-margin: 0 30px 0 0;
+    background-color: var(--color-base-header-bg, #0e141e);
+    position: relative;
+    z-index: 1000;
+    flex: 0 0 auto;
+    height: var(--header-height);
+    color: #fff;
+}
+
+.main-header__nav {
+    height: 100%;
+}
+
+.main-header__logo-link {
+    padding: var(--logo-padding);
+    outline-width: 0;
+}
+
+.main-header__logo {
+    max-height: var(--logo-max-height);
+}
+
+.main-header__title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.main-header__test {
+    color: #fff;
+   font-weight: normal;
+   font-size: 14px;
+    justify-content: space-between;
+}
+
+.main-header__test-info {
+    font-size: 14px;
+}
+
+.main-header__test-attempts {
+    margin-right: 30px;
+}
+
+.main-header__test-time,
+.main-header__theme-switch {
+    margin: var(--test-details-margin);
+}
+
+.main-header__timer {
+    margin-left: 5px;
+    line-height: 1.2;
+}
+
+.main-header.low-width-layout {
+    --header-height: 90px;
+    --logo-max-height: 30px;
+    --logo-padding: 5px 10px;
+    --test-details-margin: 0 0 0 10px;
+}
+
+.main-header.low-width-layout .main-header__test-info {
+    width: 100%;
+}
+
+.main-header.low-width-layout .main-header__test-attempts {
+    margin: 0 15px;
+}
+
+.main-header.low-width-layout .main-header__theme-switch__button {
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+.userinfo {
+    --userinfo-btn-padding: 0 10px 0 20px;
+    box-sizing: border-box;
+    height: 100%;
+    border-left: 1px solid #39424e;
+}
+
+.userinfo .selectable-dropdown-menu {
+    width: 100%;
+}
+
+.userinfo .selectable-dropdown-menu__toggle {
+    display: flex;
+    padding: var(--userinfo-btn-padding);
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.userinfo__handle,
+.userinfo__name {
+    width: 100%;
+    height: 100%;
+}
+
+.userinfo__name {
+    color: #fff;
+    font-size: 14px;
+}
+
+.userinfo__profile-icon {
+    margin-right: 10px;
+}
+
+.userinfo__down-icon,
+.userinfo__profile-icon {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.low-width-layout .userinfo {
+    --userinfo-btn-padding: 0;
+    padding-left: 10px;
+    width: auto;
+    flex-basis: auto;
+    border: none;
+}
+
+.question-tab {
+    --question-tab-width: 80px;
+    --question-tab-item-padding: 20px;
+    box-shadow: inset 0 1px 4px rgba(57, 66, 78, .1), 0 0 0 transparent;
+    background-color: var(--color-question-tab-bg, #e7eeef);
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: visible;
+    width: var(--question-tab-width);
+    font-weight: 700;
+}
+
+.question-tab__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.question-tab__list-item,
+.question-tab__list-item__shortcut.ui-icon-btn {
+    color: var(--color-question-tab-item-text, #0e141e);
+    box-sizing: border-box;
+    padding: var(--question-tab-item-padding);
+    width: var(--question-tab-width);
+    height: 60px;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+}
+
+.question-tab__list-item:hover {
+    color: var(--color-question-tab-item-hover-text, #11639c);
+}
+
+.question-tab__list-item--active {
+    background-color: var(--color-question-tab-item-active-bg, #f3f7f7);
+    color: var(--color-question-tab-item-active-text, #075c8e);
+    border-color: var(--color-outline, #097bbf);
+}
+
+.question-tab__list-item__instruction {
+    width: 20px;
+    height: 20px;
+}
+
+.question-tab__list-item__instruction:focus,
+.question-tab__list-item__instruction:hover {
+    background: none;
+}
+
+.question-tab__list-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: var(--question-tab-width);
+    height: 60px;
+}
+
+.question-tab__list--scrollable {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.question-tab__separator {
+    height: 1px;
+    box-shadow: inset 0 12px 32px 0 rgba(123, 150, 155, .5);
+    opacity: .5;
+}
+
+.question-tab [aria-label]:after {
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    font-family: var(--font-family-text) !important;
+}
+
+@media screen and (max-width:639px) {
+    .question-tab {
+        --question-tab-width: 50px;
+        --question-tab-item-padding: 5px;
+    }
+}
+
+.theme-m .question-tab__list-item {
+    font-weight: 700;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/questionlist-c8ddb575.css */
+.question-list {
+    --question-list-padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: var(--question-list-padding);
+}
+
+.question-list__actions {
+    padding: 20px 0;
+}
+
+@media screen and (max-width:639px) {
+    .question-list {
+        --question-list-padding: 5px;
+    }
+}
+
+.theme-m .ui-btn.question-list__submit {
+    background-color: var(--color-btn-line-primary-bg, #fff);
+    flex: none;
+}
+
+.section-questions {
+    width: 100%;
+}
+
+.section-questions__header {
+    flex: 0 0 auto;
+    padding: 20px 15px;
+    border-bottom-color: var(--color-shade-light, #e7eeef);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    border-bottom: 1px solid var(--color-divider, #e7eeef);
+}
+
+.section-questions__header-title {
+    flex-basis: 55%;
+}
+
+.section-questions__header-type {
+    flex-basis: 30%;
+}
+
+.section-questions__header-action {
+    min-width: 100px;
+    flex-basis: 15%;
+}
+
+.section-questions__header-action,
+.section-questions__header-title,
+.section-questions__header-type {
+    color: var(--color-section-header-text, #576871);
+}
+
+.question {
+    --wrapper-padding: 20px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .1);
+    background-color: var(--color-question-item-bg, #fff);
+    color: var(--color-question-item-text, #0e141e);
+    margin-bottom: 15px;
+    padding: var(--wrapper-padding);
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.question__label {
+    margin-right: 5px;
+}
+
+.question__title {
+    flex-basis: 55%;
+    font-weight: 700;
+}
+
+.question__type {
+    font-size: 14px;
+    flex-basis: 30%;
+}
+
+.question__action {
+    min-width: 100px;
+    flex-basis: 15%;
+}
+
+.question__btn {
+    text-decoration: none;
+}
+
+.question__btn {
+    box-sizing: border-box;
+    padding: 0;
+    min-width: 100px;
+    width: 100%;
+}
+
+.question.low-width-layout {
+    --wrapper-padding: 5px 10px;
+}
+
+.question.low-width-layout td {
+    margin-top: 5px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_krackjack-f8fd05d5.css */
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .justify-content-between {
+    justify-content: space-between !important;
+}
+
+.theme-m .align-items-start {
+    align-items: flex-start !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .bold {
+    font-weight: 700;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~hackerrank_r_krackjack-37871aa0.css */
+::-ms-clear {
+    display: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~basequestion-21ef994f.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn.ui-btn-primary {
+    border: 1px solid #179342;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 8px 0 rgba(27, 169, 76, .4);
+}
+
+.ui-btn.ui-btn-primary:active {
+    background: #147d38;
+    box-shadow: none;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.ui-btn.ui-btn-link {
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-link:active,
+.ui-btn.ui-btn-link:focus,
+.ui-btn.ui-btn-link:hover {
+    text-decoration: none;
+}
+
+.ui-btn.ui-btn-link .ui-content {
+    height: 100%;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn.ui-btn-primary {
+    background-color: var(--color-btn-primary-bg, var(--color-primary));
+    border-color: var(--color-btn-primary-bg, var(--color-primary));
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .5);
+}
+
+.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .4);
+}
+
+.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: none;
+}
+
+.theme-m .ui-btn.ui-btn-line-primary {
+    background-color: var(--color-btn-line-primary-bg, transparent);
+    color: var(--color-btn-line-primary-text, var(--color-primary));
+    border-color: var(--color-primary);
+    border: 1px solid var(--color-btn-line-primary-border, var(--color-primary));
+}
+
+.theme-m .ui-btn.ui-btn-line-primary:active {
+    background-color: var(--color-btn-line-primary-active-bg, var(--color-shade-lighter));
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~feedback_form~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-75b412fd.css */
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .justify-content-between {
+    justify-content: space-between !important;
+}
+
+.theme-m .align-items-start {
+    align-items: flex-start !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .bold {
+    font-weight: 700;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+/*! CSS Used fontfaces */
+@font-face {
+    font-family: UIKitIcon;
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot);
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot#iefix) format("eot"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-eab14f0c64.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-5930253e54.woff) format("woff"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-2a17cc1b9c.ttf) format("truetype"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-4445561522.svg#font) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: UIKitIcon;
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot);
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot#iefix) format("eot"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-eab14f0c64.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-5930253e54.woff) format("woff"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-2a17cc1b9c.ttf) format("truetype"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-4445561522.svg#font) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_app-3b5293d9.css */
+.ui-svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[class^=ui-icon-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[class^=ui-icon-]:before {
+    font-family: UIKitIcon;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ui-icon-btn {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: inherit;
+    line-height: 0;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.ui-icon-btn:disabled {
+    box-shadow: none;
+    color: #b7c9cc;
+    cursor: not-allowed;
+}
+
+.ui-icon-btn:focus {
+    outline-width: 0;
+}
+
+.ui-icon-btn .ui-svg-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn.ui-btn-primary {
+    border: 1px solid #179342;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 8px 0 rgba(27, 169, 76, .4);
+}
+
+.ui-btn.ui-btn-primary:active {
+    background: #147d38;
+    box-shadow: none;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.ui-btn.ui-btn-link {
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-link:active,
+.ui-btn.ui-btn-link:focus,
+.ui-btn.ui-btn-link:hover {
+    text-decoration: none;
+}
+
+.ui-btn.ui-btn-link .ui-content {
+    height: 100%;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn.ui-btn-primary {
+    background-color: var(--color-btn-primary-bg, var(--color-primary));
+    border-color: var(--color-btn-primary-bg, var(--color-primary));
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .5);
+}
+
+.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .4);
+}
+
+.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: none;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/hackerrank_r_app-fa3b4d34.css */
+.candidate-site-editor {
+    height: 100%;
+}
+
+.candidate-site-editor--loaded {
+    height: auto;
+}
+
+.candidate-site-editor .hr-monaco-editor {
+    position: relative;
+}
+
+.candidate-site-editor .hr-monaco-editor .editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.candidate-site-editor .hr-monaco-editor .toolbar-left {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.low-width-layout .candidate-site-editor .hr-monaco-editor .editor-toolbar {
+    padding: 5px;
+}
+
+.low-width-layout .candidate-site-editor .hr-monaco-editor .editor-toolbar .toolbar-left .select-language {
+    min-width: 100px;
+}
+
+.candidate-site-editor .hr-monaco-editor-with-statusbar {
+    background-color: var(--color-editor-bg, #f3f7f7);
+    border-bottom-color: var(--color-shade-medium);
+    border-bottom: 1px solid var(--color-divider, #b7c9cc);
+}
+
+.candidate-site-editor .hr-monaco-editor-statusbar {
+    background-color: var(--color-editor-bg, #fff);
+    color: var(--color-editor-text, #39424e);
+    box-sizing: border-box;
+    padding: 0 5px;
+    height: 30px;
+    border-top: 1px solid #e7eeef;
+    border-top-color: var(--color-divider, #e7eeef);
+}
+
+.candidate-site-editor .hr-monaco-settings-editor .settings-toggle {
+    color: var(--color-editor-settings-dropdown-icon, #576871);
+}
+
+.candidate-site-editor .hr-monaco-settings-editor .settings-toggle:focus {
+    outline-width: 0;
+}
+
+.theme-dark .candidate-site-editor .hr-monaco-settings-editor .settings-toggle {
+    border: none;
+}
+
+.candidate-site-editor .select-language {
+    font-size: 13px;
+}
+
+.candidate-site-editor .select-language:focus {
+    outline-width: 3px;
+    outline-style: solid;
+    outline-color: var(--color-outline, #097bbf);
+    outline-offset: 2px;
+}
+
+.hr-monaco-editor-wrapper .hr-monaco-editor .editor-toolbar {
+    background-color: var(--color-editor-wrapper-bg, #fff);
+    padding: 5px 5px 5px 20px;
+    border-bottom: 1px solid #e7eeef;
+    border-bottom-color: var(--color-editor-bg, #e7eeef);
+}
+
+.hr-monaco-editor-wrapper .hr-monaco-settings-editor {
+    background-color: var(--color-editor-settings-dropdown-button-bg, #fff);
+}
+
+.low-width-layout .hr-monaco-editor-wrapper .settings-toggle {
+    width: auto;
+    height: auto;
+}
+
+.autocomplete-status {
+    font-size: 13px;
+}
+
+.autocomplete-status__text {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.beta-icon-editor {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: -25px;
+    margin-left: -15px;
+    padding: 0 5px;
+    height: 18px;
+    outline-width: 0;
+    border: 2px solid #db7100;
+    border-radius: 12.5px;
+    box-shadow: none;
+    color: #db7100;
+    vertical-align: middle;
+    word-spacing: normal;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: OpenSans, sans-serif;
+    cursor: default;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.beta-desc {
+    top: 0;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.execution-env__info-text {
+    font-size: 13px;
+}
+
+.popover-wrapper-right {
+    position: absolute;
+}
+
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-start {
+    justify-content: flex-start !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .invisible {
+    visibility: hidden !important;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button,
+.theme-m pre {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+[class^=ui-icon-] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+[class^=ui-icon-]:before {
+    font-family: UIKitIcon;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.candidate-rich-text {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: #39424e;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+}
+
+.candidate-rich-text ul {
+    padding-left: 30px;
+}
+
+.candidate-rich-text li {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.candidate-rich-text p {
+    margin: 0;
+}
+
+.candidate-rich-text pre {
+    overflow-x: auto;
+    padding: 20px;
+    background-color: #e7eeef;
+    color: #39424e;
+    white-space: pre-wrap;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.theme-m .candidate-rich-text p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-dark .candidate-rich-text {
+    color: #b5c0d0;
+}
+
+.theme-dark .candidate-rich-text p.section-title {
+    color: #deeafa;
+}
+
+.theme-dark .candidate-rich-text details summary {
+    background-color: #373d4a;
+    color: #eef4fc;
+}
+
+.theme-dark .candidate-rich-text pre {
+    background-color: #111827 !important;
+    color: #b5c0d0 !important;
+}
+
+:root [aria-label] {
+    --balloon-color: rgba(14, 20, 30, 0.95);
+}
+
+.theme-dark [aria-label] {
+    --balloon-color: #eef4fc;
+}
+
+body :focus {
+    outline-color: var(--color-outline, #097bbf);
+}
+
+body.theme-m .ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+}
+
+body.theme-m .ui-btn.ui-btn-primary {
+    box-shadow: 0 6px 16px 0 rgba(var(--shadow-btn-primary), .2);
+}
+
+body.theme-m .ui-btn.ui-btn-primary:focus,
+body.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary), .15);
+}
+
+body.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary), .1);
+}
+
+body.theme-m .ui-btn:disabled,
+body.theme-m .ui-btn:disabled:active,
+body.theme-m .ui-btn:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, #e7eeef);
+    color: var(--color-btn-disabled-text, #b7c9cc);
+    border: none;
+    box-shadow: none;
+}
+
+body.theme-m .ui-btn.ui-btn-link {
+    text-decoration: none;
+}
+
+body.theme-m [aria-label]:after {
+    color: var(--color-tooltip-text, #fff);
+    padding: 10px 13px;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: var(--font-family-text) !important;
+    line-height: 1.4;
+}
+
+body.theme-m .btn-as-link,
+body.theme-m .btn-as-link:focus,
+body.theme-m .btn-as-link:hover {
+    color: var(--color-link-text, #075c8e);
+}
+
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-color: #111827;
+    border-style: solid;
+    border-width: 0 2px;
+    background-color: #585d68;
+}
+
+.theme-dark ::-moz-selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.theme-dark ::selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.body-wrap,
+.root-container,
+.ui-kit-root {
+    height: 100%;
+}
+
+.body-wrap {
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.inset-outline-style.ui-btn.ui-btn-styled {
+    border-width: 5px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~custom_input~feedback_form~hackerrank_r_competition_landing~hackerrank_r_krackjack~hackerran~1af5dd35-9fbee0ca.css */
+.ui-tooltip-wrapper {
+    display: inline;
+    width: 100%;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~hackerrank_r_login_view~testbase-4384f01c.css */
+.ui-btn.skip-to-main-content {
+    position: absolute;
+    top: -999px;
+    left: -999px;
+    z-index: -10000;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+}
+
+.ui-btn.skip-to-main-content:focus,
+.ui-btn.skip-to-main-content:hover {
+    top: auto;
+    left: 0;
+    z-index: 10000;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: 40px;
+}
+
+#main-content:focus {
+    outline-width: 0;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/testbase-f31c0755.css */
+.test-container {
+    --content-height: calc(100vh - 60px);
+    height: var(--content-height);
+}
+
+.test-container--fullscreen {
+    height: 100%;
+}
+
+.test-container__content {
+    background-color: var(--color-base-bg, #f3f7f7);
+    position: relative;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.test-container.low-width-layout {
+    --content-height: calc(100vh - 90px);
+}
+
+.question-tab {
+    --question-tab-width: 80px;
+    --question-tab-item-padding: 20px;
+    box-shadow: inset 0 1px 4px rgba(57, 66, 78, .1), 0 0 0 transparent;
+    background-color: var(--color-question-tab-bg, #e7eeef);
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: visible;
+    width: var(--question-tab-width);
+    font-weight: 700;
+}
+
+.question-tab__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 14px;
+}
+
+.question-tab__list-item,
+.question-tab__list-item__shortcut.ui-icon-btn {
+    color: var(--color-question-tab-item-text, #0e141e);
+    box-sizing: border-box;
+    padding: var(--question-tab-item-padding);
+    width: var(--question-tab-width);
+    height: 60px;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+}
+
+.question-tab__list-item:hover {
+    color: var(--color-question-tab-item-hover-text, #11639c);
+}
+
+.question-tab__list-item--active {
+    background-color: var(--color-question-tab-item-active-bg, #f3f7f7);
+    color: var(--color-question-tab-item-active-text, #075c8e);
+    border-color: var(--color-outline, #097bbf);
+}
+
+.question-tab__list-item__instruction {
+    width: 20px;
+    height: 20px;
+}
+
+.question-tab__list-item__instruction:focus,
+.question-tab__list-item__instruction:hover {
+    background: none;
+}
+
+.question-tab__list-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: var(--question-tab-width);
+    height: 60px;
+}
+
+.question-tab__list--scrollable {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.question-tab__separator {
+    height: 1px;
+    box-shadow: inset 0 12px 32px 0 rgba(123, 150, 155, .5);
+    opacity: .5;
+}
+
+.question-tab__timer {
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: #39424e;
+    font-size: 13px;
+    transition: all 1s ease-in-out;
+}
+
+.question-tab [aria-label]:after {
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    font-family: var(--font-family-text) !important;
+}
+
+@media screen and (max-width:639px) {
+    .question-tab {
+        --question-tab-width: 50px;
+        --question-tab-item-padding: 5px;
+    }
+}
+
+.theme-m .question-tab__list-item {
+    font-weight: 700;
+}
+
+.theme-m .question-tab__timer-toggle-btn.ui-btn.ui-btn-plain {
+    padding: 0 5px;
+    color: #f3f7f7;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.theme-m .question-tab__timer-toggle-btn.ui-btn.ui-btn-plain .ui-content {
+    height: 100%;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_krackjack-f8fd05d5.css */
+.hr-monaco-editor .vs-dark .read-only {
+    background-color: #222b3b;
+}
+
+.autocomplete-status__text {
+    flex: 1;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.autocomplete-status--ready {
+    color: var(--color-autocomplete-status-ready-icon, #068932);
+}
+
+.hr-monaco-editor-statusbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+}
+
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-start {
+    justify-content: flex-start !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .invisible {
+    visibility: hidden !important;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button,
+.theme-m pre {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+.hr-monaco-editor .editor-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.hr-monaco-editor .editor-toolbar .toolbar-left,
+.hr-monaco-editor .editor-toolbar .toolbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.hr-monaco-editor .editor-toolbar .select-language {
+    margin-right: 10px;
+}
+
+.hr-monaco-editor-parent {
+    position: relative;
+}
+
+.select-language {
+    min-width: 200px;
+    font-size: 14px;
+}
+
+.hr-monaco-settings-editor {
+    position: relative;
+}
+
+.hr-monaco-settings-editor .ui-icon-btn.settings-toggle {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    border: none;
+}
+
+.hr-monaco-settings-editor .ui-icon-btn.settings-toggle .ui-svg-icon {
+    width: auto;
+    height: auto;
+}
+
+.execution-env {
+    width: 60px;
+}
+
+.execution-env__info-text {
+    margin-left: 4px;
+}
+
+.execution-env :hover {
+    cursor: pointer;
+}
+
+.execution-env .info-icon-text {
+    all: unset;
+}
+
+.execution-env .info-icon-text:disabled {
+    color: #ccc;
+    cursor: not-allowed !important;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~hackerrank_r_krackjack-37871aa0.css */
+.monaco-editor .accessibilityHelpWidget {
+    padding: 10px;
+    vertical-align: middle;
+    overflow: scroll;
+}
+
+.monaco-scrollable-element>.invisible {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.vs-dark .monaco-scrollable-element>.scrollbar>.slider {
+    background: hsla(0, 0%, 47.5%, .4);
+}
+
+.monaco-scrollable-element>.scrollbar>.slider:hover {
+    background: hsla(0, 0%, 39.2%, .7);
+}
+
+::-ms-clear {
+    display: none;
+}
+
+.monaco-editor {
+    position: relative;
+    overflow: visible;
+    -webkit-text-size-adjust: 100%;
+}
+
+.monaco-editor .overflow-guard {
+    position: relative;
+    overflow: hidden;
+}
+
+.monaco-editor .view-overlays {
+    position: absolute;
+    top: 0;
+}
+
+.monaco-editor .inputarea {
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    outline: none !important;
+    resize: none;
+    border: none;
+    overflow: hidden;
+    color: transparent;
+    background-color: transparent;
+}
+
+.monaco-editor .margin-view-overlays .line-numbers {
+    font-variant-numeric: tabular-nums;
+    position: absolute;
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+    cursor: default;
+    height: 100%;
+}
+
+.monaco-mouse-cursor-text {
+    cursor: text;
+}
+
+.monaco-editor .margin-view-overlays .current-line,
+.monaco-editor .view-overlays .current-line {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+}
+
+.monaco-editor .lines-content .cdr {
+    position: absolute;
+}
+
+.monaco-editor .glyph-margin {
+    position: absolute;
+    top: 0;
+}
+
+.monaco-editor .lines-content .cigr {
+    position: absolute;
+}
+
+.monaco-editor.no-user-select .lines-content,
+.monaco-editor.no-user-select .view-line,
+.monaco-editor.no-user-select .view-lines {
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.monaco-editor .view-lines {
+    white-space: nowrap;
+}
+
+.monaco-editor .view-line {
+    position: absolute;
+    width: 100%;
+}
+
+.monaco-editor .margin-view-overlays .cldr {
+    position: absolute;
+    height: 100%;
+}
+
+.monaco-editor .minimap.slider-mouseover .minimap-slider {
+    opacity: 0;
+    transition: opacity .1s linear;
+}
+
+.monaco-editor .minimap.slider-mouseover:hover .minimap-slider {
+    opacity: 1;
+}
+
+.monaco-editor .minimap-shadow-hidden {
+    position: absolute;
+    width: 0;
+}
+
+.monaco-editor .overlayWidgets {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.monaco-editor .cursors-layer {
+    position: absolute;
+    top: 0;
+}
+
+.monaco-editor .cursors-layer>.cursor {
+    position: absolute;
+    overflow: hidden;
+}
+
+.codicon[class*=codicon-] {
+    font: normal normal normal 16px/1 codicon;
+    display: inline-block;
+    text-decoration: none;
+    text-rendering: auto;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.monaco-editor .margin-view-overlays .codicon-folding-collapsed {
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 140%;
+    margin-left: 2px;
+}
+
+.monaco-editor .margin-view-overlays .codicon.codicon-folding-collapsed,
+.monaco-editor .margin-view-overlays:hover .codicon {
+    opacity: 1;
+}
+
+.monaco-editor .inline-folded:after {
+    color: grey;
+    margin: .1em .2em 0;
+    content: "⋯";
+    display: inline;
+    line-height: 1em;
+    cursor: pointer;
+}
+
+.monaco-editor .rename-box {
+    z-index: 100;
+    color: inherit;
+}
+
+.monaco-editor .rename-box .rename-input {
+    padding: 3px;
+    width: calc(100% - 6px);
+}
+
+.monaco-editor .rename-box .rename-label {
+    display: none;
+    opacity: .8;
+}
+
+.monaco-editor {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe WPC, Segoe UI, HelveticaNeue-Light, system-ui, Ubuntu, Droid Sans, sans-serif;
+    --monaco-monospace-font: "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+}
+
+@media screen and (-ms-high-contrast:active) {
+    .monaco-editor.vs-dark .view-overlays .current-line {
+        border-color: windowtext !important;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .monaco-editor.vs-dark .cursor {
+        background-color: windowtext !important;
+    }
+
+    .monaco-editor.vs-dark .view-line {
+        -ms-high-contrast-adjust: none;
+    }
+
+    .monaco-editor.vs-dark .view-line span {
+        color: windowtext !important;
+    }
+
+    .monaco-editor.vs-dark .view-overlays {
+        -ms-high-contrast-adjust: none;
+    }
+
+    .monaco-editor.vs-dark .monaco-scrollable-element>.scrollbar {
+        -ms-high-contrast-adjust: none;
+        background: background !important;
+        border: 1px solid windowtext;
+        box-sizing: border-box;
+    }
+
+    .monaco-editor.vs-dark .monaco-scrollable-element>.scrollbar>.slider {
+        background: windowtext !important;
+    }
+
+    .monaco-editor.vs-dark .monaco-scrollable-element>.scrollbar>.slider:hover {
+        background: highlight !important;
+    }
+
+    .monaco-editor.vs-dark .decorationsOverviewRuler {
+        opacity: 0;
+    }
+
+    .monaco-editor.vs-dark .minimap {
+        display: none;
+    }
+}
+
+.context-view {
+    position: absolute;
+    z-index: 2500;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/test_case_ui-843c3a13.css */
+.test-run-status {
+    background-color: var(--color-test-run-status-bg, #e7eeef);
+    flex: 0 0 auto;
+    padding: 20px 30px;
+    font-weight: 700;
+}
+
+.test-run-status__message {
+    margin: 0;
+}
+
+.test-run-status--warning .test-run-status__info {
+    color: var(--color-test-run-status-header-text, #000);
+}
+
+.low-width-layout .test-run-status {
+    padding: 5px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~basequestion-21ef994f.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn.ui-btn-primary {
+    border: 1px solid #179342;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 4px 8px 0 rgba(27, 169, 76, .4);
+}
+
+.ui-btn.ui-btn-primary:active {
+    background: #147d38;
+    box-shadow: none;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.ui-btn.ui-btn-link {
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-link:active,
+.ui-btn.ui-btn-link:focus,
+.ui-btn.ui-btn-link:hover {
+    text-decoration: none;
+}
+
+.ui-btn.ui-btn-link .ui-content {
+    height: 100%;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn.ui-btn-primary {
+    background-color: var(--color-btn-primary-bg, var(--color-primary));
+    border-color: var(--color-btn-primary-bg, var(--color-primary));
+    box-shadow: 0 4px 12px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .5);
+}
+
+.theme-m .ui-btn.ui-btn-primary:hover {
+    box-shadow: 0 3px 6px 0 rgba(var(--shadow-btn-primary, 27, 169, 76), .4);
+}
+
+.theme-m .ui-btn.ui-btn-primary:active {
+    box-shadow: none;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/basequestion-098dd80c.css */
+.question-view {
+    padding: 0 40px;
+}
+
+.question-view--code {
+    display: flex;
+    padding: 0;
+    height: 100%;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~feedback_form~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-75b412fd.css */
+.sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .flex-row {
+    flex-direction: row !important;
+}
+
+.theme-m .flex-column {
+    flex-direction: column !important;
+}
+
+.theme-m .justify-content-start {
+    justify-content: flex-start !important;
+}
+
+.theme-m .justify-content-center {
+    justify-content: center !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m .invisible {
+    visibility: hidden !important;
+}
+
+.theme-m a,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button,
+.theme-m pre {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/mcq_question_view-b5706618.css */
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~coding_question_view~whiteboard_question-225be237.css */
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/coding_question_view-5be2a4e2.css */
+.coding-question {
+    width: 100%;
+}
+
+.coding-question__left-pane {
+    padding: 20px;
+}
+
+.low-width-layout .coding-question__left-pane {
+    padding: 5px;
+}
+
+.coding-question__io-area {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    height: calc(100% - 56px);
+    background: #e7eeef;
+    background: var(--color-shade-light);
+    order: 3;
+    flex-grow: 1;
+}
+
+.low-width-layout__coding-area {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .1);
+    margin: 10px;
+}
+
+.low-width-layout__editor-area {
+    min-height: 400px;
+    height: calc(100vh - 80px);
+}
+
+.low-width-layout .candidate-site-editor .hr-monaco-editor {
+    position: static;
+}
+
+.coding-question-footer {
+    height: 100%;
+    background-color: var(--color-test-run-status-bg, #e7eeef);
+}
+
+.coding-question-footer__tab-wrapper {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    flex: 1;
+    height: auto;
+    order: 1;
+}
+
+@media screen and (max-width:639px) {
+    .coding-question-footer__tab-wrapper {
+        margin-top: 5px;
+    }
+}
+
+.coding-question-footer__tab-header {
+    background-color: var(--color-editor-wrapper-bg, #fff);
+}
+
+.coding-question-footer__tab-item {
+    color: var(--color-editor-text, #000);
+}
+
+.coding-question-footer .ui-btn {
+    margin: 0;
+    height: 56px;
+    border-radius: 0;
+}
+
+.theme-m .coding-question-footer .ui-btn.ui-btn-styled,
+.theme-m .coding-question-footer .ui-btn.ui-btn-styled:disabled,
+.theme-m .coding-question-footer .ui-btn.ui-btn-styled:hover {
+    box-shadow: none;
+}
+
+.theme-m .coding-question-footer .ui-btn.ui-btn-styled:disabled {
+    border: 0;
+    background: #d8e3e5;
+    color: #b7c9cc;
+}
+
+.theme-m .coding-question-footer__tab-item.ui-btn {
+    padding: 0 30px;
+    border-top: 3px solid transparent;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: var(--font-family-text);
+}
+
+.theme-m .coding-question-footer__tab-item.ui-btn.active {
+    background-color: var(--color-editor-io-bg, #e7eeef);
+    border-color: var(--color-outline, #097bbf);
+}
+
+.theme-m .coding-question-footer__run-code {
+    --color-btn-primary-bg: var(--color-outline);
+}
+
+.theme-m .coding-question-footer__run-test {
+    --color-btn-primary-bg: #000;
+    --color-btn-default-text: #fff;
+}
+
+.theme-m .coding-question-footer.low-width-layout {
+    height: auto;
+}
+
+.theme-m .coding-question-footer.low-width-layout .ui-btn {
+    padding: 0 5px;
+    height: auto;
+}
+
+.coding-io-wrapper {
+    background-color: var(--color-editor-io-bg, #e7eeef);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.coding-io-wrapper:focus {
+    outline-width: 0;
+}
+
+/*! CSS Used from: Embedded */
+.css-2b097c-container {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.css-jol49o-control {
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: var(--color-editor-language-dropdown-bg, hsla(0, 0%, 100%, 1));
+    border-radius: 0px;
+    box-shadow: none;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    min-height: 30px;
+    position: relative;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    font-size: 13px;
+    border: 1px solid var(--color-editor-language-dropdown-bg, hsla(188.57, 17.07%, 75.88%, 1));
+}
+
+.css-jol49o-control:hover {
+    border-color: rgb(179, 179, 179);
+}
+
+.css-jol49o-control:hover {
+    border-color: var(--color-editor-language-dropdown-bg, hsla(188.57, 17.07%, 75.88%, 1));
+}
+
+.css-1hwfws3 {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    padding: 2px 8px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.css-x7738g {
+    color: var(--color-dropdown-text);
+}
+
+.css-1ganx5t {
+    margin: 2px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    visibility: visible;
+    color: var(--color-dropdown-text, var(--color-shade-darker));
+    box-sizing: border-box;
+}
+
+.css-1ganx5t input[type="text"] {
+    margin-bottom: 0px;
+    box-shadow: none;
+    transition: none 0s ease 0s;
+}
+
+.css-1ganx5t input[type="text"]:focus {
+    box-shadow: none;
+}
+
+.css-1cdp35k {
+    -webkit-box-align: center;
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.css-wp5ouw-indicatorSeparator {
+    align-self: stretch;
+    background-color: var(--color-shade-medium);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    width: 1px;
+    box-sizing: border-box;
+    display: none;
+}
+
+.css-mppimx-indicatorContainer {
+    color: var(--color-editor-language-dropdown-indicator, hsla(214.29, 15.56%, 26.47%, 1));
+    display: flex;
+    padding: 5px;
+    transition: color 150ms ease 0s;
+    box-sizing: border-box;
+    transform: scale(0.8);
+    cursor: pointer;
+    background-color: var(--color-editor-language-dropdown-indicator-bg, hsla(0, 0%, 100%, 1));
+    border-color: transparent;
+}
+
+.css-mppimx-indicatorContainer:hover {
+    color: var(--color-editor-language-dropdown-indicator, hsla(214.29, 15.56%, 26.47%, 1));
+}
+
+.css-19bqh2r {
+    display: inline-block;
+    fill: currentcolor;
+    line-height: 1;
+    stroke: currentcolor;
+    stroke-width: 0;
+}
+
+/*! CSS Used from: Embedded ; media=screen */
+@media screen {
+    .codicon-folding-collapsed:before {
+        content: '\eab6';
+    }
+
+    .monaco-editor .accessibilityHelpWidget {
+        background-color: #252526;
+    }
+
+    .monaco-editor .accessibilityHelpWidget {
+        color: #cccccc;
+    }
+
+    .monaco-editor .accessibilityHelpWidget {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.36);
+    }
+
+    .monaco-editor,
+    .monaco-editor-background {
+        background-color: #1d2432;
+    }
+
+    .monaco-editor {
+        color: #d4d4d4;
+    }
+
+    .monaco-editor .margin {
+        background-color: #1d2432;
+    }
+
+    .monaco-editor .line-numbers {
+        color: #8c96a6;
+    }
+
+    .monaco-editor .line-numbers.active-line-number {
+        color: #c6c6c6;
+    }
+
+    .monaco-editor .view-overlays .current-line {
+        border: 2px solid #282828;
+    }
+
+    .monaco-editor .lines-content .cigr {
+        box-shadow: 1px 0 0 0 #404040 inset;
+    }
+
+    .monaco-editor .minimap-slider .minimap-slider-horizontal {
+        background: rgba(121, 121, 121, 0.2);
+    }
+
+    .monaco-editor .minimap-slider:hover .minimap-slider-horizontal {
+        background: rgba(100, 100, 100, 0.35);
+    }
+
+    .monaco-editor .cursors-layer .cursor {
+        background-color: #aeafad;
+        border-color: #aeafad;
+        color: #515052;
+    }
+
+    .monaco-editor .folded-background {
+        background-color: rgba(38, 79, 120, 0.3);
+    }
+
+    .monaco-editor .cldr.codicon.codicon-folding-collapsed {
+        color: #c5c5c5 !important;
+    }
+
+    .mtk1 {
+        color: #d4d4d4;
+    }
+
+    .mtk8 {
+        color: #8c96a6;
+    }
+
+    .mtk10 {
+        color: #dcdcdc;
+    }
+
+    .mtk12 {
+        color: #63b7fc;
+    }
+
+    .mtk14 {
+        color: #ff636f;
+    }
+
+    .mtk24 {
+        color: #9ddf6e;
+    }
+
+    .mtki {
+        font-style: italic;
+    }
+
+    .mtkb {
+        font-weight: bold;
+    }
+}
+
+/*! CSS Used from: Embedded */
+.ps-content-wrapper-v0 div {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.ps-content-wrapper-v0 p {
+    white-space: pre-wrap;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+}
+
+.ps-content-wrapper-v0 p.section-title {
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
+.ps-content-wrapper-v0 li {
+    white-space: normal;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.ps-content-wrapper-v0 pre {
+    background-color: #f4faff;
+    border: 0;
+    border-radius: 2px;
+    margin: 8px;
+    padding: 10px;
+}
+
+.ps-content-wrapper-v0 details {
+    background-color: transparent;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+}
+
+.ps-content-wrapper-v0 details summary {
+    background-color: #39424e;
+    color: white;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 8px;
+}
+
+.ps-content-wrapper-v0 details div.collapsable-details {
+    margin: 0 auto;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    overflow: auto;
+}
+
+.ps-content-wrapper-v0 details div.collapsable-details pre {
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/*! CSS Used fontfaces */
+@font-face {
+    font-family: UIKitIcon;
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot);
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot#iefix) format("eot"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-eab14f0c64.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-5930253e54.woff) format("woff"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-2a17cc1b9c.ttf) format("truetype"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-4445561522.svg#font) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: UIKitIcon;
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot);
+    src: url(https://hrcdn.net/candidate-site/assets/UIKitIcon-e31d1f1bd8.eot#iefix) format("eot"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-eab14f0c64.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-5930253e54.woff) format("woff"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-2a17cc1b9c.ttf) format("truetype"), url(https://hrcdn.net/candidate-site/assets/UIKitIcon-4445561522.svg#font) format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: codicon;
+    font-display: block;
+    src: url(https://hrcdn.net/candidate-site/assets/codicon.ttf) format("truetype");
+}
+
+
+
+
+
+
+
+
+
+
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_app-3b5293d9.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/hackerrank_r_app-fa3b4d34.css */
+.beta-icon-editor {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: -25px;
+    margin-left: -15px;
+    padding: 0 5px;
+    height: 18px;
+    outline-width: 0;
+    border: 2px solid #db7100;
+    border-radius: 12.5px;
+    box-shadow: none;
+    color: #db7100;
+    vertical-align: middle;
+    word-spacing: normal;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: OpenSans, sans-serif;
+    cursor: default;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.beta-desc {
+    top: 0;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+.candidate-rich-text {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: #39424e;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+}
+
+.candidate-rich-text p {
+    margin: 0;
+}
+
+.theme-m .candidate-rich-text p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-dark .candidate-rich-text {
+    color: #b5c0d0;
+}
+
+:root [aria-label] {
+    --balloon-color: rgba(14, 20, 30, 0.95);
+}
+
+.theme-dark [aria-label] {
+    --balloon-color: #eef4fc;
+}
+
+body :focus {
+    outline-color: var(--color-outline, #097bbf);
+}
+
+body.theme-m .ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+}
+
+body.theme-m .ui-btn:disabled,
+body.theme-m .ui-btn:disabled:active,
+body.theme-m .ui-btn:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, #e7eeef);
+    color: var(--color-btn-disabled-text, #b7c9cc);
+    border: none;
+    box-shadow: none;
+}
+
+body.theme-m [aria-label]:after {
+    color: var(--color-tooltip-text, #fff);
+    padding: 10px 13px;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: var(--font-family-text) !important;
+    line-height: 1.4;
+}
+
+body.theme-m .btn-as-link,
+body.theme-m .btn-as-link:focus,
+body.theme-m .btn-as-link:hover {
+    color: var(--color-link-text, #075c8e);
+}
+
+body .ui-radio .custom-holder {
+    border: 1px solid #738f93;
+    border-color: var(--color-input-border, #738f93);
+}
+
+body .ui-radio .custom-holder.inset {
+    box-shadow: none;
+}
+
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-color: #111827;
+    border-style: solid;
+    border-width: 0 2px;
+    background-color: #585d68;
+}
+
+.theme-dark ::-moz-selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.theme-dark ::selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.body-wrap .ui-radio {
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.body-wrap .ui-radio .radio-wrap {
+    width: 24px;
+    height: 24px;
+}
+
+.body-wrap .ui-radio .label {
+    color: #39424e;
+}
+
+.body-wrap .ui-radio .label-wrap {
+    flex-grow: 1;
+}
+
+.body-wrap .ui-radio .radio-input:checked+.custom-holder {
+    border-color: var(--color-primary, #068932);
+    padding: 0;
+    border-width: 6px;
+}
+
+.body-wrap .radio-group .ui-radio:last-child {
+    margin-bottom: 0;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~feedback_form~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-75b412fd.css */
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-62dce5de.css */
+.ui-radio {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.ui-radio,
+.ui-radio * {
+    box-sizing: border-box;
+}
+
+.ui-radio .radio-wrap {
+    position: relative;
+    display: inline-block;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.ui-radio .radio-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-radio .label-wrap {
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ui-radio .label,
+.ui-radio .label-wrap .radio-wrap {
+    vertical-align: middle;
+}
+
+.ui-radio .label {
+    display: inline-block;
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-radio .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-shade-light, #e7eeef);
+    cursor: pointer;
+}
+
+.ui-radio .radio-input:checked+.custom-holder {
+    border-width: 1px;
+    border: .3em solid var(--color-primary-dark, #068932);
+    background-color: var(--card-shadow-1, #fff);
+}
+
+.ui-radio .radio-input:checked+.custom-holder.inset {
+    box-shadow: none;
+}
+
+.ui-radio .radio-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_krackjack-f8fd05d5.css */
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~hackerrank_r_krackjack-37871aa0.css */
+::-ms-clear {
+    display: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/questionlist-c8ddb575.css */
+.question {
+    --wrapper-padding: 20px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .1);
+    background-color: var(--color-question-item-bg, #fff);
+    color: var(--color-question-item-text, #0e141e);
+    margin-bottom: 15px;
+    padding: var(--wrapper-padding);
+    word-break: break-word;
+    cursor: pointer;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~basequestion-21ef994f.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/basequestion-098dd80c.css */
+.question-view .solution__body {
+    padding-bottom: 60px;
+}
+
+.question-view .solution__directive {
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/mcq_question_view-b5706618.css */
+.grouped-mcq__hook {
+    height: 5px;
+}
+
+.grouped-mcq__scroll-window .question-view__title {
+    padding-top: 35px;
+}
+
+.grouped-mcq__question {
+    word-break: break-word;
+}
+
+@media screen and (max-width:425px) {
+    .question-view .grouped-mcq__scroll-window .question-view__title {
+        padding-top: 0;
+    }
+
+    .question-view .grouped-mcq__scroll-window .solution__body {
+        padding-bottom: 0;
+    }
+}
+
+.question-view.question-view--mcq .solution__options-list {
+    margin-bottom: 5px;
+}
+
+.question-view.question-view--mcq .solution__status-message {
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    opacity: 1;
+    transition: all .1s ease;
+}
+
+.question-view.question-view--mcq .solution__status-message__text {
+    height: 20px;
+}
+
+.question-view.question-view--mcq .solution__status-message--hidden {
+    opacity: 0;
+}
+
+.question-view.question-view--mcq .solution__clear-selection {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-link-text, #075c8e);
+    padding-right: 0;
+    padding-left: 0;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    word-spacing: normal;
+}
+
+.question-view.question-view--mcq .solution__clear-selection:disabled,
+.question-view.question-view--mcq .solution__clear-selection:disabled:hover {
+    color: var(--color-mcq-clear-disabled-color, #b7c9cc);
+    background-color: transparent;
+}
+
+.question-view.question-view--mcq .solution__clear-selection .ui-text {
+    margin-left: 0;
+}
+
+.question-view.question-view--mcq .ui-radio .custom-holder {
+    background-color: var(--color-mcq-input-bg, #fff);
+    box-shadow: none;
+}
+
+.question-view.question-view--mcq .ui-radio .label {
+    color: var(--color-mcq-label-color, #39424e);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap {
+    background-color: var(--color-mcq-label-bg, #fff);
+    padding: 10px 80px 10px 10px;
+    min-width: var(--min-content-width);
+    max-width: 1000px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 4px;
+    border: 1px solid #b7c9cc;
+    border-color: var(--color-input-border, #b7c9cc);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover {
+    border-color: var(--color-primary, #068932);
+    box-shadow: 0 1px 3px 0 rgba(6, 137, 50, .3);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover .custom-holder {
+    border-color: var(--color-primary, #068932);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover .label {
+    color: var(--color-mcq-label-hover-color, #0e141e);
+}
+
+@media screen and (max-width:1023px) {
+    .question-view.question-view--mcq .ui-radio .label-wrap {
+        padding: 10px;
+    }
+
+    .question-view.question-view--mcq .ui-radio .label {
+        margin-right: 20px;
+    }
+}
+
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~coding_question_view~whiteboard_question-225be237.css */
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used fontfaces */
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_app-3b5293d9.css */
+.ui-svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/hackerrank_r_app-441f8322.css */
+.beta-icon-editor {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: -25px;
+    margin-left: -15px;
+    padding: 0 5px;
+    height: 18px;
+    outline-width: 0;
+    border: 2px solid #db7100;
+    border-radius: 12.5px;
+    box-shadow: none;
+    color: #db7100;
+    vertical-align: middle;
+    word-spacing: normal;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: OpenSans, sans-serif;
+    cursor: default;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.beta-desc {
+    top: 0;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+.candidate-rich-text {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: #39424e;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+}
+
+.candidate-rich-text img {
+    max-width: 100%;
+}
+
+.candidate-rich-text p {
+    margin: 0;
+}
+
+.theme-m .candidate-rich-text p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-dark .candidate-rich-text {
+    color: #b5c0d0;
+}
+
+.theme-dark .candidate-rich-text img {
+    background: hsla(0, 0%, 100%, .9);
+}
+
+:root [aria-label] {
+    --balloon-color: rgba(14, 20, 30, 0.95);
+}
+
+.theme-dark [aria-label] {
+    --balloon-color: #eef4fc;
+}
+
+body :focus {
+    outline-color: var(--color-outline, #097bbf);
+}
+
+body.theme-m .ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+}
+
+body.theme-m .ui-btn:disabled,
+body.theme-m .ui-btn:disabled:active,
+body.theme-m .ui-btn:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, #e7eeef);
+    color: var(--color-btn-disabled-text, #b7c9cc);
+    border: none;
+    box-shadow: none;
+}
+
+body.theme-m [aria-label]:after {
+    color: var(--color-tooltip-text, #fff);
+    padding: 10px 13px;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: var(--font-family-text) !important;
+    line-height: 1.4;
+}
+
+body.theme-m .btn-as-link,
+body.theme-m .btn-as-link:focus,
+body.theme-m .btn-as-link:hover {
+    color: var(--color-link-text, #075c8e);
+}
+
+body .ui-radio .custom-holder {
+    border: 1px solid #738f93;
+    border-color: var(--color-input-border, #738f93);
+}
+
+body .ui-radio .custom-holder.inset {
+    box-shadow: none;
+}
+
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-color: #111827;
+    border-style: solid;
+    border-width: 0 2px;
+    background-color: #585d68;
+}
+
+.theme-dark ::-moz-selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.theme-dark ::selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.body-wrap .ui-radio {
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.body-wrap .ui-radio .radio-wrap {
+    width: 19px;
+    height: 19px;
+}
+
+.body-wrap .ui-radio .label {
+    color: #39424e;
+}
+
+.body-wrap .ui-radio .label-wrap {
+    flex-grow: 1;
+}
+
+.body-wrap .ui-radio .radio-input:checked+.custom-holder {
+    border-color: var(--color-primary, #068932);
+    padding: 0;
+    border-width: 6px;
+}
+
+.body-wrap .radio-group .ui-radio:last-child {
+    margin-bottom: 0;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~feedback_form~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-75b412fd.css */
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-62dce5de.css */
+.ui-radio {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.ui-radio,
+.ui-radio * {
+    box-sizing: border-box;
+}
+
+.ui-radio .radio-wrap {
+    position: relative;
+    display: inline-block;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.ui-radio .radio-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-radio .label-wrap {
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.ui-radio .label,
+.ui-radio .label-wrap .radio-wrap {
+    vertical-align: middle;
+}
+
+.ui-radio .label {
+    display: inline-block;
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-radio .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-shade-light, #e7eeef);
+    cursor: pointer;
+}
+
+.ui-radio .radio-input:checked+.custom-holder {
+    border-width: 1px;
+    border: .3em solid var(--color-primary-dark, #068932);
+    background-color: var(--card-shadow-1, #fff);
+}
+
+.ui-radio .radio-input:checked+.custom-holder.inset {
+    box-shadow: none;
+}
+
+.ui-radio .radio-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_krackjack-f8fd05d5.css */
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~hackerrank_r_krackjack-37871aa0.css */
+::-ms-clear {
+    display: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~basequestion-21ef994f.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/basequestion-098dd80c.css */
+.question-view .solution__body {
+    padding-bottom: 60px;
+}
+
+.question-view .solution__directive {
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/mcq_question_view-142e8ef3.css */
+.grouped-mcq__hook {
+    height: 5px;
+}
+
+.grouped-mcq__scroll-window .question-view__title {
+    padding-top: 35px;
+}
+
+.grouped-mcq__question {
+    word-break: break-word;
+}
+
+@media screen and (max-width:425px) {
+    .question-view .grouped-mcq__scroll-window .question-view__title {
+        padding-top: 0;
+    }
+
+    .question-view .grouped-mcq__scroll-window .solution__body {
+        padding-bottom: 0;
+    }
+}
+
+.question-view.question-view--mcq .solution__options-list {
+    margin-bottom: 5px;
+}
+
+.question-view.question-view--mcq .solution__status-message {
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    opacity: 1;
+    transition: all .1s ease;
+}
+
+.question-view.question-view--mcq .solution__status-message__text {
+    height: 20px;
+}
+
+.question-view.question-view--mcq .solution__status-message--success {
+    color: var(--color-link-text, #075c8e);
+}
+
+.question-view.question-view--mcq .solution__clear-selection {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-link-text, #075c8e);
+    padding-right: 0;
+    padding-left: 0;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    word-spacing: normal;
+}
+
+.question-view.question-view--mcq .solution__clear-selection:disabled,
+.question-view.question-view--mcq .solution__clear-selection:disabled:hover {
+    color: var(--color-mcq-clear-disabled-color, #b7c9cc);
+    background-color: transparent;
+}
+
+.question-view.question-view--mcq .solution__clear-selection .ui-text {
+    margin-left: 0;
+}
+
+.question-view.question-view--mcq .status-icon {
+    width: 40px;
+    height: 20px;
+}
+
+.question-view.question-view--mcq .ui-radio .custom-holder {
+    background-color: var(--color-mcq-input-bg, #fff);
+    box-shadow: none;
+}
+
+.question-view.question-view--mcq .ui-radio .label {
+    color: var(--color-mcq-label-color, #39424e);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap {
+    background-color: var(--color-mcq-label-bg, #fff);
+    padding: 10px 80px 10px 10px;
+    min-width: var(--min-content-width);
+    max-width: 1000px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 4px;
+    border: 1px solid #b7c9cc;
+    border-color: var(--color-input-border, #b7c9cc);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover {
+    border-color: var(--color-primary, #068932);
+    box-shadow: 0 1px 3px 0 rgba(6, 137, 50, .3);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover .custom-holder {
+    border-color: var(--color-primary, #068932);
+}
+
+.question-view.question-view--mcq .ui-radio .label-wrap:hover .label {
+    color: var(--color-mcq-label-hover-color, #0e141e);
+}
+
+@media screen and (max-width:1023px) {
+    .question-view.question-view--mcq .ui-radio .label-wrap {
+        padding: 10px;
+    }
+
+    .question-view.question-view--mcq .ui-radio .label {
+        margin-right: 20px;
+    }
+}
+
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~coding_question_view~whiteboard_question-12a810bf.css */
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used fontfaces */
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_app-3b5293d9.css */
+.ui-svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/hackerrank_r_app-441f8322.css */
+.beta-icon-editor {
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: -25px;
+    margin-left: -15px;
+    padding: 0 5px;
+    height: 18px;
+    outline-width: 0;
+    border: 2px solid #db7100;
+    border-radius: 12.5px;
+    box-shadow: none;
+    color: #db7100;
+    vertical-align: middle;
+    word-spacing: normal;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: OpenSans, sans-serif;
+    cursor: default;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.beta-desc {
+    top: 0;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.theme-m {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-text-dark);
+    line-height: 1.2;
+    line-height: 1.2em;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+.candidate-rich-text {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: #39424e;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 15px;
+}
+
+.candidate-rich-text p {
+    margin: 0;
+}
+
+.theme-m .candidate-rich-text p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-dark .candidate-rich-text {
+    color: #b5c0d0;
+}
+
+:root [aria-label] {
+    --balloon-color: rgba(14, 20, 30, 0.95);
+}
+
+.theme-dark [aria-label] {
+    --balloon-color: #eef4fc;
+}
+
+body :focus {
+    outline-color: var(--color-outline, #097bbf);
+}
+
+body.theme-m .ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+}
+
+body.theme-m .ui-btn:disabled,
+body.theme-m .ui-btn:disabled:active,
+body.theme-m .ui-btn:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, #e7eeef);
+    color: var(--color-btn-disabled-text, #b7c9cc);
+    border: none;
+    box-shadow: none;
+}
+
+body.theme-m [aria-label]:after {
+    color: var(--color-tooltip-text, #fff);
+    padding: 10px 13px;
+    border-radius: 0;
+    font-size: 12px;
+    font-family: var(--font-family-text) !important;
+    line-height: 1.4;
+}
+
+body.theme-m .btn-as-link,
+body.theme-m .btn-as-link:focus,
+body.theme-m .btn-as-link:hover {
+    color: var(--color-link-text, #075c8e);
+}
+
+body .ui-checkbox .custom-holder {
+    border: 1px solid #738f93;
+    border-color: var(--color-input-border, #738f93);
+}
+
+body .ui-checkbox .custom-holder.inset {
+    box-shadow: none;
+}
+
+.theme-dark ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.theme-dark ::-webkit-scrollbar-track {
+    background-color: #111827;
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-color: #111827;
+    border-style: solid;
+    border-width: 0 2px;
+    background-color: #585d68;
+}
+
+.theme-dark ::-moz-selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.theme-dark ::selection {
+    background: #7e97b9;
+    color: #b5c0d0;
+}
+
+.body-wrap .ui-checklist-list {
+    margin: 0;
+}
+
+.body-wrap .ui-checklist-item-wrap {
+    margin-bottom: 15px;
+}
+
+.body-wrap .ui-checklist-list-item:last-child .ui-checklist-item-wrap {
+    margin-bottom: 0;
+}
+
+.body-wrap .ui-checklist .ui-checkbox {
+    display: flex;
+    flex-grow: 1;
+    line-height: 1.2;
+}
+
+.body-wrap .ui-checklist .ui-checkbox .label-wrap {
+    flex-grow: 1;
+}
+
+.body-wrap .ui-checkbox.theme-m .checkbox-wrap {
+    width: 15px;
+    height: 15px;
+}
+
+.body-wrap .ui-checkbox.theme-m .checkbox-input:checked+.custom-holder {
+    background-color: var(--color-primary, #068932);
+    border-color: var(--color-primary, #068932);
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~feedback_form~hackerrank_r_competition_landing~hackerrank_r_login_view~mcq_question_view-75b412fd.css */
+.theme-m {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-text-dark);
+    line-height: 1.2;
+    line-height: 1.2em;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+.ui-checklist-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style-type: none;
+}
+
+.ui-checklist-item-wrap {
+    display: flex;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.ui-checkbox {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.ui-checkbox,
+.ui-checkbox * {
+    box-sizing: border-box;
+}
+
+.ui-checkbox .checkbox-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.ui-checkbox .checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-checkbox .label-wrap {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.ui-checkbox .label {
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-checkbox .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background: #e7eeef;
+    cursor: pointer;
+}
+
+.ui-checkbox .custom-holder .checkbox__check-icon {
+    display: none;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder {
+    border: none;
+    background: var(--color-primary-dark);
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon {
+    display: block;
+    width: 70%;
+    height: 70%;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon path {
+    stroke-width: .15em;
+    stroke: var(--color-white);
+}
+
+.ui-checkbox .checkbox-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+.theme-dark .ui-checkbox .custom-holder {
+    background-color: var(--color-shade-lighter);
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~hackerrank_r_krackjack-f8fd05d5.css */
+.ui-checkbox {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.ui-checkbox,
+.ui-checkbox * {
+    box-sizing: border-box;
+}
+
+.ui-checkbox .checkbox-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.ui-checkbox .checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-checkbox .label-wrap {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.ui-checkbox .label {
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-checkbox .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background: #e7eeef;
+    cursor: pointer;
+}
+
+.ui-checkbox .custom-holder .checkbox__check-icon {
+    display: none;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder {
+    border: none;
+    background: var(--color-primary-dark);
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon {
+    display: block;
+    width: 70%;
+    height: 70%;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon path {
+    stroke-width: .15em;
+    stroke: var(--color-white);
+}
+
+.ui-checkbox .checkbox-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+.theme-dark .ui-checkbox .custom-holder {
+    background-color: var(--color-shade-lighter);
+}
+
+.theme-m {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-text-dark);
+    line-height: 1.2;
+    line-height: 1.2em;
+}
+
+.theme-m .d-flex {
+    display: flex !important;
+}
+
+.theme-m .align-items-center {
+    align-items: center !important;
+}
+
+.theme-m label,
+.theme-m p {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+}
+
+.theme-m button {
+    font-weight: 400;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+}
+
+.theme-m .btn-as-link {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    margin: 0;
+    padding: 0;
+    height: auto;
+    outline: none;
+    border: 0;
+    background: transparent;
+    color: var(--color-link);
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.theme-m .btn-as-link:active,
+.theme-m .btn-as-link:focus,
+.theme-m .btn-as-link:hover {
+    color: #075c8e;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~hackerrank_r_krackjack-37871aa0.css */
+::-ms-clear {
+    display: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~testbase-bbec6d81.css */
+.ui-checkbox {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.ui-checkbox,
+.ui-checkbox * {
+    box-sizing: border-box;
+}
+
+.ui-checkbox .checkbox-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.ui-checkbox .checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-checkbox .label-wrap {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.ui-checkbox .label {
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-checkbox .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background: #e7eeef;
+    cursor: pointer;
+}
+
+.ui-checkbox .custom-holder .checkbox__check-icon {
+    display: none;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder {
+    border: none;
+    background: var(--color-primary-dark);
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon {
+    display: block;
+    width: 70%;
+    height: 70%;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon path {
+    stroke-width: .15em;
+    stroke: var(--color-white);
+}
+
+.ui-checkbox .checkbox-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+.theme-dark .ui-checkbox .custom-holder {
+    background-color: var(--color-shade-lighter);
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/modules~basequestion-21ef994f.css */
+.ui-btn {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    outline-width: 0;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .5s ease;
+    transition-property: box-shadow, background, color, border;
+}
+
+.ui-btn.ui-btn-styled {
+    color: var(--color-btn-default-text, #fff);
+    padding-right: 20px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.ui-btn.ui-btn-plain {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    word-spacing: normal;
+}
+
+.ui-btn:active,
+.ui-btn:focus {
+    outline-width: 0;
+}
+
+.ui-btn .ui-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-btn .ui-content .ui-text {
+    order: 1;
+}
+
+.ui-btn.ui-btn-styled:disabled {
+    transition: none;
+}
+
+.ui-btn.ui-btn-styled:disabled,
+.ui-btn.ui-btn-styled:disabled:active,
+.ui-btn.ui-btn-styled:disabled:hover {
+    border: none;
+    background: #eff1f3;
+    box-shadow: none;
+    color: #979faf;
+    cursor: not-allowed;
+}
+
+.theme-m .ui-btn {
+    font-size: 15px;
+}
+
+.theme-m .ui-btn-styled {
+    font-weight: 700;
+    font-family: monaco, Courier, monospace;
+    font-family: var(--font-family-input);
+    border-radius: 2px;
+    word-spacing: -2px;
+}
+
+.theme-m .ui-btn-styled:disabled,
+.theme-m .ui-btn-styled:disabled:active,
+.theme-m .ui-btn-styled:disabled:hover {
+    background-color: var(--color-btn-disabled-bg, var(--color-shade-light));
+    color: var(--color-btn-disabled-text, var(--color-text-light));
+    border: 0;
+    box-shadow: none;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/basequestion-098dd80c.css */
+.question-view .solution__body {
+    padding-bottom: 60px;
+}
+
+.question-view .solution__directive {
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.5em;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/mcq_question_view-142e8ef3.css */
+.grouped-mcq__hook {
+    height: 5px;
+}
+
+.grouped-mcq__scroll-window .question-view__title {
+    padding-top: 35px;
+}
+
+.grouped-mcq__question {
+    word-break: break-word;
+}
+
+@media screen and (max-width:425px) {
+    .question-view .grouped-mcq__scroll-window .question-view__title {
+        padding-top: 0;
+    }
+
+    .question-view .grouped-mcq__scroll-window .solution__body {
+        padding-bottom: 0;
+    }
+}
+
+.question-view.question-view--mcq .solution__options-list {
+    margin-bottom: 5px;
+}
+
+.question-view.question-view--mcq .solution__status-message {
+    margin: 5px 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    opacity: 1;
+    transition: all .1s ease;
+}
+
+.question-view.question-view--mcq .solution__status-message__text {
+    height: 20px;
+}
+
+.question-view.question-view--mcq .solution__status-message--hidden {
+    opacity: 0;
+}
+
+.question-view.question-view--mcq .solution__clear-selection {
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-family-text);
+    color: var(--color-link-text, #075c8e);
+    padding-right: 0;
+    padding-left: 0;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+    word-spacing: normal;
+}
+
+.question-view.question-view--mcq .solution__clear-selection:disabled,
+.question-view.question-view--mcq .solution__clear-selection:disabled:hover {
+    color: var(--color-mcq-clear-disabled-color, #b7c9cc);
+    background-color: transparent;
+}
+
+.question-view.question-view--mcq .solution__clear-selection .ui-text {
+    margin-left: 0;
+}
+
+.question-view.question-view--mcq .ui-checkbox .custom-holder {
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.question-view.question-view--mcq .ui-checkbox .custom-holder {
+    background-color: var(--color-mcq-input-bg, #fff);
+    box-shadow: none;
+}
+
+.question-view.question-view--mcq .ui-checkbox .label {
+    color: var(--color-mcq-label-color, #39424e);
+}
+
+.question-view.question-view--mcq .ui-checkbox .label-wrap {
+    background-color: var(--color-mcq-label-bg, #fff);
+    padding: 10px 80px 10px 10px;
+    min-width: var(--min-content-width);
+    max-width: 1000px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 4px;
+    border: 1px solid #b7c9cc;
+    border-color: var(--color-input-border, #b7c9cc);
+}
+
+.question-view.question-view--mcq .ui-checkbox .label-wrap:hover {
+    border-color: var(--color-primary, #068932);
+    box-shadow: 0 1px 3px 0 rgba(6, 137, 50, .3);
+}
+
+.question-view.question-view--mcq .ui-checkbox .label-wrap:hover .custom-holder {
+    border-color: var(--color-primary, #068932);
+}
+
+.question-view.question-view--mcq .ui-checkbox .label-wrap:hover .label {
+    color: var(--color-mcq-label-hover-color, #0e141e);
+}
+
+@media screen and (max-width:1023px) {
+    .question-view.question-view--mcq .ui-checkbox .label-wrap {
+        padding: 10px;
+    }
+
+    .question-view.question-view--mcq .ui-checkbox .label {
+        margin-right: 20px;
+    }
+}
+
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/vendors~coding_question_view-bbec6d81.css */
+.ui-checkbox {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.ui-checkbox,
+.ui-checkbox * {
+    box-sizing: border-box;
+}
+
+.ui-checkbox .checkbox-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-width: 18px;
+    min-height: 18px;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.ui-checkbox .checkbox-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ui-checkbox .label-wrap {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: inherit;
+    cursor: pointer;
+}
+
+.ui-checkbox .label {
+    margin-left: 10px;
+    white-space: normal;
+}
+
+.ui-checkbox .custom-holder {
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, .1), 0 0 0 transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    background: #e7eeef;
+    cursor: pointer;
+}
+
+.ui-checkbox .custom-holder .checkbox__check-icon {
+    display: none;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder {
+    border: none;
+    background: var(--color-primary-dark);
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon {
+    display: block;
+    width: 70%;
+    height: 70%;
+}
+
+.ui-checkbox .checkbox-input:checked+.custom-holder .checkbox__check-icon path {
+    stroke-width: .15em;
+    stroke: var(--color-white);
+}
+
+.ui-checkbox .checkbox-input:disabled+.custom-holder {
+    opacity: .5;
+}
+
+.theme-dark .ui-checkbox .custom-holder {
+    background-color: var(--color-shade-lighter);
+}
+
+/*! CSS Used from: https://hrcdn.net/candidate-site/assets/commons~coding_question_view~whiteboard_question-12a810bf.css */
+.question-view__title-wrapper {
+    padding-top: 20px;
+}
+
+.question-view__title {
+    margin: 0 0 20px;
+    padding: 20px 0 10px;
+    font-size: 20px;
+    border-bottom: 2px solid #e7eeef;
+    border-bottom-color: var(--color-problem-statement-border, #e7eeef);
+}
+
+.question-view__switch-theme__wrapper {
+    font-size: 14px;
+}
+
+
+
+/*! CSS Used fontfaces */
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 400;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("Open Sans"), local("OpenSans"), url(https://hrcdn.net/candidate-site/assets/open-sans-f28f637e43.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-90327f5ac4.woff) format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: OpenSans;
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-b3fdf30d75.woff2) format("woff2"), url(https://hrcdn.net/candidate-site/assets/open-sans-bold-05d1a99a91.woff) format("woff");
+    font-display: swap;
+}

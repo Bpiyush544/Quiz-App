@@ -1,0 +1,651 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Add questions </title>
+    <link rel="stylesheet" href="{% static 'css/studentStyle.css' %}">
+    <style>
+        button {
+            background-color: #7833fd;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            margin: 10px 0px;
+            width: 100%;
+            max-width: 180px;
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+        }
+
+        h1 {
+            font-weight: bold;
+           
+        }
+
+       
+          
+
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+              border: none !important;
+             border-bottom: 1px solid #576871 !important;
+       font-size: 14px;
+       padding: 5px 5px;
+        }
+
+        select{
+            box-shadow: 0 3px 10px 0 rgb(0 0 0 / 10%);
+              border: none !important;
+             border-bottom: 1px solid #576871 !important;
+       font-size: 14px;
+       padding: 5px 0px;
+       outline: none;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            padding-bottom: 15px;
+         
+        }
+
+        .sidebar {
+           
+            box-shadow: none;
+            max-width: 510px;
+            right: 0px;
+            bottom: 0px;
+            overflow: hidden;
+            background-image:linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("107ade64-f82c-4b83-b191-1d9ec6c73fa7.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        
+        }
+
+        main .content {
+            padding: 0px 15px;
+            margin: 0px;
+            width: calc(100% - 515px);
+        }
+
+        form{
+            padding: 0px;
+        }
+
+        .sidebar a {
+            color: #169af9;
+            border-bottom: 1px dotted #169af9;
+            padding-bottom: 0px;
+            margin-right: 10px;
+        }
+
+        .sidebar span {
+            margin-left: initial;
+        }
+
+        .sidebar p,
+        .sidebar span {
+            color: rgb(255, 255, 255) !important;
+            font-size: 18px;
+        }
+
+        .sidebar h1 span {
+            font-size: 40px;
+            color: rgb(255, 255, 255) !important;
+        }
+
+        .test-question-details__content span,
+        .test-question-details__content-index {
+            font-size: 14px !important;
+        }
+
+        .test-question-details__content-type {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        li{
+            margin-top: 15px;
+        }
+
+
+       
+
+
+        @media(min-width:992px){
+            .mt-200{
+            margin-top: 100px;
+        }
+        }
+
+        @media(max-width:991px) {
+            .sidebar {
+                position: static;
+                transform: translateX(0%);
+                max-width: initial;
+            }
+
+            main .content {
+            padding: 0px 15px;
+            margin: 0px;
+            width: 100%;
+        }
+
+            .scrolling-form-page__section{
+                /* margin-top: -55px; */
+            }
+
+            .test-section-details{
+                margin-top: 0px;
+            }
+
+            .content{
+                width: 100%;
+            }
+
+            h2 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 60px;
+        }
+
+            main .content {
+                margin-left: 0px;
+                padding: 0px 5px;
+            }
+
+            main{
+                margin-top: 0px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="dashboard d-block">
+        <aside class="sidebar text-left p-5">
+           <img src="c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg" class="w-100 mt-5" style="max-width: 50px;" alt="">
+            <div class="left-pane__top mt-3"><span class="left-pane__candidate-name">Hey
+                    Newnagendra,</span>
+                <h1 class="left-pane__test-name mt-3 text-left"
+                    aria-label="Welcome to Techsnap Front-End Developer Hiring Test"><span class="d-flex"
+                        aria-hidden="true">Welcome to</span><span aria-hidden="true"> Techsnap Front-End Developer
+                        Hiring Test </span>
+                </h1>
+                <div class="d-flex left-pane__test-detail-container mt-3">
+                    <div class="d-flex flex-column left-pane__test-detail"><span style="font-size: 14px !important;"
+                            class="left-pane__test-detail__header">Test duration</span><span
+                            class="left-pane__test-detail__content" data-automation="test-duration">45 mins</span></div>
+                    <div class="d-flex flex-column left-pane__test-detail ml-3"><span
+                            style="font-size: 14px !important;" class="left-pane__test-detail__header">No. of
+                            questions</span><span class="left-pane__test-detail__content">9
+                            questions</span></div>
+                </div>
+                <footer class="content-wrapper d-flex align-self-end footer text-primary mt-3"><a class="footer__link"
+                        href="https://candidatesupport.hackerrank.com/hc/en-us" target="_blank"
+                        data-event-category="Candidate Login Page" data-event-action="Click"
+                        data-event-label="PlatformHelpLeftLink">Platform Help</a><span class="footer__divider">|
+                    </span><a class="footer__link ml-2"
+                        href="https://candidatesupport.hackerrank.com/hc/en-us/articles/4402913877523-Execution-Environment-and-Samples"
+                        target="_blank" data-event-category="Candidate Login Page" data-event-action="Click"
+                        data-event-label="EnvironmentHelpLink"> Execution Environment</a><span class="footer__divider">
+                        | </span><a class="footer__link ml-2"
+                        href="https://candidatesupport.hackerrank.com/hc/en-us/sections/4402845071635-Test"
+                        target="_blank" data-event-category="Candidate Login Page" data-event-action="Click"
+                        data-event-label="FAQLink"> FAQ</a></footer>
+            </div>
+        </aside>
+        <main>
+
+
+
+            <!-- ----------------------------form start---------------------------------------->
+            <div class="content" style="overflow: hidden;">
+                <div class="ui-kit-root">
+                    <div class="body-wrap base-page test_view-page candidate_public_link_login_view-page">
+                        <div class="root-container"><a
+                                class="ui-btn ui-btn-normal ui-btn-primary skip-to-main-content ui-btn-link ui-btn-styled"
+                                href="#main-content">
+                            </a>
+                            <div class="prefetch-assets-wrapper"></div>
+                            <p role="status" class="sr-only">You are inside login view of the test</p>
+                            <div class="login-container scrolling-form-container">
+                                <div class="scrolling-form-container__pane-left">
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="scrolling-form-container__pane-right">
+                            <div class="right-pane">
+
+                                <div class="d-flex align-items-center">
+                                    <img src="https://image.shutterstock.com/image-vector/university-logo-template-260nw-1253562811.jpg" class="w-100 mt-lg-0 mt-5" style="max-width: 150px;" alt="">
+                                  <b class="mt-3" style="font-size: 18px;"><span>Univesity of coders</span></b>
+                                </div>
+                                <div id="test-details "
+                                class="right-pane__section right-pane__details scrolling-form-page " tabindex="-1">
+                                
+                                <section class="scrolling-form-page__section">
+                                    <div class="test-section-details px-2 ">
+                                        <h2 class="d-block right-pane__details__title mb-5 mt-5 border-bottom" style="font-size: 30px;">Test Details</h2>
+                                        <h2 class="d-block right-pane__details__title">Sections</h2>
+                                        <div class="test-section-details__table-wrapper p-2" style="  background-color:white;
+                                        box-shadow: 0px 0px 15px 10px rgba(229, 229, 229, 0.3);"><span
+                                                class="d-block right-pane__details__subtitle my-3">There are 2
+                                                sections that are part of this test:</span>
+                                            <table class="ui-table first-col-raised table table-striped">
+                                                <thead class="table-header-wrapper">
+                                                    <tr class="table-header flex">
+                                                        <td class="table-header-column" style="flex: 1 1 25%;">
+                                                            <div class="ellipsis">number</div>
+                                                        </td>
+                                                        <td class="table-header-column" style="flex: 2 1 50%;">
+                                                            <div class="ellipsis">section</div>
+                                                        </td>
+                                                        <td class="table-header-column" style="flex: 1 1 25%;">
+                                                            <div class="ellipsis">questions</div>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-body">
+
+                                                    <tr class="table-row flex">
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 1 1 25%;">1</td>
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 2 1 50%;">Section 1</td>
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 1 1 25%;">7</td>
+
+                                                    </tr>
+                                                    <tr class="table-row flex">
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 1 1 25%;">1</td>
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 2 1 50%;">Section 1</td>
+                                                        <td class="table-row-column ellipsis"
+                                                            style="flex: 1 1 25%;">7</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                  
+
+
+
+
+
+                                    <div class="d-flex align-items-sm-center flex-column flex-sm-row "><button
+                                            class="ui-btn ui-btn-normal ui-btn-primary ui-btn-styled"
+                                            data-event-category="Candidate Login Page" data-event-action="Click"
+                                            data-event-label="InstructionsContinueButton"
+                                            aria-label="continue to next section">
+                                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                                    aria-hidden="false">Continue</span></div>
+                                        </button><a
+                                            class="ui-btn ui-btn-normal ui-btn-line-primary ui-btn-link ui-btn-styled"
+                                            target="_blank" data-event-category="Candidate Login Page"
+                                            data-event-action="Click" data-event-label="InstructionsSampleTestLink"
+                                            href="https://www.hackerrank.com/tests/b9dn3agcfje/e3a133750c1ea660152abded8392f2c5">
+                                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                                    aria-hidden="false"></span></div>
+                                        </a><button class="ml-sm-4">Try Sample Test</button></div>
+                                </section>
+                            </div>
+
+                                <div class="test-question-details mt-200" >
+                            
+                                    <h2 class="d-block right-pane__details__title">Questions Details</h2><span
+                                        class="d-block right-pane__details-subtitle"
+                                        data-automation="question-language-instructions">Feel free to
+                                        choose your preferred programming language from the list of
+                                        languages supported for each question.</span><span
+                                        class="d-block right-pane__details__subtitle">There are 9
+                                        questions that are part of this test:</span>
+                                   <div class="table-responsive">
+                                        <table class="test-question-details__content table table-striped mt-4">
+                                        <thead class="sr-only">
+                                            <tr>
+                                                <th>Question Indexes</th>
+                                                <th>Question Types</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="test-question-details__content-row">
+                                                <td class="test-question-details__content-index">Q1</td>
+                                                <td class="test-question-details__content-section">
+                                                    <div class="d-flex flex-column"><span
+                                                            class="test-question-details__content-type">Coding
+                                                            Question</span><span><span
+                                                                class="test-question-details__content-lang-cnt">28
+                                                                languages allowed: </span><span
+                                                                class="test-question-details__content-lang-txt">c,
+                                                                clojure, cpp, cpp14, cpp20, csharp,
+                                                                erlang, go, haskell, java, java15,
+                                                                java8, javascript, julia, kotlin, lua,
+                                                                objectivec, perl, php, pypy, pypy3,
+                                                                python, python3, r, ruby, scala, swift,
+                                                                typescript</span></span></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="test-question-details__content-row">
+                                                <td class="test-question-details__content-index">Q2 - Q7
+                                                </td>
+                                                <td class="test-question-details__content-section">
+                                                    <div class="d-flex flex-column"><span
+                                                            class="test-question-details__content-type">Multiple
+                                                            Choice Questions</span></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="test-question-details__content-row">
+                                                <td class="test-question-details__content-index">Q8</td>
+                                                <td class="test-question-details__content-section">
+                                                    <div class="d-flex flex-column"><span
+                                                            class="test-question-details__content-type">Coding
+                                                            Question</span><span><span
+                                                                class="test-question-details__content-lang-cnt">26
+                                                                languages allowed: </span><span
+                                                                class="test-question-details__content-lang-txt">c,
+                                                                clojure, cpp, cpp14, csharp, elixir,
+                                                                erlang, go, haskell, java, java8,
+                                                                javascript, julia, kotlin, lua,
+                                                                objectivec, perl, php, pypy, pypy3,
+                                                                python, python3, r, ruby, scala,
+                                                                swift</span></span></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="test-question-details__content-row">
+                                                <td class="test-question-details__content-index">Q9</td>
+                                                <td class="test-question-details__content-section">
+                                                    <div class="d-flex flex-column"><span
+                                                            class="test-question-details__content-type">Coding
+                                                            Question</span><span><span
+                                                                class="test-question-details__content-lang-cnt">1
+                                                                language allowed: </span><span
+                                                                class="test-question-details__content-lang-txt">javascript</span></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </div>
+
+                           
+
+                                <div id="test-instructions"
+                                    class="right-pane__section right-pane__instructions scrolling-form-page"
+                                    tabindex="-1">
+                                    <section class="scrolling-form-page__section  mt-200">
+                                        <div class="test-instructions">
+                                            <h2 class="d-block test-instructions__title">Instructions</h2>
+                                            <div class="candidate-rich-text">
+                                                <div>
+                                                    <div id="instructions-content">
+                                                        <ol class="pl-4">
+                                                            <li>This is a timed test. Please make sure you are
+                                                                not interrupted during the test, as the timer
+                                                                cannot be paused once started.</li>
+                                                            <li>Please ensure you have a stable internet
+                                                                connection.</li>
+                                                            <li>We recommend you to try the <a
+                                                                    href="https://www.hackerrank.com/tests/b9dn3agcfje/e3a133750c1ea660152abded8392f2c5">sample
+                                                                    test</a> for a couple of minutes, before
+                                                                taking the main test.</li>
+                                                            <li>Before taking the test, please go through the <a
+                                                                    href="https://candidatesupport.hackerrank.com/hc/en-us/sections/4402845071635-Test">FAQs</a>
+                                                                to resolve your queries related to the test or
+                                                                the HackerRank platform.</li>
+                                                        </ol>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-sm-center flex-column flex-sm-row mb-5 mb-lg-0"><button
+                                                class="ui-btn ui-btn-normal ui-btn-primary ui-btn-styled"
+                                                data-event-category="Candidate Login Page" data-event-action="Click"
+                                                data-event-label="InstructionsContinueButton"
+                                                aria-label="continue to next section">
+                                                <div class="ui-content align-icon-right"><span class="ui-text"
+                                                        aria-hidden="false">Continue</span></div>
+                                            </button><a
+                                                class="ui-btn d-inline ui-btn-normal ui-btn-line-primary ui-btn-link ui-btn-styled"
+                                                target="_blank" data-event-category="Candidate Login Page"
+                                                data-event-action="Click" data-event-label="InstructionsSampleTestLink"
+                                                href="https://www.hackerrank.com/tests/b9dn3agcfje/e3a133750c1ea660152abded8392f2c5">
+                                                <div class="ui-content align-icon-right"><span class="ui-text"
+                                                        aria-hidden="false"></span></div>
+                                                        <button class="ml-sm-4">Try Sample Test</button> </a></div>
+                                    </section>
+                                </div>
+                              
+                               
+                                <div id="test-confirmation-form"
+                                    class="right-pane__section confirmation scrolling-form-page mt-200" tabindex="-1">
+                                    <section class="scrolling-form-page__section">
+                                        <main id="main-content" tabindex="-1">
+                                            <h2 class="d-block confirmation__title">Confirmation Form</h2>
+                                            <div class="candidate-details">
+                                                <p class="d-block candidate-details__sub-text">Before we start,
+                                                    here is some extra information we need to assess you better.
+                                                </p>
+                                                <form novalidate="">
+                                                    <div class="labeled-input hacker-details d-none"><span
+                                                            class="label-text">Logged in as</span>
+                                                        <div class="d-flex hacker-details__email-container">
+                                                            <span class="hacker-details__email"></span><button
+                                                                class="ui-btn ui-btn-normal ui-btn-plain ui-btn-link hacker-details__logout">
+                                                                <div class="ui-content align-icon-right"><span
+                                                                        class="ui-text" aria-hidden="false">Log
+                                                                        in as a different user</span></div>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="labeled-input candidate-details__email"><label
+                                                            for="labeled-input-17"
+                                                            class="label-text is-required-field">Email
+                                                            address/Login</label>
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
+                                                                        id="labeled-input-17" type="text" class="input"
+                                                                        placeholder="Enter your email address/login"
+                                                                        aria-label="Email address/Login"
+                                                                        aria-invalid="false" name="email" required=""
+                                                                        alignment="column"
+                                                                        value="newnagendra@techsnap.in"
+                                                                        aria-describedby="tooltip-labeled-input-17">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="labeled-input"><label for="labeled-input-20"
+                                                        class="label-text is-required-field">Full name</label>
+                                                    <div class="custom-input theme-m size-medium">
+                                                        <div class="input-wrap">
+                                                            <div class="ui-tooltip-wrapper"><input
+                                                                    id="labeled-input-20" type="text" class="input"
+                                                                    placeholder="Enter your name" aria-label="City"
+                                                                    aria-invalid="false" name="city" required=""
+                                                                    alignment="column" value=""
+                                                                    aria-describedby="tooltip-labeled-input-20">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="labeled-input mb-4"><label for="labeled-input-20"
+                                                    class="label-text is-required-field">City</label>
+                                                <div class="custom-input theme-m size-medium">
+                                                    <div class="input-wrap">
+                                                        <div class="ui-tooltip-wrapper">
+                                                            <select class="w-100" style="max-width:200px" name="" id="">
+                                                                  <option value="opt">option</option>
+                                                                  <option value="opt">option</option>
+                                                                  <option value="opt">option</option>
+                                                                  <option value="opt">option</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                  
+                                                    <div class="labeled-input"><label for="labeled-input-20"
+                                                            class="label-text is-required-field">City</label>
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
+                                                                        id="labeled-input-20" type="text" class="input"
+                                                                        placeholder="Enter your city" aria-label="City"
+                                                                        aria-invalid="false" name="city" required=""
+                                                                        alignment="column" value=""
+                                                                        aria-describedby="tooltip-labeled-input-20">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="labeled-input"><label for="labeled-input-21"
+                                                            class="label-text is-required-field">Student Roll
+                                                            Number</label>
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
+                                                                        id="labeled-input-21" type="text" class="input"
+                                                                        placeholder="Enter your student roll number"
+                                                                        aria-label="Student Roll Number"
+                                                                        aria-invalid="false" name="roll_number"
+                                                                        required="" alignment="column" value=""
+                                                                        aria-describedby="tooltip-labeled-input-21">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="labeled-input"><label for="labeled-input-22"
+                                                            class="label-text is-required-field">Personal Email
+                                                            Address</label>
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
+                                                                        id="labeled-input-22" type="text" class="input"
+                                                                        placeholder="Enter your personal email address"
+                                                                        aria-label="Personal Email Address"
+                                                                        aria-invalid="false" name="email_address"
+                                                                        required="" alignment="column" value=""
+                                                                        aria-describedby="tooltip-labeled-input-22">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="labeled-input"><label for="labeled-input-23"
+                                                            class="label-text is-required-field">Graduation
+                                                            Year</label>
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
+                                                                        id="labeled-input-23" type="text" class="input"
+                                                                        placeholder="Enter your graduation year"
+                                                                        aria-label="Graduation Year"
+                                                                        aria-invalid="false" name="year_of_graduation"
+                                                                        required="" alignment="column" value=""
+                                                                        aria-describedby="tooltip-labeled-input-23">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="labeled-input candidate-details__disclaimer mt-5">
+                                                        <label for="labeled-input-24"
+                                                            class="label-text is-required-field">
+                                                            <h2 style="text-transform: initial;font-size: 18px;" class="candidate-details__disclaimer-heading">
+                                                                Declaration Statement</h2>
+                                                        </label>
+
+                                                        <div class="d-flex  ">
+                                                            <input class="mr-2 mt-1" type="checkbox" name="" id="chk">
+                                                            <label for="chk">I will not
+                                                                consult/copy code from any
+                                                                source including a website,
+                                                                book, or friend/colleague to
+                                                                complete these tests, though
+                                                                may reference language
+                                                                documentation or use an IDE
+                                                                that has code completion
+                                                                features.</label>
+                                                        </div>
+
+                                                       
+                                                  
+                                                    <p class="candidate-details__cookie-policy mt-4">You agree to
+                                                        HackerRank's <a href="/privacy#cookies" target="_blank">cookie
+                                                            policy</a>. We use cookies to
+                                                        ensure you have the best browsing experience on our
+                                                        website</p><button
+                                                        class="ui-btn submit ui-btn-normal ui-btn-submit ui-btn-primary candidate-details__submit ui-btn-styled"
+                                                        type="button">
+                                                        <div class="ui-content align-icon-right"><span class="ui-text"
+                                                                aria-hidden="false">Agree &amp;
+                                                                Start</span></div>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </main>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </main>
+    </section>
+
+   
+    <script src="{% static 'js/mainStudent.js' %}">
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        $(".accor").click(function (params) {
+            $(this).toggleClass("togg")
+        })
+    </script>
+
+<script>
+    $(".submit").click(function(params) {
+       window.location.href="All.html"
+    })
+   </script>
+
+
+</body>
+
+</html>
