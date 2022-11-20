@@ -110,3 +110,15 @@ class Invitation(models.Model):
 
     def __str__(self):
         return str(self.invitedBy) + " " + str(self.assessment)
+
+
+class TestReport(models.Model):
+    user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
+    assessment = models.ForeignKey(
+        Assessment, null=False, on_delete=models.CASCADE)
+    status = models.TextChoices('In Progress', 'Completed')
+    marks = models.IntegerField(default=0)
+    time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.user) + " " + str(self.assessment)
