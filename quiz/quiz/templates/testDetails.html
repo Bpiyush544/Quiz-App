@@ -438,7 +438,8 @@
 
 
                                         <!--    Form starts here    -->
-                                                <form novalidate="">
+                                                <form method= "POST" action=".">
+                                                    {% csrf_token %}
                                                     <div class="labeled-input hacker-details d-none"><span
                                                             class="label-text">Logged in as</span>
                                                         <div class="d-flex hacker-details__email-container">
@@ -588,6 +589,7 @@
                                                                 aria-hidden="false">Agree &amp;
                                                                 Start</span></div>
                                                     </button>
+                                                    <button class="submit">Submit</button>
                                                 </form>
 
 
@@ -630,7 +632,7 @@
 
 <script>
     $(".submit").click(function(params) {
-       window.location.href="All.html"
+       window.location.href="."
     })
    </script>
 

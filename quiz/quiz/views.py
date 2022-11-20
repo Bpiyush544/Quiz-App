@@ -303,12 +303,18 @@ def attempted(request):
 
 def testDetails(request, test):
     print(test)
+    if request.method == 'POST':
+        # copy the code from CandidateSettings function
+        # Find out what we have to do with the collected information and where we have to store it
+        print(test, "jhbhjbhj")
+        return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
+
     assessment = Assessment.objects.get(name=test)
     # next we find all the sections and the information we need
 
     sections = Section.objects.filter(assessment=assessment)
     candidateDetails = CandidateDetail.objects.get(assessment=assessment)
-    print(candidateDetails.disclaimerCheck)
+    # print(candidateDetails.disclaimerCheck)
     # print(len(sections), sections)
     numberOfSections = len(sections)
     information = {}
@@ -321,6 +327,6 @@ def testDetails(request, test):
 
 # we can make a redirection from testDetails page to this one and a unique decoder and encoder can be used so that every child gets a unique session to get into the test and take the test
 
-def takeTest2(request,details):
-    print(details)
+def takeTest2(request, details):
+    print(details, "where are the details???")
     return render(request, 'takeTest2.html')
