@@ -122,3 +122,14 @@ class TestReport(models.Model):
 
     def __str__(self):
         return str(self.user) + " " + str(self.assessment)
+
+
+class SectionReport(models.Model):
+    testReport = models.ForeignKey(
+        TestReport, null=False, on_delete=models.CASCADE)
+    section = models.ForeignKey(Section, null=False, on_delete=models.CASCADE)
+    attemptInformation = models.CharField(max_length=1000000, default="")
+    marks = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.testReport) + " " + str(self.section)
