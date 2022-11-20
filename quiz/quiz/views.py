@@ -303,4 +303,15 @@ def attempted(request):
 
 def testDetails(request, test):
     print(test)
-    return render(request, 'testDetails.html')
+    assessment = Assessment.objects.get(name=test)
+    # next we find all the sections and the information we need
+
+    sections = Section.objects.filter(assessment=assessment)
+    # print(len(sections), sections)
+    numberOfSections = len(sections)
+    information = {}
+
+    for section in sections:
+        information[section] = len(QuestionSet.objects.filter(section=section))
+    # print(information)
+    return render(request, 'testDetails.html', {'numberOfSections': numberOfSections, 'information': information})

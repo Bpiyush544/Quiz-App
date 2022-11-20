@@ -178,7 +178,7 @@
         <aside class="sidebar text-left p-5">
            <img src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}" class="w-100 mt-5" style="max-width: 50px;" alt="">
             <div class="left-pane__top mt-3"><span class="left-pane__candidate-name">Hey
-                    Newnagendra,</span>
+                    {{user}},</span>
                 <h1 class="left-pane__test-name mt-3 text-left"
                     aria-label="Welcome to Techsnap Front-End Developer Hiring Test"><span class="d-flex"
                         aria-hidden="true">Welcome to</span><span aria-hidden="true"> Techsnap Front-End Developer
@@ -244,7 +244,7 @@
                                         <h2 class="d-block right-pane__details__title">Sections</h2>
                                         <div class="test-section-details__table-wrapper p-2" style="  background-color:white;
                                         box-shadow: 0px 0px 15px 10px rgba(229, 229, 229, 0.3);"><span
-                                                class="d-block right-pane__details__subtitle my-3">There are 2
+                                                class="d-block right-pane__details__subtitle my-3">There are {{numberOfSections}}
                                                 sections that are part of this test:</span>
                                             <table class="ui-table first-col-raised table table-striped">
                                                 <thead class="table-header-wrapper">
@@ -261,25 +261,16 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody class="table-body">
-
+                                                    {% for key,value in information.items %}
                                                     <tr class="table-row flex">
                                                         <td class="table-row-column ellipsis"
-                                                            style="flex: 1 1 25%;">1</td>
+                                                        style="flex: 1 1 25%;">{{ forloop.counter }}</td>
                                                         <td class="table-row-column ellipsis"
-                                                            style="flex: 2 1 50%;">Section 1</td>
+                                                        style="flex: 2 1 50%;">{{key.name}}</td>
                                                         <td class="table-row-column ellipsis"
-                                                            style="flex: 1 1 25%;">7</td>
-
+                                                        style="flex: 1 1 25%;">{{value}}</td>
                                                     </tr>
-                                                    <tr class="table-row flex">
-                                                        <td class="table-row-column ellipsis"
-                                                            style="flex: 1 1 25%;">1</td>
-                                                        <td class="table-row-column ellipsis"
-                                                            style="flex: 2 1 50%;">Section 1</td>
-                                                        <td class="table-row-column ellipsis"
-                                                            style="flex: 1 1 25%;">7</td>
-
-                                                    </tr>
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>
