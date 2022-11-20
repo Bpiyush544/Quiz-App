@@ -329,4 +329,11 @@ def testDetails(request, test):
 
 def takeTest2(request, details):
     print(details, "where are the details???")
-    return render(request, 'takeTest2.html')
+    information = {}
+    assessment = Assessment.objects.get(name=details)
+    sections = Section.objects.filter(assessment=assessment)
+
+    for section in sections:
+        information[section] = QuestionSet.objects.filter(section=section)
+    print(information)
+    return render(request, 'takeTest2.html', {'information': information})
