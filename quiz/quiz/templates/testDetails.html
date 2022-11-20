@@ -435,6 +435,9 @@
                                                 <p class="d-block candidate-details__sub-text">Before we start,
                                                     here is some extra information we need to assess you better.
                                                 </p>
+
+
+                                        <!--    Form starts here    -->
                                                 <form novalidate="">
                                                     <div class="labeled-input hacker-details d-none"><span
                                                             class="label-text">Logged in as</span>
@@ -447,10 +450,11 @@
                                                             </button>
                                                         </div>
                                                     </div>
+                                                    {% if candidateDetails.email %}
                                                     <div class="labeled-input candidate-details__email"><label
-                                                            for="labeled-input-17"
-                                                            class="label-text is-required-field">Email
-                                                            address/Login</label>
+                                                        for="labeled-input-17"
+                                                        class="label-text is-required-field">Email
+                                                        address/Login</label>
                                                         <div class="custom-input theme-m size-medium">
                                                             <div class="input-wrap">
                                                                 <div class="ui-tooltip-wrapper"><input
@@ -461,75 +465,63 @@
                                                                         alignment="column"
                                                                         value="newnagendra@techsnap.in"
                                                                         aria-describedby="tooltip-labeled-input-17">
+                                                                    </div>
                                                                 </div>
-                                                            </div>
                                                         </div>
                                                     </div>
+                                                    {% endif %}
 
-
+                                                    {% if candidateDetails.fullName %}
                                                     <div class="labeled-input"><label for="labeled-input-20"
                                                         class="label-text is-required-field">Full name</label>
-                                                    <div class="custom-input theme-m size-medium">
-                                                        <div class="input-wrap">
-                                                            <div class="ui-tooltip-wrapper"><input
+                                                        <div class="custom-input theme-m size-medium">
+                                                            <div class="input-wrap">
+                                                                <div class="ui-tooltip-wrapper"><input
                                                                     id="labeled-input-20" type="text" class="input"
                                                                     placeholder="Enter your name" aria-label="City"
                                                                     aria-invalid="false" name="city" required=""
                                                                     alignment="column" value=""
                                                                     aria-describedby="tooltip-labeled-input-20">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="labeled-input mb-4"><label for="labeled-input-20"
+                                                {% endif %}
+                                                {% if candidateDetails.city %}
+                                                <div class="labeled-input"><label for="labeled-input-20"
                                                     class="label-text is-required-field">City</label>
-                                                <div class="custom-input theme-m size-medium">
-                                                    <div class="input-wrap">
-                                                        <div class="ui-tooltip-wrapper">
-                                                            <select class="w-100" style="max-width:200px" name="" id="">
-                                                                  <option value="opt">option</option>
-                                                                  <option value="opt">option</option>
-                                                                  <option value="opt">option</option>
-                                                                  <option value="opt">option</option>
-
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                                  
-                                                    <div class="labeled-input"><label for="labeled-input-20"
-                                                            class="label-text is-required-field">City</label>
                                                         <div class="custom-input theme-m size-medium">
                                                             <div class="input-wrap">
                                                                 <div class="ui-tooltip-wrapper"><input
-                                                                        id="labeled-input-20" type="text" class="input"
-                                                                        placeholder="Enter your city" aria-label="City"
-                                                                        aria-invalid="false" name="city" required=""
-                                                                        alignment="column" value=""
-                                                                        aria-describedby="tooltip-labeled-input-20">
+                                                                    id="labeled-input-20" type="text" class="input"
+                                                                    placeholder="Enter your city" aria-label="City"
+                                                                    aria-invalid="false" name="city" required=""
+                                                                    alignment="column" value=""
+                                                                    aria-describedby="tooltip-labeled-input-20">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="labeled-input"><label for="labeled-input-21"
-                                                            class="label-text is-required-field">Student Roll
-                                                            Number</label>
-                                                        <div class="custom-input theme-m size-medium">
-                                                            <div class="input-wrap">
-                                                                <div class="ui-tooltip-wrapper"><input
-                                                                        id="labeled-input-21" type="text" class="input"
-                                                                        placeholder="Enter your student roll number"
-                                                                        aria-label="Student Roll Number"
-                                                                        aria-invalid="false" name="roll_number"
-                                                                        required="" alignment="column" value=""
-                                                                        aria-describedby="tooltip-labeled-input-21">
+                                                {% endif %}
+                                                {% if candidateDetails.rollNo %}
+                                                <div class="labeled-input"><label for="labeled-input-21"
+                                                    class="label-text is-required-field">Student Roll
+                                                    Number</label>
+                                                    <div class="custom-input theme-m size-medium">
+                                                        <div class="input-wrap">
+                                                            <div class="ui-tooltip-wrapper"><input
+                                                                id="labeled-input-21" type="text" class="input"
+                                                                placeholder="Enter your student roll number"
+                                                                aria-label="Student Roll Number"
+                                                                aria-invalid="false" name="roll_number"
+                                                                required="" alignment="column" value=""
+                                                                aria-describedby="tooltip-labeled-input-21">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="labeled-input"><label for="labeled-input-22"
+                                                {% endif %}
+                                                    {% comment %} <div class="labeled-input"><label for="labeled-input-22"
                                                             class="label-text is-required-field">Personal Email
                                                             Address</label>
                                                         <div class="custom-input theme-m size-medium">
@@ -544,23 +536,25 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> {% endcomment %}
+                                                    {% if candidateDetails.gradYear %}
                                                     <div class="labeled-input"><label for="labeled-input-23"
-                                                            class="label-text is-required-field">Graduation
-                                                            Year</label>
+                                                        class="label-text is-required-field">Graduation
+                                                        Year</label>
                                                         <div class="custom-input theme-m size-medium">
                                                             <div class="input-wrap">
                                                                 <div class="ui-tooltip-wrapper"><input
-                                                                        id="labeled-input-23" type="text" class="input"
-                                                                        placeholder="Enter your graduation year"
-                                                                        aria-label="Graduation Year"
-                                                                        aria-invalid="false" name="year_of_graduation"
-                                                                        required="" alignment="column" value=""
-                                                                        aria-describedby="tooltip-labeled-input-23">
+                                                                    id="labeled-input-23" type="text" class="input"
+                                                                    placeholder="Enter your graduation year"
+                                                                    aria-label="Graduation Year"
+                                                                    aria-invalid="false" name="year_of_graduation"
+                                                                    required="" alignment="column" value=""
+                                                                    aria-describedby="tooltip-labeled-input-23">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    {% endif %}
                                                     <div class="labeled-input candidate-details__disclaimer mt-5">
                                                         <label for="labeled-input-24"
                                                             class="label-text is-required-field">
@@ -595,6 +589,10 @@
                                                                 Start</span></div>
                                                     </button>
                                                 </form>
+
+
+
+                                                <!--    Form ends here    -->
                                             </div>
                                         </main>
                                     </section>

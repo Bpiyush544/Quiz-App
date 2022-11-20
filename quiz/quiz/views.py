@@ -307,6 +307,8 @@ def testDetails(request, test):
     # next we find all the sections and the information we need
 
     sections = Section.objects.filter(assessment=assessment)
+    candidateDetails = CandidateDetail.objects.get(assessment=assessment)
+    print(candidateDetails.disclaimerCheck)
     # print(len(sections), sections)
     numberOfSections = len(sections)
     information = {}
@@ -314,4 +316,11 @@ def testDetails(request, test):
     for section in sections:
         information[section] = len(QuestionSet.objects.filter(section=section))
     # print(information)
-    return render(request, 'testDetails.html', {'numberOfSections': numberOfSections, 'information': information})
+    return render(request, 'testDetails.html', {'numberOfSections': numberOfSections, 'information': information, 'candidateDetails': candidateDetails})
+
+
+# we can make a redirection from testDetails page to this one and a unique decoder and encoder can be used so that every child gets a unique session to get into the test and take the test
+
+def takeTest2(request,details):
+    print(details)
+    return render(request, 'takeTest2.html')

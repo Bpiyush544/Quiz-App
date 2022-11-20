@@ -1,0 +1,691 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Add questions </title>
+  <link rel="stylesheet" href="{% static 'css/inner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+main{
+  margin-top: 0px;
+}
+
+.test .tab-content .form{
+  text-transform: initial;
+  background-color: transparent;
+}
+
+.question-tab{
+  background-color: #212529;
+
+}
+
+
+
+.question-tab__list--scrollable::-webkit-scrollbar{
+  display: none;
+
+}
+
+.question-tab__list-item{
+  color: white;
+  text-decoration: none !important;
+}
+
+
+.question-tab__list-item:hover{
+  color: white;
+  text-decoration: none !important;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: aqua;
+}
+
+table th, table td{
+  color: white !important;
+  border-bottom: 1px solid rgb(75, 75, 75) !important;
+}
+
+tr{
+  border-bottom: 1px solid rgb(75, 75, 75);
+}
+
+.table tbody+tbody{
+  border: none;
+}
+
+.table th{
+  border-top: none;
+  font-weight: bold;
+}
+
+table{
+  min-width: 768px;
+}
+
+th,td{
+  font-weight:normal;
+  width: calc(100% / 5);
+}
+
+.test-container__content {
+  background-color: #2e3441 !important;
+}
+
+.question{
+  flex-direction: row !important;
+  align-items: center !important;
+  background-color: #2e3441 !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgb(75, 75, 75);
+  padding-bottom: 15px;
+
+}
+
+header{
+  height: auto !important;
+  position: fixed !important;
+  width: 100%;
+  padding: 5px;
+}
+
+h2{
+  margin-top: 30px;
+  color: #bc02fb !important;
+}
+
+.ui-btn.ui-btn-primary {
+    border: 1px solid #bc02fb;
+    background-color: #bc02fb;
+    color: var(--color-white);
+}
+
+.ui-btn.ui-btn-primary {
+    box-shadow: none !important;
+}
+
+.question{
+  color: white;
+  font-weight: normal;
+}
+
+    main .content{
+      margin-top: 0px;
+      width: 100%;
+      margin-left: 0px;
+    }
+
+
+    @media(max-width:767px){
+      .question{
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  background-color: #2e3441 !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgb(75, 75, 75);
+  padding-bottom: 15px;
+
+}
+
+.full{
+  width: 100%;
+}
+
+    }
+
+    
+
+    .nav-pills{
+      margin-top: 90px;
+      
+  background-color: #0e141e !important;
+    } 
+
+    /* @media(max-width:450px){
+     .nav-pills{
+    margin-top: 145px;
+  }
+} */
+  </style>
+</head>
+
+<body>
+  <section class="dashboard">
+    <main>
+
+      <!-- ----------------------------form start---------------------------------------->
+      <div class="content test w-100" style="overflow: hidden;">
+        <div class="ui-kit-root">
+          <div class="body-wrap base-page test_view-page question_listview-page">
+            <div class="root-container">
+              <div class="prefetch-assets-wrapper"></div>
+              <p role="status" class="sr-only">You are inside question listing view of the test</p>
+              <header class="d-flex flex-column main-header low-width-layout py-3">
+                <nav class="d-flex flex-column main-header__nav">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap">
+                    <div class="d-flex align-items-center full">
+                      <div class="justify-content-center"><a class="d-flex main-header__logo-link"
+                          href="/test/8tpnscpqpok/questions"><img class="main-header__logo"
+                            src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}"
+                            alt="Techsnap Front-End Developer Hiring Test"></a></div>
+                      <h1 class="main-header__title">Techsnap Front-End Developer Hiring Test</h1>
+                      <i class="fa fa-info ml-4"></i>
+                      <div class="d-md-none userinfo d-flex align-items-center ml-auto">
+                        <div class="dropdown selectable-dropdown-menu userinfo__handle userinfo__name"><button
+                            class="ui-btn ui-btn-normal ui-btn-plain dropdown-handle selectable-dropdown-menu__toggle"
+                            aria-label="user j" data-event-category="Question Listing Page" data-event-action="Click"
+                            data-event-label="ProfileSettings" aria-haspopup="menu" aria-expanded="false">
+                            <div class="ui-content  icon align-icon-right "><span class="ui-text" aria-hidden="false">
+                                </svg></div>
+                          </button></div>
+                          <div class="dropdown">
+                            <button class="text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;outline:none ; border: none;">
+                          
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center main-header__test ml-md-auto">
+                      <div class="d-flex align-items-center main-header__test-info">
+                     
+
+                       
+                      <div class="main-header__theme-switch">
+                        <div class="popover-wrapper">
+                          <div class="d-flex align-items-center ml-3 " style="font-size: 14px;">
+                            <div class="d-flex align-items-center main-header__test-time"><svg viewBox="0 0 24 24"
+                              width="1em" height="1em" class=" ui-svg-icon" fill="currentColor">
+                              <path
+                                d="M12 23C5.9 23 1 18.1 1 12S5.9 1 12 1s11 4.9 11 11-4.9 11-11 11zm0-20c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9z">
+                              </path>
+                              <path
+                                d="M16 15c-.2 0-.3 0-.4-.1l-4-2c-.4-.2-.6-.5-.6-.9V6c0-.6.4-1 1-1s1 .4 1 1v5.4l3.4 1.7c.5.2.7.8.4 1.3-.1.4-.4.6-.8.6z">
+                              </path>
+                            </svg>
+                            
+                            <div role="timer" class="main-header__timer bold">37 mins</div>
+                          </div>
+                           <a href="All.html" class="text-decoration-none text-white "> <p class="mx-3 mb-0">All</p></a>
+                           <div class="main-header__test-attempts">Answered: <strong class="main-header__info-text">0 /
+                            9</strong></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-md-flex userinfo d-none align-items-center pr-3">
+                        <div class="dropdown selectable-dropdown-menu userinfo__handle userinfo__name"><button
+                            class="ui-btn ui-btn-normal ui-btn-plain dropdown-handle selectable-dropdown-menu__toggle"
+                            aria-label="user j" data-event-category="Question Listing Page" data-event-action="Click"
+                            data-event-label="ProfileSettings" aria-haspopup="menu" aria-expanded="false">
+                            <div class="ui-content  icon align-icon-right "><span class="ui-text" aria-hidden="false">
+                                </svg></div>
+                          </button></div>
+                          <div class="dropdown" style="font-size: 16px;">
+                            <button class="text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;outline:none ; border: none;">
+                          
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                
+                </nav>
+              </header>
+              
+                <div class="d-flex flex-column test-container__content">
+                  <main id="main-content" class="question-list pt-3">
+                    <ul class="nav nav-pills">
+                      <li class="active"><a class="active" data-toggle="pill" href="#home">Section 1</a></li>
+                      <li><a data-toggle="pill" href="#menu1">Section 2</a></li>
+                      <li><a data-toggle="pill" href="#menu2">Section 3</a></li>
+                      
+                    </ul>
+
+
+
+
+
+                    
+
+                    <div class="tab-content">
+                    <div id="home" class=" checklabel tab-pane show fade in active form p-sm-3 p-2 mt-3">
+                    <div class="d-flex justify-content-between section flex-column align-items-start">
+                      <h2 class="d-flex align-items-center section__heading">Section 1</h2>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="section-questions table">
+                      <tr>
+                        <th>Task</th>
+                        <th>Type</th>
+                        <th>Score</th>
+                        <th>Submitted</th>
+                        <th></th>
+                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                    <div class="d-flex flex-column question-list__actions align-items-start text-right"><button
+                      class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
+                      <div class="ui-content align-icon-right"><span class="ui-text submit" aria-hidden="false">Submit
+                          Test</span></div>
+                    </button></div>
+                  </div>
+
+
+
+                  <div id="menu1" class=" checklabel tab-pane  fade in  form p-sm-3 p-2 mt-3">
+                    <div class="d-flex justify-content-between section flex-column align-items-start">
+                      <h2 class="d-flex align-items-center section__heading">Section 2</h2>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="section-questions table">
+                      <tr>
+                        <th>Task</th>
+                        <th>Type</th>
+                        <th>Score</th>
+                        <th>Submitted</th>
+                        <th></th>
+                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                    <div class="d-flex flex-column question-list__actions align-items-start text-right"><button
+                      class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
+                      <div class="ui-content align-icon-right"><span class="ui-text submit" aria-hidden="false">Submit
+                          Test</span></div>
+                    </button></div>
+                  </div>
+
+
+
+                  <div id="menu2" class=" checklabel tab-pane  fade in  form p-sm-3 p-2 mt-3">
+                    <div class="d-flex justify-content-between section flex-column align-items-start">
+                      <h2 class="d-flex align-items-center section__heading">Section 3</h2>
+                    </div>
+                    <div class="table-responsive">
+                    <table class="section-questions table">
+                      <tr>
+                        <th>Task</th>
+                        <th>Type</th>
+                        <th>Score</th>
+                        <th>Submitted</th>
+                        <th></th>
+                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                        <tr>
+                          <td>Ad Rotation</td>
+                          <td>Coding</td>
+                          <td>0/300</td>
+                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td class="question__action"><a
+                            class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
+                            aria-label="Solve Ad Rotation" href="fibuzz.html">
+                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                aria-hidden="false">Solve</span></div>
+                          </a></td>
+                        </tr>
+
+
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                    <div class="d-flex flex-column question-list__actions align-items-start text-right"><button
+                      class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
+                      <div class="ui-content align-icon-right"><span class="ui-text  submit" aria-hidden="false">Submit
+                          Test</span></div>
+                    </button></div>
+                  </div>
+
+                </div>
+                    
+                 
+                  </main>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script>
+
+  </script>
+  <script src="main.js">
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(".accor").click(function (params) {
+      $(this).toggleClass("togg")
+    })
+
+     $(".question__action span").text("View Task");
+
+    $(".submit").text("Submit");
+  </script>
+
+
+</body>
+
+</html>
