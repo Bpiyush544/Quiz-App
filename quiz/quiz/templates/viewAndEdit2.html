@@ -168,15 +168,15 @@
                 {{value}}
               {% endfor %} {% endcomment %}
 
-              {% for key,value in information.items %}
+              {% comment %} {% for key,value in information.items %}
                 {{key}}
                 {{value}}
-              {% endfor %}
+              {% endfor %} {% endcomment %}
 
               <br>
               {% comment %} I think the for loop should start from here... {% endcomment %}
-              {% for info in information %}
-              <h2>{{info}}</h2>
+              {% for key,value in information.items %}
+              <h2>{{key}}</h2>
               <div class="table-responsive-xl">
                 <table class="table border px-5" style="box-shadow:0px 2px 3px 0px rgba(0,0,0,0.3) ;">
                   <thead class="mx-5">
@@ -191,13 +191,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    {% for question in questions %}
+                    {% for question in value %}
                     <tr>
-                      <th scope="row">{{question}}</th>
+                      <th scope="row">{{question.questionTitle}}</th>
                       <td>Question type</td>
                       <td>19 mins</td>
                       <td>html</td>
-                      <td class="text-center">5</td>
+                      <td class="text-center">{{question.mark}}</td>
                       <td class="text-center dropleft" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">Try question</a>
