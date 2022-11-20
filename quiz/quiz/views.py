@@ -301,5 +301,6 @@ def attempted(request):
     return render(request, 'attempted.html', {'invites': Invitation.objects.all()})
 
 
-def testDetails(request):
+def testDetails(request, test):
+    print(test)
     return render(request, 'testDetails.html')

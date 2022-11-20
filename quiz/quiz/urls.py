@@ -17,5 +17,5 @@ urlpatterns = [
     path('invites/', invites, name="invites"),
     path('unused/', unused, name="unused"),
     path('attempted/', attempted, name="attempted"),
-    path('testDetails/<str:test>', testDetails, name="testDetails"),
+    path('testDetails/<str:test>/', testDetails, name="testDetails"),
 ]
