@@ -50,7 +50,7 @@ class QuestionSet(models.Model):
     mark = models.IntegerField()
 
     def __str__(self):
-        return(str(self.assessment))
+        return(str(self.assessment) + " - " + self.questionTitle)
 
 
 class OptionSet(models.Model):

@@ -262,23 +262,31 @@
               <div class="d-flex flex-row test-container low-width-layout">
                 <div class="d-flex question-tab">
                   <ul class="question-tab__list question-tab__list--scrollable">
-                    <li class="question-tab__list-item-wrapper">
-                      <div class="ui-tooltip-wrapper"><a
+
+                    {% for number,info in information.items %}
+                      <li class="question-tab__list-item-wrapper">
+                        <div class="ui-tooltip-wrapper"><a
                           class="d-flex align-items-center justify-content-center question-tab__list-item"
-                          aria-label="Solve question 2" href="#second" aria-describedby="tooltip-2">2</a></div>
-                    </li>
+                          aria-label="Solve question {{ forloop.counter }}" href="#{{ forloop.counter }}" aria-describedby="tooltip-2">{{ forloop.counter }}</a></div>
+                        </li>
+                    {% endfor %}
+                  
                   </ul>
                 </div>
                 <div class="d-flex flex-column test-container__content">
 
               
-                   
-                    <form id="second">
-                      <div class="grouped-mcq__question">
+
+
+
+
+                   {% for key,value in information.items %}
+                   <form id="{{ forloop.counter }}">
+                     <div class="grouped-mcq__question">
                         <div class="grouped-mcq__hook"></div>
                         <section class="question-view__title-wrapper">
                           
-                          <h1 class="question-view__title mt-5" id="34hassof40b-title">2. CSS: Inheritance Statement</h1>
+                          <h1 class="question-view__title mt-5" id="34hassof40b-title">{{ forloop.counter }}. {{key.questionTitle}}</h1>
                         </section>
                         <section class="question-view__instruction">
                           <div class="candidate-rich-text">
@@ -295,7 +303,7 @@
                             </section>
                             <section class="solution__body">
                               <div class="d-flex solution__options-list" role="group"
-                                aria-labelledby="34hassof40b-title 34hassof40b-instruction">
+                              aria-labelledby="34hassof40b-title 34hassof40b-instruction">
                                 <div class="ui-checklist" role="group">
                                   <div class="ui-checklist-list">
                                     <div class="ui-checklist-list-item">
@@ -317,12 +325,12 @@
                                     <div class="ui-checklist-list-item">
                                       <div class="ui-checklist-item-wrap">
                                         <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                                name="34hassof40b" value="2"><span class="custom-holder inset"><svg
-                                                  viewBox="0 0 24 24" width="1em" height="1em"
-                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                          <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                            name="34hassof40b" value="2"><span class="custom-holder inset"><svg
+                                              viewBox="0 0 24 24" width="1em" height="1em"
+                                              class="checkbox__check-icon ui-svg-icon" fill="currentColor">
                                                   <path
-                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
                                                   </path>
                                                 </svg></span></div>
                                             <div class="label">The 'inherit' keyword has no effect on the element whose
@@ -333,30 +341,30 @@
                                     <div class="ui-checklist-list-item">
                                       <div class="ui-checklist-item-wrap">
                                         <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                                name="34hassof40b" value="3"><span class="custom-holder inset"><svg
-                                                  viewBox="0 0 24 24" width="1em" height="1em"
-                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
-                                                  <path
-                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                                  </path>
-                                                </svg></span></div>
-                                            <div class="label">The 'inherit' keyword works on the element whose parent
-                                              is not inherited.</div>
+                                          <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                            name="34hassof40b" value="3"><span class="custom-holder inset"><svg
+                                              viewBox="0 0 24 24" width="1em" height="1em"
+                                              class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                              <path
+                                              d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                            </path>
+                                          </svg></span></div>
+                                          <div class="label">The 'inherit' keyword works on the element whose parent
+                                            is not inherited.</div>
                                           </label></div>
-                                      </div>
+                                        </div>
                                     </div>
                                     <div class="ui-checklist-list-item">
                                       <div class="ui-checklist-item-wrap">
                                         <div class="ui-checkbox theme-m"><label class="label-wrap">
                                             <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                                name="34hassof40b" value="4"><span class="custom-holder inset"><svg
-                                                  viewBox="0 0 24 24" width="1em" height="1em"
-                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
-                                                  <path
-                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                                  </path>
-                                                </svg></span></div>
+                                              name="34hassof40b" value="4"><span class="custom-holder inset"><svg
+                                                viewBox="0 0 24 24" width="1em" height="1em"
+                                                class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                <path
+                                                d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                              </path>
+                                            </svg></span></div>
                                             <div class="label">The 'inherit' keyword has no effect on the element whose
                                               parent is not inherited.</div>
                                           </label></div>
@@ -368,17 +376,19 @@
                               class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
                               type="button" aria-label="Clear Selection for Question 2">
                               <div class="ui-content align-icon-right"><span class="ui-text"
-                                      aria-hidden="false">Clear Selection</span></div>
-                          </button>
+                                aria-hidden="false">Clear Selection</span></div>
+                              </button>
                               <div
                                 class="solution__status-message solution__status-message--none solution__status-message--hidden"
                                 role="status"><span class="d-flex align-items-center"><span
                                     class="solution__status-message__text"></span></span></div>
-                            </section>
+                                  </section>
                           </div>
                         </form>
                       </div>
                     </form>
+                  {% endfor %}
+
                 </div>
               </div>
     </main>

@@ -340,4 +340,22 @@ def takeTest2(request, details):
 
 
 def testQues(request):
-    return render(request, 'testQues.html')
+    sections = Section.objects.all()
+    for section in sections:
+        print(section.name, section.id)
+
+    sectionId = 2
+
+    section = Section.objects.get(id=sectionId)
+
+    questions = QuestionSet.objects.filter(section=section)
+    print("All the questions are : ", questions)
+    information = {}
+
+    for question in questions:
+        information[question] = OptionSet.objects.filter(Question=question)
+    print(information)
+    # temp = {'question1':OptionSet, 'question2':OptionSet}
+    # information = {'1': '1', '2': '2',
+    #                '3': '3', '4': '4', '5': '5'}
+    return render(request, 'testQues.html', {'information': information})
