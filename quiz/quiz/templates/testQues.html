@@ -1,0 +1,1103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <title>Add questions </title>
+  <link rel="stylesheet" href="{% static 'css/inner.css' %}">
+  <link rel="stylesheet" href="{% static 'css/studentStyle.css' %}">
+  <style>
+
+
+    main {
+      margin-top: 0px;
+    }
+
+    .question-tab {
+      background-color: #212529;
+
+    }
+
+
+    .question-tab__list--scrollable::-webkit-scrollbar {
+      display: none;
+
+    }
+
+    p{
+      color: white;
+    }
+
+    .question-tab__list-item {
+      color: white;
+      text-decoration: none !important;
+    }
+
+
+    .question-tab__list-item:hover {
+      color: white;
+      text-decoration: none !important;
+    }
+
+    .test-container__content {
+      background-color: #2e3441 !important;
+    }
+
+    .question {
+      flex-direction: row !important;
+      align-items: center !important;
+      background-color: #2e3441 !important;
+      box-shadow: none !important;
+      border-bottom: 1px solid rgb(75, 75, 75);
+      padding-bottom: 15px;
+
+    }
+
+    .test-container.low-width-layout{
+      height: initial;
+    }
+
+    .grouped-mcq__question{
+      padding: 0px !important;
+    }
+
+    header{
+  height: auto !important;
+  position: fixed !important;
+  width: 100%;
+  padding: 5px;
+}
+
+    h2 {
+      margin-top: 30px;
+      color: #021af8 !important;
+    }
+
+    .ui-btn.ui-btn-primary {
+      border: 1px solid #021af8;
+      background-color: #021af8;
+      color: var(--color-white);
+    }
+
+    .icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: aqua;
+}
+    .label {
+      color: white !important;
+      font-weight: normal;
+    }
+
+    .question {
+      color: white;
+      font-weight: normal;
+    }
+
+    .question-tab{
+      width: 60px;
+    }
+
+    .test-container__content {
+      overflow: hidden;
+    }
+
+    .question-tab ul{
+      position: fixed;
+      top: 70px;
+      bottom: 0px;
+      width: 50px;
+      left: -17px;
+    }
+
+    main .content {
+      margin-top: 0px;
+      width: 100%;
+      margin-left: 0px;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    
+
+    @media(max-width:767px) {
+      .question {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        background-color: #2e3441 !important;
+        box-shadow: none !important;
+        border-bottom: 1px solid rgb(75, 75, 75);
+        padding-bottom: 15px;
+
+      }
+
+      .question-view__title-wrapper{
+        padding-top: 66px;
+      }
+
+      .full{
+  width: 100%;
+}
+    }
+
+
+    @media(max-width:639px){
+      .question-tab ul{
+      position: fixed;
+      top: 70px;
+      bottom: 0px;
+      width: 50px;
+      left: 0px;
+    }
+    }
+
+  </style>
+</head>
+
+<body>
+  <section class="dashboard">
+    <main class="">
+
+      <!-- ----------------------------form start---------------------------------------->
+      <div class="content test w-100 " style="overflow: hidden;">
+        <div class="ui-kit-root">
+          <div class="body-wrap base-page test_view-page question_listview-page ">
+            <div class="root-container">
+              <div class="prefetch-assets-wrapper"></div>
+              <p role="status" class="sr-only">You are inside question listing view of the test</p>
+              <header class="d-flex flex-column main-header low-width-layout py-3">
+                <nav class="d-flex flex-column main-header__nav">
+                  <div class="d-flex align-items-center justify-content-between flex-wrap">
+                    <div class="d-flex align-items-center full">
+                      <div class="justify-content-center"><a class="d-flex main-header__logo-link"
+                          href="/test/8tpnscpqpok/questions"><img class="main-header__logo"
+                            src="{% static 'images/c986409c-24fb-4d8d-8eab-77583a72f4b0.jpg' %}"
+                            alt="Techsnap Front-End Developer Hiring Test"></a></div>
+                      <h1 class="main-header__title">Techsnap Front-End Developer Hiring Test</h1>
+                      <i class="fa fa-info ml-4"></i>
+                      <div class="d-md-none userinfo d-flex align-items-center ml-auto">
+                        <div class="dropdown selectable-dropdown-menu userinfo__handle userinfo__name"><button
+                            class="ui-btn ui-btn-normal ui-btn-plain dropdown-handle selectable-dropdown-menu__toggle"
+                            aria-label="user j" data-event-category="Question Listing Page" data-event-action="Click"
+                            data-event-label="ProfileSettings" aria-haspopup="menu" aria-expanded="false">
+                            <div class="ui-content  icon align-icon-right "><span class="ui-text" aria-hidden="false">
+                                </svg></div>
+                          </button></div>
+                          <div class="dropdown">
+                            <button class="text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;outline:none ; border: none;">
+                          
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center main-header__test ml-md-auto">
+                      <div class="d-flex align-items-center main-header__test-info">
+                     
+
+                       
+                      <div class="main-header__theme-switch">
+                        <div class="popover-wrapper">
+                          <div class="d-flex align-items-center ml-3 " style="font-size: 14px;">
+                            <div class="d-flex align-items-center main-header__test-time"><svg viewBox="0 0 24 24"
+                              width="1em" height="1em" class=" ui-svg-icon" fill="currentColor">
+                              <path
+                                d="M12 23C5.9 23 1 18.1 1 12S5.9 1 12 1s11 4.9 11 11-4.9 11-11 11zm0-20c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9z">
+                              </path>
+                              <path
+                                d="M16 15c-.2 0-.3 0-.4-.1l-4-2c-.4-.2-.6-.5-.6-.9V6c0-.6.4-1 1-1s1 .4 1 1v5.4l3.4 1.7c.5.2.7.8.4 1.3-.1.4-.4.6-.8.6z">
+                              </path>
+                            </svg>
+                            
+                            <div role="timer" class="main-header__timer bold">37 mins</div>
+                          </div>
+                           <a href="All.html" class="text-decoration-none text-white "> <p class="mx-3 mb-0">All</p></a>
+                           <div class="main-header__test-attempts">Answered: <strong class="main-header__info-text">0 /
+                            9</strong></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-md-flex userinfo d-none align-items-center pr-3">
+                        <div class="dropdown selectable-dropdown-menu userinfo__handle userinfo__name"><button
+                            class="ui-btn ui-btn-normal ui-btn-plain dropdown-handle selectable-dropdown-menu__toggle"
+                            aria-label="user j" data-event-category="Question Listing Page" data-event-action="Click"
+                            data-event-label="ProfileSettings" aria-haspopup="menu" aria-expanded="false">
+                            <div class="ui-content  icon align-icon-right "><span class="ui-text" aria-hidden="false">
+                                </svg></div>
+                          </button></div>
+                          <div class="dropdown" style="font-size: 16px;">
+                            <button class="text-white  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent;outline:none ; border: none;">
+                          
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Action</a>
+                              <a class="dropdown-item" href="#">Another action</a>
+                              <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                
+                </nav>
+              </header>
+              <div class="d-flex flex-row test-container low-width-layout">
+                <div class="d-flex question-tab">
+                  <ul class="question-tab__list question-tab__list--scrollable">
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 2" href="#secques" aria-describedby="tooltip-2">2</a></div>
+                    </li>
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 3" href="#thirdques" aria-describedby="tooltip-3">3</a></div>
+                    </li>
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 4" href="#forthques" aria-describedby="tooltip-4">4</a></div>
+                    </li>
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 5" href="#fiftques" aria-describedby="tooltip-5">5</a></div>
+                    </li>
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 6" href="#sixthques" aria-describedby="tooltip-6">6</a></div>
+                    </li>
+                    <li class="question-tab__list-item-wrapper">
+                      <div class="ui-tooltip-wrapper"><a
+                          class="d-flex align-items-center justify-content-center question-tab__list-item"
+                          aria-label="Solve question 7" href="#sevenques"
+                          aria-describedby="tooltip-7">7</a></div>
+                    </li>
+
+                  
+                  </ul>
+                </div>
+                <div class="d-flex flex-column test-container__content">
+
+              
+                   
+                    <form id="secques">
+                      <div class="grouped-mcq__question">
+                        <div class="grouped-mcq__hook"></div>
+                        <section class="question-view__title-wrapper">
+                          
+                          <h1 class="question-view__title mt-5" id="34hassof40b-title">2. CSS: Inheritance Statement</h1>
+                        </section>
+                        <section class="question-view__instruction">
+                          <div class="candidate-rich-text">
+                            <div id="34hassof40b-instruction">
+                              <p>Which of the following statements are true with respect to the 'inherit'
+                                property&nbsp;in CSS?</p>
+                            </div>
+                          </div>
+                        </section>
+                        <form>
+                          <div class="solution solution--mcq">
+                            <section class="solution__heading">
+                              <div class="solution__directive text-white my-3">Pick <strong>ONE OR MORE</strong> options</div>
+                            </section>
+                            <section class="solution__body">
+                              <div class="d-flex solution__options-list" role="group"
+                                aria-labelledby="34hassof40b-title 34hassof40b-instruction">
+                                <div class="ui-checklist" role="group">
+                                  <div class="ui-checklist-list">
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="34hassof40b" value="1"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The 'inherit' keyword works on the element whose parent
+                                              is already inherited.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="34hassof40b" value="2"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The 'inherit' keyword has no effect on the element whose
+                                              parent is already inherited.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="34hassof40b" value="3"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The 'inherit' keyword works on the element whose parent
+                                              is not inherited.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="34hassof40b" value="4"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The 'inherit' keyword has no effect on the element whose
+                                              parent is not inherited.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><button
+                              class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                              type="button" aria-label="Clear Selection for Question 2">
+                              <div class="ui-content align-icon-right"><span class="ui-text"
+                                      aria-hidden="false">Clear Selection</span></div>
+                          </button>
+                              <div
+                                class="solution__status-message solution__status-message--none solution__status-message--hidden"
+                                role="status"><span class="d-flex align-items-center"><span
+                                    class="solution__status-message__text"></span></span></div>
+                            </section>
+                          </div>
+                        </form>
+
+
+                        
+                      </div>
+                    </form>
+
+
+                    <form id="thirdques">
+                      <div class="grouped-mcq__question">
+                        <div class="grouped-mcq__hook"></div>
+                        <section class="question-view__title-wrapper">
+                          
+                          <h1 class="question-view__title" id="eo3gprgstil-title">3. CSS place-content</h1>
+                        </section>
+                        <section class="question-view__instruction">
+                          <div class="candidate-rich-text">
+                            <div id="eo3gprgstil-instruction">
+                              <p>Which of the following&nbsp;are true about the CSS property&nbsp;'place-content'?</p>
+  
+                              <p>&nbsp;</p>
+                            </div>
+                          </div>
+                        </section>
+                        <form>
+                          <div class="solution solution--mcq">
+                            <section class="solution__heading">
+                              <div class="solution__directive mb-4 text-white">Pick <strong>ONE OR MORE</strong> options</div>
+                            </section>
+                            <section class="solution__body">
+                              <div class="d-flex solution__options-list" role="group"
+                                aria-labelledby="eo3gprgstil-title eo3gprgstil-instruction">
+                                <div class="ui-checklist" role="group">
+                                  <div class="ui-checklist-list">
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="eo3gprgstil" value="1"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">'place-content: center' aligns the element to be vertically
+                                              centered.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="eo3gprgstil" value="2"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">'place-content: center' aligns the element to be
+                                              horizontally centered.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="eo3gprgstil" value="3"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">'place-content: center' aligns the element to be both
+                                              vertically and horizontally centered.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="eo3gprgstil" value="4"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">None of the above</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><button
+                              class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                              type="button" aria-label="Clear Selection for Question 2">
+                              <div class="ui-content align-icon-right"><span class="ui-text"
+                                      aria-hidden="false">Clear Selection</span></div>
+                          </button>
+                              <div
+                                class="solution__status-message solution__status-message--none solution__status-message--hidden"
+                                role="status"><span class="d-flex align-items-center"><span
+                                    class="solution__status-message__text"></span></span></div>
+                            </section>
+                          </div>
+                        </form>
+                      </div>
+                    </form>
+      
+
+
+                    <form id="forthques">
+                      <div class="grouped-mcq__question">
+                        <div class="grouped-mcq__hook"></div>
+                        <section class="question-view__title-wrapper">
+                        
+                          <h1 class="question-view__title" id="beg6k4ketg6-title">4. CSS: Box Model Statement Selection
+                          </h1>
+                        </section>
+                        <section class="question-view__instruction">
+                          <div class="candidate-rich-text">
+                            <div id="beg6k4ketg6-instruction">
+                              <p>Select all the statements that are true with respect to the CSS box model.</p>
+                            </div>
+                          </div>
+                        </section>
+                        <form>
+                          <div class="solution solution--mcq">
+                            <section class="solution__heading">
+                              <div class="solution__directive text-white my-3">Pick <strong>ONE OR MORE</strong> options</div>
+                            </section>
+                            <section class="solution__body">
+                              <div class="d-flex solution__options-list" role="group"
+                                aria-labelledby="beg6k4ketg6-title beg6k4ketg6-instruction">
+                                <div class="ui-checklist" role="group">
+                                  <div class="ui-checklist-list">
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="beg6k4ketg6" value="1"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The box model consists of the margins, outline, padding,
+                                              height, and width of the element.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="beg6k4ketg6" value="2"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The box model consists of the margins, borders, padding,
+                                              height, and width of the element.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="beg6k4ketg6" value="3"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The total element width is calculated as the summation of
+                                              width, left padding, right padding, left border, right border, left
+                                              margin, and right margin.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                    <div class="ui-checklist-list-item">
+                                      <div class="ui-checklist-item-wrap">
+                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
+                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                                name="beg6k4ketg6" value="4"><span class="custom-holder inset"><svg
+                                                  viewBox="0 0 24 24" width="1em" height="1em"
+                                                  class="checkbox__check-icon ui-svg-icon" fill="currentColor">
+                                                  <path
+                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
+                                                  </path>
+                                                </svg></span></div>
+                                            <div class="label">The total element width is calculated as the summation of
+                                              width, left padding, right padding, left outline, right outline, left
+                                              margin, and right margin.</div>
+                                          </label></div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div><button
+                              class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                              type="button" aria-label="Clear Selection for Question 2">
+                              <div class="ui-content align-icon-right"><span class="ui-text"
+                                      aria-hidden="false">Clear Selection</span></div>
+                          </button>
+                              <div
+                                class="solution__status-message solution__status-message--none solution__status-message--hidden"
+                                role="status"><span class="d-flex align-items-center"><span
+                                    class="solution__status-message__text"></span></span></div>
+                            </section>
+                          </div>
+                        </form>
+
+
+                        <div class="d-flex flex-column test-container__content">
+
+                          <div class="grouped-mcq__question" id="fiftques">
+                              <div class="grouped-mcq__hook"></div>
+                              <section class="question-view__title-wrapper">
+                                 
+                                  <h1 class="question-view__title pl-3" id="87f1q0n2697-title">5. CSS nth Selector
+                                  </h1>
+                              </section>
+                              <section class="question-view__instruction">
+                                  <div class="candidate-rich-text">
+                                      <div id="87f1q0n2697-instruction">
+                                          <div class="question mdT">
+                                              <p>What does this&nbsp;CSS code do?</p>
+
+                                              <p>&nbsp;</p>
+
+                                              <p>p:nth-child(2n+2) {<br>
+                                                  &nbsp; &nbsp; color: #ccc;</p>
+
+                                              <p>}</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </section>
+                              <form>
+                                  <div class="solution solution--mcq">
+                                      <section class="solution__heading">
+                                          <div class="solution__directive text-white pb-4" style="font-weight: normal;">Pick ONE option
+                                          </div>
+                                      </section>
+                                      <section class="solution__body">
+                                          <div class="d-flex solution__options-list" role="group"
+                                              aria-labelledby="87f1q0n2697-title 87f1q0n2697-instruction">
+                                              <div class="radio-group" role="radiogroup">
+                                                  <div class="ui-radio"><label class="label-wrap">
+                                                          <div class="radio-wrap"><input type="radio"
+                                                                  class="radio-input" name="87f1q0n2697"
+                                                                  theme="theme-m" aria-setsize="4"
+                                                                  aria-posinset="1" value="1"><span
+                                                                  class="custom-holder inset"></span></div>
+                                                          <div class="label">Selects the 4th, 6th, 8th, etc.
+                                                              &lt;p&gt; tags</div>
+                                                      </label></div>
+                                                  <div class="ui-radio"><label class="label-wrap">
+                                                          <div class="radio-wrap"><input type="radio"
+                                                                  class="radio-input" name="87f1q0n2697"
+                                                                  theme="theme-m" aria-setsize="4"
+                                                                  aria-posinset="2" value="2"><span
+                                                                  class="custom-holder inset"></span></div>
+                                                          <div class="label">Selects all the even &lt;p&gt;
+                                                              tags</div>
+                                                      </label></div>
+                                                  <div class="ui-radio checked"><label class="label-wrap">
+                                                          <div class="radio-wrap"><input type="radio"
+                                                                  class="radio-input" name="87f1q0n2697"
+                                                                  theme="theme-m" aria-setsize="4"
+                                                                  aria-posinset="3" value="3" checked=""><span
+                                                                  class="custom-holder inset"></span></div>
+                                                          <div class="label">Selects the 2nd, 4th, 6th, 8th,
+                                                              etc. (even) &lt;p&gt; tags starting from 2</div>
+                                                      </label></div>
+                                                  <div class="ui-radio"><label class="label-wrap">
+                                                          <div class="radio-wrap"><input type="radio"
+                                                                  class="radio-input" name="87f1q0n2697"
+                                                                  theme="theme-m" aria-setsize="4"
+                                                                  aria-posinset="4" value="4"><span
+                                                                  class="custom-holder inset"></span></div>
+                                                          <div class="label">None of the above</div>
+                                                      </label></div>
+                                              </div>
+                                          </div><button
+                                          class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                                          type="button" aria-label="Clear Selection for Question 2">
+                                          <div class="ui-content align-icon-right"><span class="ui-text"
+                                                  aria-hidden="false">Clear Selection</span></div>
+                                      </button>
+                                          <div class="solution__status-message solution__status-message--none solution__status-message--hidden"
+                                              role="status"><span class="d-flex align-items-center"><span
+                                                      class="solution__status-message__text"></span></span>
+                                          </div>
+                                      </section>
+                                  </div>
+                              </form>
+                          </div>
+
+                      </div>
+
+
+
+
+                      <div class="d-flex flex-column test-container__content pl-2" id="sixthques">
+                        <div class="grouped-mcq__question">
+                          <div class="grouped-mcq__hook"></div>
+                          <section class="question-view__title-wrapper"><span class="question-view__switch-theme__wrapper">
+                              <button class="ui-btn ui-btn-normal ui-btn-plain btn-as-link question-view__switch-theme">
+                                <div class="ui-content align-icon-right"><span class="ui-text" aria-hidden="false"></span>
+                                </div>
+                              </button></span>
+                            <h1 class="question-view__title" id="g26ec68krm2-title">6. Button Style</h1>
+                          </section>
+                          <section class="question-view__instruction">
+                            <div class="candidate-rich-text">
+                              <div id="g26ec68krm2-instruction">
+                                <p class="mb-2">A button group is given below:</p>
+      
+                                <p><img
+                                    src="https://s3.amazonaws.com/istreet-assets/UHsISPFNf3oeczwaE7GBGw/Screen%20Shot%202016-01-25%20at%2012.07.36%20AM.png"
+                                    style="width: 529px;height: 66px;"></p>
+      
+                                <p>&nbsp;</p>
+      
+                                <p class="mb-2">The color of the button must change when the mouse hovers over it as given
+                                  below:</p>
+      
+                                <p><img
+                                    src="https://s3.amazonaws.com/istreet-assets/FfBlG9CYm6S7EwB0_XGoCA/Screen%20Shot%202016-01-25%20at%2012.14.50%20AM.png"
+                                    class="mb-3"></p>
+      
+                                <p>&lt;button class="tabs"&gt;Domains&lt;/button&gt;<br>
+                                  &lt;button class="tabs"&gt;Contests&lt;/button&gt;<br>
+                                  &lt;button class="tabs"&gt;Progress&lt;/button&gt;<br>
+                                  &lt;button class="tabs"&gt;Leader Board&lt;/button&gt;<br>
+                                  &lt;button class="tabs"&gt;Jobs&lt;/button&gt;</p>
+      
+                                <p>&nbsp;</p>
+      
+                                <p class="mb-2">Figure out the style for the buttons.</p>
+      
+                                <p>&nbsp;</p>
+      
+                                <p>&nbsp;</p>
+      
+      
+      
+                                <p>&nbsp;</p>
+                              </div>
+                            </div>
+                          </section>
+                          <form>
+                            <div class="solution solution--mcq">
+                              <section class="solution__heading">
+                                <div class="solution__directive text-white">Pick <strong>ONE</strong> option</div>
+                              </section>
+                              <section class="solution__body">
+                                <div class="d-flex solution__options-list" role="group"
+                                  aria-labelledby="g26ec68krm2-title g26ec68krm2-instruction">
+                                  <div class="radio-group" role="radiogroup">
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="1" value="1"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {</p>
+      
+                                            <p>&nbsp; &nbsp; background-color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; align: left;<br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="2" value="2"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {</p>
+      
+                                            <p>&nbsp; &nbsp; background-color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; border:none;&nbsp;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; float: left;<br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio checked"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="3" value="3"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {</p>
+      
+                                            <p>&nbsp; &nbsp; background-color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; border:none;&nbsp;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;</p>
+      
+                                            <p><br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="4" value="4"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {</p>
+      
+                                            <p>&nbsp; &nbsp; background-color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; border:2px solid green;&nbsp;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; float: left;<br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="5" value="5"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {<br>
+                                              &nbsp; &nbsp; color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; border:none;&nbsp;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; float: left;<br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="6" value="6"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p>.tabs {<br>
+                                              &nbsp; &nbsp; color: lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; border:none;&nbsp;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; align: left;<br>
+                                              }</p>
+      
+                                            <p>.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                    <div class="ui-radio"><label class="label-wrap">
+                                        <div class="radio-wrap"><input type="radio" class="radio-input" name="g26ec68krm2"
+                                            theme="theme-m" aria-setsize="7" aria-posinset="7" value="7"><span
+                                            class="custom-holder inset"></span></div>
+                                        <div class="label">
+                                          <div class="candidate-rich-text">
+                                            <p style="line-height: 20.8px;">.tabs {</p>
+      
+                                            <p style="line-height: 20.8px;">&nbsp; &nbsp; background-color:
+                                              lightgreen;&nbsp;<br>
+                                              &nbsp; &nbsp; color: white;<br>
+                                              &nbsp; &nbsp; padding: 20px;<br>
+                                              &nbsp; &nbsp; text-align: center;<br>
+                                              &nbsp; &nbsp; font-size: 16px;<br>
+                                              &nbsp; &nbsp; float: left;<br>
+                                              }</p>
+      
+                                            <p style="line-height: 20.8px;">.tabs:hover {<br>
+                                              &nbsp; &nbsp; background-color: green;<br>
+                                              }</p>
+                                          </div>
+                                        </div>
+                                      </label></div>
+                                  </div>
+                                </div><button
+                                  class=" btn-danger mt-3 ui-btn ui-btn-normal solution__clear-selection ui-btn-styled"
+                                  type="button" aria-label="Clear Selection for Question 6">
+                                  <div class="ui-content align-icon-right"><span class="ui-text" aria-hidden="false">Clear
+                                      Selection</span></div>
+                                </button>
+                                <div class="solution__status-message solution__status-message--success" role="status"><span
+                                    class="d-flex align-items-center"><span
+                                      class="solution__status-message__text"></span></span></div>
+                              </section>
+                            </div>
+                          </form>
+                        </div>
+      
+                      </div>
+
+
+
+
+
+                      <div class="d-flex flex-column test-container__content">
+
+                        <form id="sevenques">
+                            <div class="grouped-mcq__question">
+                                <div class="grouped-mcq__hook"></div>
+                                <section class="question-view__title-wrapper">
+                            
+                                    <h1 class="question-view__title" id="ejg5ip1k7rj-title">7. Field
+                                        Creation</h1>
+                                </section>
+                                <section class="question-view__instruction">
+                                    <div class="candidate-rich-text">
+                                        <div id="ejg5ip1k7rj-instruction">
+                                            <p>Which code produces the following?&nbsp; Width and height are
+                                                100px.</p>
+
+                                            <p>&nbsp;</p>
+
+                                            <p><img src="https://s3.amazonaws.com/istreet-assets/H3PGBkJLH-fq09x475nYjQ/Screen%20Shot%202015-12-29%20at%205.31.13%20PM.png"
+                                                    style="width:134px;height:119px;"></p>
+
+                                            <p>&nbsp;</p>
+
+                                            <p>&nbsp;</p>
+
+                                            <p>&nbsp;</p>
+
+                                            <p>&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                <form>
+                                    <div class="solution solution--mcq">
+                                        <section class="solution__heading">
+                                            <div class="solution__directive pb-3 text-white">Pick <strong>ONE</strong>
+                                                option</div>
+                                        </section>
+                                        <section class="solution__body">
+                                            <div class="d-flex solution__options-list" role="group"
+                                                aria-labelledby="ejg5ip1k7rj-title ejg5ip1k7rj-instruction">
+                                                <div class="radio-group" role="radiogroup">
+                                                    <div class="ui-radio"><label class="label-wrap">
+                                                            <div class="radio-wrap"><input type="radio"
+                                                                    class="radio-input" name="ejg5ip1k7rj"
+                                                                    theme="theme-m" aria-setsize="4"
+                                                                    aria-posinset="1" value="1"><span
+                                                                    class="custom-holder inset"></span>
+                                                            </div>
+                                                            <div class="label">&lt;fieldSet
+                                                                style="height:100px; width:100px"&gt;
+                                                                &lt;Legend&gt;Coding is Fun&lt;/Legend&gt;
+
+                                                                &lt;/fieldSet&gt;</div>
+                                                        </label></div>
+                                                    <div class="ui-radio"><label class="label-wrap">
+                                                            <div class="radio-wrap"><input type="radio"
+                                                                    class="radio-input" name="ejg5ip1k7rj"
+                                                                    theme="theme-m" aria-setsize="4"
+                                                                    aria-posinset="2" value="2"><span
+                                                                    class="custom-holder inset"></span>
+                                                            </div>
+                                                            <div class="label">&lt;fieldSet
+                                                                style="height:100px; width:100px"&gt;
+                                                                &lt;Header&gt;Coding is Fun&lt;/Header&gt;
+                                                                &lt;/fieldSet&gt;</div>
+                                                        </label></div>
+                                                    <div class="ui-radio"><label class="label-wrap">
+                                                            <div class="radio-wrap"><input type="radio"
+                                                                    class="radio-input" name="ejg5ip1k7rj"
+                                                                    theme="theme-m" aria-setsize="4"
+                                                                    aria-posinset="3" value="3"><span
+                                                                    class="custom-holder inset"></span>
+                                                            </div>
+                                                            <div class="label">&lt;fieldSet
+                                                                style="height:100px; width:100px"&gt;
+                                                                &lt;Caption&gt;Coding is Fun&lt;/Caption&gt;
+
+                                                                &lt;/fieldSet&gt;</div>
+                                                        </label></div>
+                                                    <div class="ui-radio"><label class="label-wrap">
+                                                            <div class="radio-wrap"><input type="radio"
+                                                                    class="radio-input" name="ejg5ip1k7rj"
+                                                                    theme="theme-m" aria-setsize="4"
+                                                                    aria-posinset="4" value="4"><span
+                                                                    class="custom-holder inset"></span>
+                                                            </div>
+                                                            <div class="label">&lt;fieldSet
+                                                                style="height:100px; width:200px"&gt;
+                                                                &lt;Legend&gt;Coding is Fun&lt;/Legend&gt;
+
+                                                                &lt;/fieldSet&gt;</div>
+                                                        </label></div>
+                                                </div>
+                                            </div><button
+                                            class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                                            type="button" aria-label="Clear Selection for Question 2">
+                                            <div class="ui-content align-icon-right"><span class="ui-text"
+                                                    aria-hidden="false">Clear Selection</span></div>
+                                        </button>
+                                            <div class="solution__status-message solution__status-message--none solution__status-message--hidden"
+                                                role="status"><span class="d-flex align-items-center"><span
+                                                        class="solution__status-message__text"></span></span>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </form>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script>
+
+  </script>
+  <script src="main.js">
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    $(".accor").click(function (params) {
+      $(this).toggleClass("togg")
+    })
+  </script>
+
+
+</body>
+
+</html>

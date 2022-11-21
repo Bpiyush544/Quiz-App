@@ -337,3 +337,7 @@ def takeTest2(request, details):
         information[section] = QuestionSet.objects.filter(section=section)
     print(information)
     return render(request, 'takeTest2.html', {'information': information})
+
+
+def testQues(request):
+    return render(request, 'testQues.html')
