@@ -339,12 +339,13 @@ def takeTest2(request, details):
     return render(request, 'takeTest2.html', {'information': information})
 
 
-def testQues(request):
+def testQues(request, pk):
+    print("Received Primary Key is ", pk)
     sections = Section.objects.all()
     for section in sections:
         print(section.name, section.id)
 
-    sectionId = 2
+    sectionId = pk
 
     section = Section.objects.get(id=sectionId)
 
