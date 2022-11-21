@@ -292,7 +292,7 @@
                           <div class="candidate-rich-text">
                             <div id="34hassof40b-instruction">
                               <p>Which of the following statements are true with respect to the 'inherit'
-                                property&nbsp;in CSS?</p>
+                                property&nbsp;in CSS   (here all the details of the question will be stored)?</p>
                             </div>
                           </div>
                         </section>
@@ -301,75 +301,37 @@
                             <section class="solution__heading">
                               <div class="solution__directive text-white my-3">Pick <strong>ONE OR MORE</strong> options</div>
                             </section>
+
                             <section class="solution__body">
                               <div class="d-flex solution__options-list" role="group"
                               aria-labelledby="34hassof40b-title 34hassof40b-instruction">
                                 <div class="ui-checklist" role="group">
                                   <div class="ui-checklist-list">
+
+                                    {% for option in value %}
+                                    
                                     <div class="ui-checklist-list-item">
                                       <div class="ui-checklist-item-wrap">
                                         <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                                name="34hassof40b" value="1"><span class="custom-holder inset"><svg
+                                          <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
+                                            name="34hassof40b" value="1"><span class="custom-holder inset"><svg
                                                   viewBox="0 0 24 24" width="1em" height="1em"
                                                   class="checkbox__check-icon ui-svg-icon" fill="currentColor">
                                                   <path
-                                                    d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                                  </path>
-                                                </svg></span></div>
-                                            <div class="label">The 'inherit' keyword works on the element whose parent
-                                              is already inherited.</div>
-                                          </label></div>
-                                      </div>
-                                    </div>
-                                    <div class="ui-checklist-list-item">
-                                      <div class="ui-checklist-item-wrap">
-                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                          <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                            name="34hassof40b" value="2"><span class="custom-holder inset"><svg
-                                              viewBox="0 0 24 24" width="1em" height="1em"
-                                              class="checkbox__check-icon ui-svg-icon" fill="currentColor">
-                                                  <path
                                                   d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                                  </path>
-                                                </svg></span></div>
-                                            <div class="label">The 'inherit' keyword has no effect on the element whose
-                                              parent is already inherited.</div>
-                                          </label></div>
-                                      </div>
-                                    </div>
-                                    <div class="ui-checklist-list-item">
-                                      <div class="ui-checklist-item-wrap">
-                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                          <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                            name="34hassof40b" value="3"><span class="custom-holder inset"><svg
-                                              viewBox="0 0 24 24" width="1em" height="1em"
-                                              class="checkbox__check-icon ui-svg-icon" fill="currentColor">
-                                              <path
-                                              d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                            </path>
-                                          </svg></span></div>
-                                          <div class="label">The 'inherit' keyword works on the element whose parent
-                                            is not inherited.</div>
-                                          </label></div>
-                                        </div>
-                                    </div>
-                                    <div class="ui-checklist-list-item">
-                                      <div class="ui-checklist-item-wrap">
-                                        <div class="ui-checkbox theme-m"><label class="label-wrap">
-                                            <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                              name="34hassof40b" value="4"><span class="custom-holder inset"><svg
-                                                viewBox="0 0 24 24" width="1em" height="1em"
-                                                class="checkbox__check-icon ui-svg-icon" fill="currentColor">
-                                                <path
-                                                d="M9 18c-.3 0-.5-.1-.7-.3l-5-5c-.4-.4-.4-1 0-1.4s1-.4 1.4 0L9 15.6 19.3 5.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-11 11c-.2.2-.4.3-.7.3z">
-                                              </path>
-                                            </svg></span></div>
-                                            <div class="label">The 'inherit' keyword has no effect on the element whose
-                                              parent is not inherited.</div>
-                                          </label></div>
-                                      </div>
-                                    </div>
+                                                </path>
+                                              </svg></span></div>
+                                              <div class="label">The 'inherit' keyword works on the element whose parent
+                                                is already inherited. {{option}}</div>
+                                              </label></div>
+                                            </div>
+                                          </div>
+                                          
+                                          
+                                          {% endfor %}
+                                          
+                                          
+
                                   </div>
                                 </div>
                               </div><button
