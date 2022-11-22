@@ -327,7 +327,7 @@ def testDetails(request, test):
 
 # we can make a redirection from testDetails page to this one and a unique decoder and encoder can be used so that every child gets a unique session to get into the test and take the test
 
-def takeTest2(request, details):
+def takeTest2(request, assessmentName):
     if request.method == 'POST':
         print('Hello')
         sectionId = request.POST.get('sectionId')
@@ -337,14 +337,18 @@ def takeTest2(request, details):
         # test = "Python"
         print(questionsAttempted, "This the information about my questionsAttempted")
         # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
-    print(details, "where are the details???")
+    # User is also required
+    # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
+    user = "piyushbansal"
+    
+    # print(assessmentName, "where are the details???")
     information = {}
-    assessment = Assessment.objects.get(name=details)
+    assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
 
     for section in sections:
         information[section] = QuestionSet.objects.filter(section=section)
-    print(information)
+    # print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
 

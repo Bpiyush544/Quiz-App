@@ -18,6 +18,6 @@ urlpatterns = [
     path('unused/', unused, name="unused"),
     path('attempted/', attempted, name="attempted"),
     path('testDetails/<str:test>/', testDetails, name="testDetails"),
-    path('takeTest/<str:details>/', takeTest2, name="takeTake2"),
+    path('takeTest/<str:assessmentName>/', takeTest2, name="takeTake2"),
     path('testQues/<int:pk>/', testQues, name="testQues"),
 ]
