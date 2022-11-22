@@ -394,8 +394,9 @@
       //inputs[index].checked = true
       if(inputs[index].checked == true){
         information+= inputs[index].id;
-        console.log(information)
+        information+= ','
       }
+      if(document.getElementsByTagName("input").length - 1)
       questionsAttempted.value = information;
     }
   }

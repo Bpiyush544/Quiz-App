@@ -332,6 +332,7 @@ def takeTest2(request, details):
         print('Hello')
         sectionId = request.POST.get('sectionId')
         questionsAttempted = request.POST.get('questionsAttempted')
+        questionsAttempted = questionsAttempted[:len(questionsAttempted)-1]
         test = Section.objects.get(id=sectionId).assessment.name
         # test = "Python"
         print(questionsAttempted, "This the information about my questionsAttempted")
