@@ -350,11 +350,12 @@
                       </div>
                     </form>
                   {% endfor %}
-                  <form action="." method="POST">
+                  <form method="POST" action="http://127.0.0.1:8000/takeTest/Python/">
+                    {% comment %} http://127.0.0.1:8000/takeTest/Python/ {% endcomment %}
                     {% csrf_token %}
                     <input type="text" name='sectionId' value="{{sectionId}}">
-                    <input type="text">
-                    <button type="submit">Save and Go Back</button>
+                    <input type="text" name="questionsAttempted" id="questionsAttempted">
+                    <button onClick="myFunction()">Save and Go Back</button>
                   </form>
                 </div>
               </div>
@@ -382,10 +383,21 @@
     $(".accor").click(function (params) {
       $(this).toggleClass("togg")
     })
+
+
+    function myFunction(){
     inputs = document.getElementsByTagName('input');
+    questionsAttempted = document.getElementById('questionsAttempted');
+    //questionsAttempted.value = 'Hello World';
+    information = "";
     for(var index = 0; index < document.getElementsByTagName("input").length; index++){
       //inputs[index].checked = true
-      console.log(inputs[index].id);
+      if(inputs[index].checked == true){
+        information+= inputs[index].id;
+        console.log(information)
+      }
+      questionsAttempted.value = information;
+    }
   }
   </script>
 

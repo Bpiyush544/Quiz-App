@@ -328,6 +328,14 @@ def testDetails(request, test):
 # we can make a redirection from testDetails page to this one and a unique decoder and encoder can be used so that every child gets a unique session to get into the test and take the test
 
 def takeTest2(request, details):
+    if request.method == 'POST':
+        print('Hello')
+        sectionId = request.POST.get('sectionId')
+        questionsAttempted = request.POST.get('questionsAttempted')
+        test = Section.objects.get(id=sectionId).assessment.name
+        # test = "Python"
+        print(questionsAttempted, "This the information about my questionsAttempted")
+        # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
     print(details, "where are the details???")
     information = {}
     assessment = Assessment.objects.get(name=details)
@@ -340,30 +348,18 @@ def takeTest2(request, details):
 
 
 def testQues(request, pk):
-    if request.method == 'POST':
-        print("Yes i am here")
-        sectionId = request.POST.get('sectionId')
-        test = Section.objects.get(id=sectionId).assessment.name
-        # test = "Python"
-        return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
-    # print("Received Primary Key is ", pk)
-    sections = Section.objects.all()
-    # for section in sections:
-    #     print(section.name, section.id)
 
+    sections = Section.objects.all()
     sectionId = pk
 
     section = Section.objects.get(id=sectionId)
 
     questions = QuestionSet.objects.filter(section=section)
-    # print("All the questions are : ", questions)
     information = {}
 
     for question in questions:
         information[question] = OptionSet.objects.filter(Question=question)
-    # print(information)
     # temp = {'question1':OptionSet, 'question2':OptionSet}
     # information = {'1': '1', '2': '2',
     #                '3': '3', '4': '4', '5': '5'}
-    # so we need to collect the information and store it in the database
     return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId})
