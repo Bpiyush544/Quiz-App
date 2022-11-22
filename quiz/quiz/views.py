@@ -334,9 +334,9 @@ def takeTest2(request, assessmentName):
         questionsAttempted = request.POST.get('questionsAttempted')
         questionsAttempted = questionsAttempted[:len(questionsAttempted)-1]
         test = Section.objects.get(id=sectionId).assessment.name
-        # test = "Python"
         print(questionsAttempted, "This the information about my questionsAttempted")
-        # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
+        # information provided by the sectionReport will be acquired and stuff will be updated
+
     # User is also required
     # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
     assessment = Assessment.objects.get(name=assessmentName)
@@ -346,12 +346,19 @@ def takeTest2(request, assessmentName):
     #     username=username), assessment=assessment)
     if(TestReport.objects.filter(user=User.objects.get(username=username), assessment=assessment).exists()):
         print("Heyyyyyyy")
-    # print(assessmentName, "where are the details???")
+        # This represents that our TestReport is already generated
+    else:
+        # create a test report and all the different sectionReports as well
+        tempTestReport = TestReport(user=User.objects.get(
+            username=username), assessment=assessment)
+        tempTestReport.save()
+        for section in sections:
+            tempSectionReport = SectionReport(
+                testReport=tempTestReport, section=section)
+            tempSectionReport.save()
     information = {}
-
     for section in sections:
         information[section] = QuestionSet.objects.filter(section=section)
-    # print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
 
