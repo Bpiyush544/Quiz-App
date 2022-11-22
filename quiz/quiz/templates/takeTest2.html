@@ -284,12 +284,12 @@ h2{
                         <th></th>
                       </tr>
                       <tbody>
-                        {% for question in questions %}
+                        {% for question,questionStatus in questions.items %}
                         <tr>
                           <td>{{question.questionTitle}}</td>
                           <td>Coding</td>
                           <td>0/300</td>
-                          <td><i class="fa fa-clock"></i> Unsubmitted</td>
+                          <td><i class="fa fa-clock"></i> {{questionStatus}}</td>
                           <td class="question__action"><a
                             class="ui-btn ui-btn-normal ui-btn-primary question__btn ui-btn-link ui-btn-styled"
                             aria-label="Solve Ad Rotation" href="{% url 'testQues' section.id %}">

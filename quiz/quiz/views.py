@@ -363,18 +363,26 @@ def takeTest2(request, assessmentName):
     # {'section': {{'question': solved/unsolved},
     #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
     for section in sections:
-        currentSectionReport = SectionReport(section=section)
+        currentSectionReport = SectionReport.objects.get(section=section)
         # Now we can access the information about the questions
-        questionsAttempted = currentSectionReport.attemptInformation.split(',')
-        print(questionsAttempted)
-
+        attempts = currentSectionReport.attemptInformation.split(',')
+        print(attempts, "this is my data")
+        info = []
+        for attempt in attempts:
+            if attempt.split('-')[0] not in info:
+                info.append(attempt.split('-')[0])
+        print(info)
+        # so at this point i have access to the particular section and the questions in that section as well
         # this technique will work
-        # questions = QuestionSet.objects.filter(section = section)
-        # information[section] = {}
-        # for question in questions:
-        #     information[section][question] = ''
+        questions = QuestionSet.objects.filter(section=section)
+        information[section] = {}
+        for question in questions:
+            if str(question.id) in info:
+                information[section][question] = 'Attempted'
+            else:
+                information[section][question] = 'UnAttempted'
 
-        information[section] = QuestionSet.objects.filter(section=section)
+        # information[section] = QuestionSet.objects.filter(section=section)
     print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
