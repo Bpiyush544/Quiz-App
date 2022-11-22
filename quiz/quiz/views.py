@@ -382,16 +382,14 @@ def takeTest2(request, assessmentName):
             else:
                 information[section][question] = 'UnAttempted'
 
-        # information[section] = QuestionSet.objects.filter(section=section)
     print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
 
 def testQues(request, pk):
-
     sections = Section.objects.all()
     sectionId = pk
-
+    # we have the sectionReport available to us ,now we just need to work upon using that sectionReportInformation
     section = Section.objects.get(id=sectionId)
 
     questions = QuestionSet.objects.filter(section=section)
@@ -402,4 +400,9 @@ def testQues(request, pk):
     # temp = {'question1':OptionSet, 'question2':OptionSet}
     # information = {'1': '1', '2': '2',
     #                '3': '3', '4': '4', '5': '5'}
+    # This technique should work
+    # We have the sectionID from here we can generate the sectionReport that Report will provide us with the required information then we can use that information to mark our unchecked input checkbox
+    # info = {'question': {'option': 'attempted/unattempted',
+    #                      'option': 'attempted/unattempted', 'option': 'attempted/unattempted'}, }
+    print(information)
     return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId})
