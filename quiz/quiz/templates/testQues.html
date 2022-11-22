@@ -314,7 +314,7 @@
                                       <div class="ui-checklist-item-wrap">
                                         <div class="ui-checkbox theme-m"><label class="label-wrap">
                                           <div class="checkbox-wrap"><input type="checkbox" class="checkbox-input"
-                                            name="34hassof40b" value="1"><span class="custom-holder inset"><svg
+                                            name="34hassof40b" value="1" id="{{key.id}}-{{option.id}}"><span class="custom-holder inset"><svg
                                                   viewBox="0 0 24 24" width="1em" height="1em"
                                                   class="checkbox__check-icon ui-svg-icon" fill="currentColor">
                                                   <path
@@ -350,7 +350,11 @@
                       </div>
                     </form>
                   {% endfor %}
-
+                  <form action="." method="POST">
+                    {% csrf_token %}
+                    <input type="text">
+                    <button type="submit">Save and Go Back</button>
+                  </form>
                 </div>
               </div>
     </main>
@@ -377,6 +381,11 @@
     $(".accor").click(function (params) {
       $(this).toggleClass("togg")
     })
+    inputs = document.getElementsByTagName('input');
+    for(var index = 0; index < document.getElementsByTagName("input").length; index++){
+      //inputs[index].checked = true
+      console.log(inputs[index].id);
+  }
   </script>
 
 
