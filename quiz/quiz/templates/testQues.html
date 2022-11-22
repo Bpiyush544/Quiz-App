@@ -352,6 +352,7 @@
                   {% endfor %}
                   <form action="." method="POST">
                     {% csrf_token %}
+                    <input type="text" name='sectionId' value="{{sectionId}}">
                     <input type="text">
                     <button type="submit">Save and Go Back</button>
                   </form>

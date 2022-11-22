@@ -342,7 +342,9 @@ def takeTest2(request, details):
 def testQues(request, pk):
     if request.method == 'POST':
         print("Yes i am here")
-        test = "Python"
+        sectionId = request.POST.get('sectionId')
+        test = Section.objects.get(id=sectionId).assessment.name
+        # test = "Python"
         return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
     # print("Received Primary Key is ", pk)
     sections = Section.objects.all()
@@ -364,4 +366,4 @@ def testQues(request, pk):
     # information = {'1': '1', '2': '2',
     #                '3': '3', '4': '4', '5': '5'}
     # so we need to collect the information and store it in the database
-    return render(request, 'testQues.html', {'information': information})
+    return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId})
