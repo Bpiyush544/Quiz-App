@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation, Section
+from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation, Section, TestReport, SectionReport
 import datetime
 # from django.template.defaulttags import register
 
@@ -339,12 +339,15 @@ def takeTest2(request, assessmentName):
         # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
     # User is also required
     # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
-    user = "piyushbansal"
-    
-    # print(assessmentName, "where are the details???")
-    information = {}
     assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
+    username = "piyushbansal"
+    # tempTestReport = TestReport(user=User.objects.get(
+    #     username=username), assessment=assessment)
+    if(TestReport.objects.filter(user=User.objects.get(username=username), assessment=assessment).exists()):
+        print("Heyyyyyyy")
+    # print(assessmentName, "where are the details???")
+    information = {}
 
     for section in sections:
         information[section] = QuestionSet.objects.filter(section=section)

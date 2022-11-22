@@ -122,7 +122,6 @@ class TestReport(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     assessment = models.ForeignKey(
         Assessment, null=False, on_delete=models.CASCADE)
-    # status = models.TextChoices('In Progress', 'Completed')
     status = models.CharField(
         max_length=100, choices=STATUS_CHOICES, default="In Progress")
     marks = models.IntegerField(default=0)
