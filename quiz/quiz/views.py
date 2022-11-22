@@ -395,8 +395,8 @@ def testQues(request, pk):
     questions = QuestionSet.objects.filter(section=section)
     information = {}
 
-    for question in questions:
-        information[question] = OptionSet.objects.filter(Question=question)
+    # for question in questions:
+    #     information[question] = OptionSet.objects.filter(Question=question)
     # temp = {'question1':OptionSet, 'question2':OptionSet}
     # information = {'1': '1', '2': '2',
     #                '3': '3', '4': '4', '5': '5'}
@@ -404,5 +404,17 @@ def testQues(request, pk):
     # We have the sectionID from here we can generate the sectionReport that Report will provide us with the required information then we can use that information to mark our unchecked input checkbox
     # info = {'question': {'option': 'attempted/unattempted',
     #                      'option': 'attempted/unattempted', 'option': 'attempted/unattempted'}, }
+    currentSectionReport = SectionReport.objects.get(
+        section=Section.objects.get(id=pk))
+    data = currentSectionReport.attemptInformation.split(',')
+    information = {}
+    for question in questions:
+        information[question] = {}
+        for option in OptionSet.objects.filter(Question=question):
+            if str(question.id) + '-' + str(option.id) in data:
+                information[question][option] = True
+            else:
+                information[question][option] = False
+    print(data)
     print(information)
     return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId})
