@@ -335,6 +335,9 @@ def takeTest2(request, assessmentName):
         questionsAttempted = questionsAttempted[:len(questionsAttempted)-1]
         test = Section.objects.get(id=sectionId).assessment.name
         print(questionsAttempted, "This the information about my questionsAttempted")
+        currentSectionReport = SectionReport.objects.filter(
+            section=Section.objects.get(id=sectionId)).update(attemptInformation=questionsAttempted)
+        # print(currentSectionReport, "this is my current Section")
         # information provided by the sectionReport will be acquired and stuff will be updated
 
     # User is also required
