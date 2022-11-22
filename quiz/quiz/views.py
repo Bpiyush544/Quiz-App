@@ -363,6 +363,10 @@ def takeTest2(request, assessmentName):
     # {'section': {{'question': solved/unsolved},
     #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
     for section in sections:
+        currentSectionReport = SectionReport(section=section)
+        # Now we can access the information about the questions
+        questionsAttempted = currentSectionReport.attemptInformation.split(',')
+        print(questionsAttempted)
 
         # this technique will work
         # questions = QuestionSet.objects.filter(section = section)
