@@ -337,7 +337,6 @@ def takeTest2(request, assessmentName):
         print(questionsAttempted, "This the information about my questionsAttempted")
         currentSectionReport = SectionReport.objects.filter(
             section=Section.objects.get(id=sectionId)).update(attemptInformation=questionsAttempted)
-        # print(currentSectionReport, "this is my current Section")
         # information provided by the sectionReport will be acquired and stuff will be updated
 
     # User is also required
@@ -348,7 +347,7 @@ def takeTest2(request, assessmentName):
     # tempTestReport = TestReport(user=User.objects.get(
     #     username=username), assessment=assessment)
     if(TestReport.objects.filter(user=User.objects.get(username=username), assessment=assessment).exists()):
-        print("Heyyyyyyy")
+        print("Test Report already Exists")
         # This represents that our TestReport is already generated
     else:
         # create a test report and all the different sectionReports as well
@@ -360,8 +359,19 @@ def takeTest2(request, assessmentName):
                 testReport=tempTestReport, section=section)
             tempSectionReport.save()
     information = {}
+
+    # {'section': {{'question': solved/unsolved},
+    #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
     for section in sections:
+
+        # this technique will work
+        # questions = QuestionSet.objects.filter(section = section)
+        # information[section] = {}
+        # for question in questions:
+        #     information[section][question] = ''
+
         information[section] = QuestionSet.objects.filter(section=section)
+    print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
 
