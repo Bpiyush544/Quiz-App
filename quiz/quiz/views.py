@@ -363,10 +363,17 @@ def takeTest2(request, assessmentName):
     assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
     username = "piyushbansal"
-    # tempTestReport = TestReport(user=User.objects.get(
-    #     username=username), assessment=assessment)
     if(TestReport.objects.filter(user=currentUser, assessment=assessment).exists()):
         print("Test Report already Exists")
+        old = TestReport.objects.get(
+            user=currentUser, assessment=assessment).time
+        old = old.replace(tzinfo=None)
+        print(TestReport.objects.get(
+            user=currentUser, assessment=assessment).time, "THIS IS MY TEST START TIME")
+        now = datetime.datetime.now()
+        difference = now - old
+        print("The difference between old and new is ", difference.seconds)
+        print(now, "THE CORRESPONDING TIME IS")
         # This represents that our TestReport is already generated
     else:
         # create a test report and all the different sectionReports as well
