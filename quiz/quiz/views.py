@@ -320,8 +320,6 @@ def deleteInvite(request, pk):
 
 def unused(request):
     # so to find these unused invitation we can check whether a particular invite has been used to create a testReport
-    reports = TestReport.objects.all()
-    
     return render(request, 'unused.html', {'invites': Invitation.objects.all()})
 
 
@@ -378,6 +376,9 @@ def takeTest2(request, assessmentName):
         old = old.replace(tzinfo=None)
         now = datetime.datetime.now()
         difference = now - old
+        Invitation.objects.filter(
+            invitedTo=currentUser, assessment=assessment).update(isAttempted=True)
+        # print("HELLO AM I HERE?")
     else:
         # create a test report and all the different sectionReports as well
         tempTestReport = TestReport(user=currentUser, assessment=assessment)
@@ -386,6 +387,8 @@ def takeTest2(request, assessmentName):
             tempSectionReport = SectionReport(
                 testReport=tempTestReport, section=section)
             tempSectionReport.save()
+        Invitation.objects.filter(
+            user=currentUser, assessment=assessment).update(isAttempted=True)
     information = {}
     old = TestReport.objects.get(
         user=currentUser, assessment=assessment).time
