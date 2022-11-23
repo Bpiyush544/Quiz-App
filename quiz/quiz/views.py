@@ -49,16 +49,17 @@ def viewAndEdit(request, ass):
 
     for section in sections:
         # print(section.name)
-        information[section.name] = []
+        information[section] = []
 
     for question in QuestionSet.objects.filter(assessment=assessment):
-        information[question.section.name].append(question)
-    print(information)
+        information[question.section].append(question)
+    print(information, "this is my inforamtion")
     questions = []
     sections = []
     for info in information:
+        # print(info, "this is info")
         questions.append(information[info])
-        sections.append(Section.objects.get(name=info))
+        sections.append(Section.objects.get(id=info.id))
     print(questions)
     print(sections)
     return render(request, 'viewAndEdit2.html', {'test': ass, 'questions': questions, 'sections': sections, 'information': information})
