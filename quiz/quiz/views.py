@@ -301,11 +301,12 @@ def invites(request):
         invitedBy = teacherUser
         invitedTo = User.objects.get(username=studentUserName)
         assessmentTaken = Assessment.objects.get(name=assessment)
-        invite = Invitation(invitedBy=invitedBy,
-                            invitedTo=invitedTo, assessment=assessmentTaken)
-        # http://127.0.0.1:8000/assessments/test/5/
-        print(invite)
-        invite.save()
+        if Invitation.objects.filter(invitedBy=invitedBy, invitedTo=invitedTo, assessment=assessmentTaken).exists() == False:
+            invite = Invitation(invitedBy=invitedBy,
+                                invitedTo=invitedTo, assessment=assessmentTaken)
+            # http://127.0.0.1:8000/assessments/test/5/
+            print(invite)
+            invite.save()
         # print(invitedBy, invitedTo, assessmentTaken)
 
     return render(request, 'invites.html', {'invites': Invitation.objects.all()})
