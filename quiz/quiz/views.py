@@ -137,6 +137,11 @@ def addQues(request, assgn):
     return render(request, 'addQues.html', {'assignment': assgn})
 
 
+def updateQues(request, pk):
+    print(pk)
+    return render(request, 'updateQues.html')
+
+
 def candidateSettings(request, assgn):
     if request.method == "POST":
         fullName = request.POST.get('fullName')

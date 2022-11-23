@@ -200,7 +200,7 @@
                       <td class="text-center">{{question.mark}}</td>
                       <td class="text-center dropleft" ><i class="fa fa-ellipsis-v" data-toggle="dropdown"></i>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Try question</a>
+                          <a class="dropdown-item" href="{% url 'updateQues' question.id %}">Update question</a>
                           <a class="dropdown-item" href="#">remove</a>
                         </div>
                       </td>
