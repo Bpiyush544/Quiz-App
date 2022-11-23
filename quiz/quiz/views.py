@@ -356,6 +356,8 @@ def takeTest2(request, assessmentName):
             section=Section.objects.get(id=sectionId)).update(attemptInformation=questionsAttempted)
         # information provided by the sectionReport will be acquired and stuff will be updated
 
+    currentUser = request.user
+    print(currentUser)
     # User is also required
     # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
     assessment = Assessment.objects.get(name=assessmentName)
@@ -363,7 +365,7 @@ def takeTest2(request, assessmentName):
     username = "piyushbansal"
     # tempTestReport = TestReport(user=User.objects.get(
     #     username=username), assessment=assessment)
-    if(TestReport.objects.filter(user=User.objects.get(username=username), assessment=assessment).exists()):
+    if(TestReport.objects.filter(user=currentUser, assessment=assessment).exists()):
         print("Test Report already Exists")
         # This represents that our TestReport is already generated
     else:
