@@ -312,6 +312,12 @@ def invites(request):
     return render(request, 'invites.html', {'invites': Invitation.objects.all()})
 
 
+def deleteInvite(request, pk):
+    deleteInvitation = Invitation.objects.get(id=pk)
+    deleteInvitation.delete()
+    return redirect('home')
+
+
 def unused(request):
     return render(request, 'unused.html', {'invites': Invitation.objects.all()})
 
