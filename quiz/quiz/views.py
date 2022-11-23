@@ -227,12 +227,12 @@ def questionDelete(request, pk):
     return redirect("..")
 
 
-def optionDelete(request, pk):
-    print(pk)
-    option = OptionSet.objects.get(id=pk)
-    option.delete()
-    # print(option)
-    return render(request, "secret.html")
+# def optionDelete(request, pk):
+#     print(pk)
+#     option = OptionSet.objects.get(id=pk)
+#     option.delete()
+#     # print(option)
+#     return render(request, "secret.html")
 
 # so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well
 # and at last the functnality where child gave test and got reportcard
