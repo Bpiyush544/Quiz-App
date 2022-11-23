@@ -43,38 +43,12 @@
     <ul>
         <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Edit Test</span> <i class="fa fa-caret-down" style="cursor: pointer;"></i></h3>
        <div class="togmenu">
-        <a href="view_question.html"><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
+        <a href= "http://127.0.0.1:8000/assessments/view/{{assignment}}" ><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
         <a href="/"><li><i class="fa fa-code"></i> <span>Candidate settings</span></li> </a>             
         <a href="test_settings.html"><li><i class="fa fa-bullseye"></i> <span>Test settings</span></li></a>              
       <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
       <a href="#"><li><i class="fa fa-lightbulb"></i> <span>Messaging</span></li></a>
        </div>
-
-    </ul>
-
-    <ul style="border: none;">
-        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
-        <div class="togmenu">
-        <a href="{% url 'invites' %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
-        <a href="{% url 'unused' %}"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
-        <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
-          <a href="{% url 'attempted' %}"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
-          <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
-        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
-        <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
-        <div class="togmenu" style="display: none;">
-         
-              
-          <a href="test_settings.html"><li class="d-flex justify-content-between"> <span><i class="fa fa-check"></i> Complete</span><span>1</span></li></a>              
-        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-eye"></i> To Evalute</span><span >1</span></li></a>
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-up"></i> Qualified</span><span >1</span></li></a>
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-down"></i> Failed</span><span >1</span></li></a>
-       
-         </div>
-
-         <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>Archived</span></li></a>   
-        </div>
 
     </ul>
    <div> <button>Get Support</button></div>
@@ -125,7 +99,7 @@
                         </div>
                         <div>
                             <label for="problem">Section</label>
-                            <input type="text" id="section" value="{{sectionName}}" name="sectionName" required>
+                            <input type="text" id="section" value="{{question.section.name}}" name="sectionName" required>
                         </div>
 
                         <div>
@@ -147,8 +121,8 @@
                     <div class="CHOICES" style="display:flex;align-items: center;margin-bottom: 30px;">
                         <p class="mb-0">CHOICES</p>
                         <div style=" margin-left: 20px;">
-                            <input type="checkbox" class="chkbox" id="checkbox">
-                            <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <input type="checkbox" class="chkbox" id="multiChoice">
+                            {% comment %} <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button> {% endcomment %}
                             <label style="display:inline" for="checkbox">Allow candidate to select more then one
                                 answer</label>
                         </div>
@@ -156,34 +130,27 @@
 
 
                     <!-- ------------------------ans area start------------------>
-                  {% for option in options %}{% endfor %}
+                  
 
                     <div class="edit-txt">
+                        {% for option in options %}
                         <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
-                            {% if option.correct == True %}
-                            <label class="check ok"
-                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
-                                ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
-                                <button type="button" style="position: absolute;right:0px; top:-19px">unmark as answer</button>
-                            {% else %}
                             <label class="check"
-                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
-                                ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
-                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            {% endif %}
-
-                            <textarea class="option" value ="{{option.optionStatement}}" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
-                                rows="6"></textarea>
+                            style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+                            ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
+                            <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            rows="6">{{option.optionStatement}}</textarea>
                         </div>
-  
+                        {% endfor %}
+                    </div>
 
                         <!-- ------------------Add one more choice-------------------------->
 
                     <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
-                    <textarea name="optionInformation" id="optionInformation" cols="30" rows="10"></textarea>
-                    <button onclick = "myFunc()">CHECK (TODO - hide display and add css to buttons)</button>
-                    
+                    <textarea name="optionInformation" id="optionInformation" cols="30" rows="10" hidden></textarea>
                 </form>
+                <button onclick = "myFunc()">Submit</button>
             </div>
         </main> 
     </section>
@@ -249,25 +216,6 @@
                }
            }
 
-
-        //    function showhide(params) {
-        //        $(params).hover(function name(params) {
-        //            $(this).children("button").toggle();
-        //        })
-        //    }
-          
-          
-
-    //    let label=edit.querySelectorAll("label");  
-    //        label.forEach(function(params) {
-    //        params.addEventListener("click",(e)=>{
-    //        e.currentTarget.classList.toggle("ok"); 
-    //        if (e.currentTarget.n) {
-               
-    //        } 
-    //        })
-    //    }) 
-    
     $("label").click(function name() {
         $(this).toggleClass("ok");
         if ($(this).next().text()=="mark as answer") {
@@ -311,10 +259,13 @@
 
 
   function myFunc(){
-    options = document.getElementsByClassName('option');
-    checks = document.getElementsByClassName('check');
+    var multiChoice = document.getElementById('multiChoice');
+    var options = document.getElementsByClassName('option');
+    var checks = document.getElementsByClassName('check');
+    var count = 0;
+    console.log(multiChoice.checked,"This is multiChoice");
     var info = "";
-    console.log(options);
+    console.log(options.length);
     for(var i=0; i< options.length; i++){
         console.log(options[i])
         console.log(checks[i])
@@ -331,6 +282,25 @@
     }
     console.log(info);
     document.getElementById('optionInformation').innerText = info;
+    for(var i=0; i< options.length; i++){
+        console.log(checks[i]);
+        if(checks[i].className.length > 5){
+            count++;
+        }
+    }
+    console.log("HELLO")
+    if(count == 0){
+        alert("no option is selected");
+        return false;
+    }
+    if(count > 1){
+        if(multiChoice.checked){
+            pass;
+        }else{
+            alert("multiChoice is turned Off please select to continue");
+            return false;
+        }
+    }
     document.getElementById('myForm').submit();
   }
 
