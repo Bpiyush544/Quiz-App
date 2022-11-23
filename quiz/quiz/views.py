@@ -115,7 +115,9 @@ def addQues(request, assgn):
         asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
         print(sectionName)
-        requiredSection = Section.objects.get(name=sectionName)
+
+        requiredSection = Section.objects.get(
+            assessment=asses, name=sectionName)
         print(requiredSection)
         question = QuestionSet(
             assessment=asses, questionTitle=problemName, mark=score, section=requiredSection)

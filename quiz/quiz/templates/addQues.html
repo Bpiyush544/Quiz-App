@@ -121,8 +121,8 @@
                     <div class="CHOICES" style="display:flex;align-items: center;margin-bottom: 30px;">
                         <p class="mb-0">CHOICES</p>
                         <div style=" margin-left: 20px;">
-                            <input type="checkbox" class="chkbox" id="checkbox">
-                            <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            <input type="checkbox" class="chkbox" id="multiChoice">
+                            {% comment %} <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button> {% endcomment %}
                             <label style="display:inline" for="checkbox">Allow candidate to select more then one
                                 answer</label>
                         </div>
@@ -161,7 +161,7 @@
                             <label
                             class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"   
                                 rows="6"></textarea>
                         </div>
                             <!-- -------------------------------------------------------------------->
@@ -178,10 +178,9 @@
                         <!-- ------------------Add one more choice-------------------------->
 
                     <p class="adchoice" onclick="adchoice(this)" >Add one more choice</P>
-                    <textarea name="optionInformation" id="optionInformation" cols="30" rows="10"></textarea>
-                    <button onclick = "myFunc()">CHECK (TODO - hide display and add css to buttons)</button>
-                    
+                    <textarea name="optionInformation" id="optionInformation" cols="30" rows="10" hidden></textarea>
                 </form>
+                <button onclick = "myFunc()">Submit</button>
             </div>
         </main> 
     </section>
@@ -247,25 +246,6 @@
                }
            }
 
-
-        //    function showhide(params) {
-        //        $(params).hover(function name(params) {
-        //            $(this).children("button").toggle();
-        //        })
-        //    }
-          
-          
-
-    //    let label=edit.querySelectorAll("label");  
-    //        label.forEach(function(params) {
-    //        params.addEventListener("click",(e)=>{
-    //        e.currentTarget.classList.toggle("ok"); 
-    //        if (e.currentTarget.n) {
-               
-    //        } 
-    //        })
-    //    }) 
-    
     $("label").click(function name() {
         $(this).toggleClass("ok");
         if ($(this).next().text()=="mark as answer") {
@@ -309,10 +289,13 @@
 
 
   function myFunc(){
-    options = document.getElementsByClassName('option');
-    checks = document.getElementsByClassName('check');
+    var multiChoice = document.getElementById('multiChoice');
+    var options = document.getElementsByClassName('option');
+    var checks = document.getElementsByClassName('check');
+    var count = 0;
+    console.log(multiChoice.checked,"This is multiChoice");
     var info = "";
-    console.log(options);
+    console.log(options.length);
     for(var i=0; i< options.length; i++){
         console.log(options[i])
         console.log(checks[i])
@@ -329,6 +312,25 @@
     }
     console.log(info);
     document.getElementById('optionInformation').innerText = info;
+    for(var i=0; i< options.length; i++){
+        console.log(checks[i]);
+        if(checks[i].className.length > 5){
+            count++;
+        }
+    }
+    console.log("HELLO")
+    if(count == 0){
+        alert("no option is selected");
+        return false;
+    }
+    if(count > 1){
+        if(multiChoice.checked){
+            pass;
+        }else{
+            alert("multiChoice is turned Off please select to continue");
+            return false;
+        }
+    }
     document.getElementById('myForm').submit();
   }
 
