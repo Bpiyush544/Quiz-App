@@ -121,16 +121,16 @@
                     <div class="frm-grp" style="margin-bottom: 30px;">
                         <div>
                             <label for="problem">PROBLEM NAME</label>
-                            <input type="text" id="problem" name="problemName" required>
+                            <input type="text" id="problem" value="{{question.questionTitle}}" name="problemName" required>
                         </div>
                         <div>
                             <label for="problem">Section</label>
-                            <input type="text" id="section" name="sectionName" required>
+                            <input type="text" id="section" value="{{sectionName}}" name="sectionName" required>
                         </div>
 
                         <div>
                             <label for="score">Score</label>
-                            <input type="number" placeholder="Enter Score" id="score" name="score" required>
+                            <input type="number" placeholder="Enter Score" value="{{question.mark}}" id="score" name="score" required>
                         </div>
 
                         <div>
@@ -156,50 +156,26 @@
 
 
                     <!-- ------------------------ans area start------------------>
-                  
+                  {% for option in options %}{% endfor %}
 
                     <div class="edit-txt">
                         <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
+                            {% if option.correct == True %}
+                            <label class="check ok"
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+                                ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">unmark as answer</button>
+                            {% else %}
                             <label class="check"
                                 style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
                                 ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
                                 <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
+                            {% endif %}
+
+                            <textarea class="option" value ="{{option.optionStatement}}" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                 rows="6"></textarea>
                         </div>
   
-                        <!-- -------------------------------------------------------------------->
-
-                        <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
-                            <label
-                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>b</span> <div class="round"></div><i class="fas fa-check"></i></label>
-                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                                <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
-                                rows="6">
-                            
-                            </textarea>
-                            
-                        </div>
-
-                          <!-- -------------------------------------------------------------------->
-
-                        <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
-                            <label
-                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>c</span> <div class="round"> </div><i class="fas fa-check"></i></label>
-                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
-                                rows="6"></textarea>
-                        </div>
-                            <!-- -------------------------------------------------------------------->
-
-                        <div style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
-                            <label
-                            class="check" style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>d</span> <div class="round"> </div><i class="fas fa-check"></i></label>
-                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
-                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
-                                rows="6"></textarea>
-                        </div>
-                    </div>
 
                         <!-- ------------------Add one more choice-------------------------->
 

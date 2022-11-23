@@ -139,7 +139,13 @@ def addQues(request, assgn):
 
 def updateQues(request, pk):
     print(pk)
-    return render(request, 'updateQues.html')
+    # from the pk we can get the Question
+    question = QuestionSet.objects.get(id=pk)
+    assignment = question.assessment.name
+    # now we can get the OptionSet
+    options = OptionSet.objects.filter(Question=question)
+    sectionName = question.section.name
+    return render(request, 'updateQues.html', {'question': question, 'options': options, 'assignment': assignment,'sectionName':sectionName})
 
 
 def candidateSettings(request, assgn):
