@@ -354,8 +354,6 @@ def takeTest2(request, assessmentName):
         print(questionsAttempted, "This the information about my questionsAttempted")
         currentSectionReport = SectionReport.objects.filter(
             section=Section.objects.get(id=sectionId)).update(attemptInformation=questionsAttempted)
-        # information provided by the sectionReport will be acquired and stuff will be updated
-
     currentUser = request.user
     print(currentUser)
     # User is also required
@@ -368,13 +366,8 @@ def takeTest2(request, assessmentName):
         old = TestReport.objects.get(
             user=currentUser, assessment=assessment).time
         old = old.replace(tzinfo=None)
-        print(TestReport.objects.get(
-            user=currentUser, assessment=assessment).time, "THIS IS MY TEST START TIME")
         now = datetime.datetime.now()
         difference = now - old
-        print("The difference between old and new is ", difference.seconds)
-        print(now, "THE CORRESPONDING TIME IS")
-        # This represents that our TestReport is already generated
     else:
         # create a test report and all the different sectionReports as well
         tempTestReport = TestReport(user=User.objects.get(
@@ -385,19 +378,28 @@ def takeTest2(request, assessmentName):
                 testReport=tempTestReport, section=section)
             tempSectionReport.save()
     information = {}
+    old = TestReport.objects.get(
+        user=currentUser, assessment=assessment).time
+    old = old.replace(tzinfo=None)
+    now = datetime.datetime.now()
+    difference = now - old
+    # print(difference)
 
+    totalTimePassesTillNow = difference.days*86400 + difference.seconds
+    totalTimeAvailable = assessment.duration*60
+    print(totalTimePassesTillNow, totalTimeAvailable)
     # {'section': {{'question': solved/unsolved},
     #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
     for section in sections:
         currentSectionReport = SectionReport.objects.get(section=section)
         # Now we can access the information about the questions
         attempts = currentSectionReport.attemptInformation.split(',')
-        print(attempts, "this is my data")
+        # print(attempts, "this is my data")
         info = []
         for attempt in attempts:
             if attempt.split('-')[0] not in info:
                 info.append(attempt.split('-')[0])
-        print(info)
+        # print(info)
         # so at this point i have access to the particular section and the questions in that section as well
         # this technique will work
         questions = QuestionSet.objects.filter(section=section)
@@ -408,7 +410,7 @@ def takeTest2(request, assessmentName):
             else:
                 information[section][question] = 'UnAttempted'
 
-    print(information)
+    # print(information)
     return render(request, 'takeTest2.html', {'information': information})
 
 
