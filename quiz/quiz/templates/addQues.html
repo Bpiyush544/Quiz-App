@@ -43,38 +43,12 @@
     <ul>
         <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Edit Test</span> <i class="fa fa-caret-down" style="cursor: pointer;"></i></h3>
        <div class="togmenu">
-        <a href="view_question.html"><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
+        <a href= "http://127.0.0.1:8000/assessments/view/{{assignment}}" ><li><i class="fa fa-infinity" ></i> <span>Questions</span></li></a>   
         <a href="/"><li><i class="fa fa-code"></i> <span>Candidate settings</span></li> </a>             
         <a href="test_settings.html"><li><i class="fa fa-bullseye"></i> <span>Test settings</span></li></a>              
       <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
       <a href="#"><li><i class="fa fa-lightbulb"></i> <span>Messaging</span></li></a>
        </div>
-
-    </ul>
-
-    <ul style="border: none;">
-        <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
-        <div class="togmenu">
-        <a href="{% url 'invites' %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
-        <a href="{% url 'unused' %}"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
-        <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
-          <a href="{% url 'attempted' %}"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             
-          <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>In Progress</span></li></a>              
-        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
-        <a href="#" class="d-flex justify-content-between tog"><li><i class="fa fa-sign-out-alt"></i> <span>Completed</span><i style="margin-left: 20px" class="fa fa-angle-right"></i> </li></a>
-        <div class="togmenu" style="display: none;">
-         
-              
-          <a href="test_settings.html"><li class="d-flex justify-content-between"> <span><i class="fa fa-check"></i> Complete</span><span>1</span></li></a>              
-        <!-- <a href="view_student_results.html"><li title="View Student Reasult"><i class="fa fa-chart-line"></i> <span>students</span></li></a> -->
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-eye"></i> To Evalute</span><span >1</span></li></a>
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-up"></i> Qualified</span><span >1</span></li></a>
-        <a href="#"><li class="d-flex justify-content-between"> <span><i class="fa fa-thumbs-down"></i> Failed</span><span >1</span></li></a>
-       
-         </div>
-
-         <a href="in_progress.html"><li><i class="fa fa-cog"></i> <span>Archived</span></li></a>   
-        </div>
 
     </ul>
    <div> <button>Get Support</button></div>
