@@ -57,7 +57,8 @@ class QuestionSet(models.Model):
 class OptionSet(models.Model):
     Question = models.ForeignKey(
         QuestionSet, null=True, on_delete=models.CASCADE)
-    optionStatement = models.CharField(max_length=1023)
+    optionStatement = models.CharField(
+        max_length=1023, default="No Statement Provided")
     correct = models.BooleanField(default=False)
 
     def __str__(self):

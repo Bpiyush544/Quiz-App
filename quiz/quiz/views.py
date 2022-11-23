@@ -111,16 +111,20 @@ def addQues(request, assgn):
         time = request.POST.get('time')
         description = request.POST.get('description')
         optionInformation = request.POST.get('optionInformation')
+        multiChoice = request.POST.get('multiChoice')
         # problemName = request.POST.get('problemName')
         asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
         print(sectionName)
-
+        print(multiChoice, 'This is multiChoice')
+        multiChoiceCheck = False
+        if multiChoice == 'on':
+            multiChoiceCheck = True
         requiredSection = Section.objects.get(
             assessment=asses, name=sectionName)
         print(requiredSection)
         question = QuestionSet(
-            assessment=asses, questionTitle=problemName, mark=score, section=requiredSection)
+            assessment=asses, questionTitle=problemName, mark=score, section=requiredSection, multiChoice=multiChoiceCheck)
 
         question.save()
 
