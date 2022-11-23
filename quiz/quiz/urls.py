@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (home, assessments, optionDelete, questionDelete, viewAndEdit, questionView, deleteAssessment, testAssessment,
-                    result, addQues, candidateSettings, invites, unused, attempted, testDetails, takeTest2, testQues, updateQues,deleteQues)
+                    result, addQues, candidateSettings, invites, unused, attempted, testDetails, takeTest2, testQues, updateQues, deleteQues)
 
 urlpatterns = [
     path('', home, name="home"),
