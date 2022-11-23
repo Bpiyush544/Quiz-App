@@ -294,11 +294,11 @@ def result(request):
 
 def invites(request):
     if request.method == "POST":
-        user = request.POST.get('user')
-        userName = request.POST.get('userName')
+        teacherUser = request.user
+        studentUserName = request.POST.get('userName')
         assessment = request.POST.get('assessment')
-        invitedBy = User.objects.get(username=user)
-        invitedTo = User.objects.get(username=userName)
+        invitedBy = teacherUser
+        invitedTo = User.objects.get(username=studentUserName)
         assessmentTaken = Assessment.objects.get(name=assessment)
         invite = Invitation(invitedBy=invitedBy,
                             invitedTo=invitedTo, assessment=assessmentTaken)
