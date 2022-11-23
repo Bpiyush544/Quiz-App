@@ -360,7 +360,6 @@ def takeTest2(request, assessmentName):
     # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
     assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
-    username = "piyushbansal"
     if(TestReport.objects.filter(user=currentUser, assessment=assessment).exists()):
         print("Test Report already Exists")
         old = TestReport.objects.get(
@@ -370,8 +369,7 @@ def takeTest2(request, assessmentName):
         difference = now - old
     else:
         # create a test report and all the different sectionReports as well
-        tempTestReport = TestReport(user=User.objects.get(
-            username=username), assessment=assessment)
+        tempTestReport = TestReport(user=currentUser, assessment=assessment)
         tempTestReport.save()
         for section in sections:
             tempSectionReport = SectionReport(
@@ -415,11 +413,22 @@ def takeTest2(request, assessmentName):
 
 
 def testQues(request, pk):
-    sections = Section.objects.all()
     sectionId = pk
     # we have the sectionReport available to us ,now we just need to work upon using that sectionReportInformation
     section = Section.objects.get(id=sectionId)
+    currentUser = request.user
+    print(currentUser)
+    assessment = section.assessment
+    old = TestReport.objects.get(
+        user=currentUser, assessment=assessment).time
+    old = old.replace(tzinfo=None)
+    now = datetime.datetime.now()
+    difference = now - old
+    # print(difference)
 
+    totalTimePassedTillNow = difference.days*86400 + difference.seconds
+    totalTimeAvailable = assessment.duration*60
+    print(totalTimePassedTillNow, totalTimeAvailable)
     questions = QuestionSet.objects.filter(section=section)
     information = {}
 
@@ -443,6 +452,6 @@ def testQues(request, pk):
                 information[question][option] = True
             else:
                 information[question][option] = False
-    print(data)
-    print(information)
-    return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId})
+    # print(data)
+    # print(information)
+    return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})

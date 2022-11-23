@@ -341,12 +341,7 @@
 
                                   </div>
                                 </div>
-                              </div><button
-                              class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
-                              type="button" aria-label="Clear Selection for Question 2">
-                              <div class="ui-content align-icon-right"><span class="ui-text"
-                                aria-hidden="false">Clear Selection</span></div>
-                              </button>
+                              </div>
                               <div
                                 class="solution__status-message solution__status-message--none solution__status-message--hidden"
                                 role="status"><span class="d-flex align-items-center"><span
@@ -363,6 +358,16 @@
                     <input type="text" name='sectionId' value="{{sectionId}}">
                     <input type="text" name="questionsAttempted" id="questionsAttempted">
                     <button onClick="myFunction()">Save and Go Back</button>
+                  </form>
+                  <form action="/" id="testSubmitForm">
+                    {% csrf_token %}                    
+                    <div style="margin: auto">
+                      <button class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"
+                      type="button" aria-label="Clear Selection for Question 2">
+                      <div class="ui-content align-icon-right"><span class="ui-text"
+                        aria-hidden="false">Submit Test</span></div>
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -386,6 +391,16 @@
     crossorigin="anonymous"></script>
 
   <script>
+    var timeRemaining = {{totalTimeAvailable}} - {{totalTimePassedTillNow}};
+    console.log(timeRemaining)
+    
+    function submitForm() {
+      document.getElementById("testSubmitForm").submit()
+    } 
+    if (document.getElementById("testSubmitForm")) {
+      setTimeout("submitForm()", timeRemaining*1000); // set timout 
+    }
+
 
     $(".accor").click(function (params) {
       $(this).toggleClass("togg")
