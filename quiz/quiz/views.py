@@ -145,7 +145,13 @@ def updateQues(request, pk):
     # now we can get the OptionSet
     options = OptionSet.objects.filter(Question=question)
     sectionName = question.section.name
-    return render(request, 'updateQues.html', {'question': question, 'options': options, 'assignment': assignment,'sectionName':sectionName})
+    return render(request, 'updateQues.html', {'question': question, 'options': options, 'assignment': assignment, 'sectionName': sectionName})
+
+
+def deleteQues(request, pk):
+    assessment = QuestionSet.objects.get(id=pk).assessment.name
+    QuestionSet.objects.get(id=pk).delete()
+    return redirect(f"http://127.0.0.1:8000/assessments/view/{assessment}/")
 
 
 def candidateSettings(request, assgn):
