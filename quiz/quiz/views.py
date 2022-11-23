@@ -319,6 +319,9 @@ def deleteInvite(request, pk):
 
 
 def unused(request):
+    # so to find these unused invitation we can check whether a particular invite has been used to create a testReport
+    reports = TestReport.objects.all()
+    
     return render(request, 'unused.html', {'invites': Invitation.objects.all()})
 
 
