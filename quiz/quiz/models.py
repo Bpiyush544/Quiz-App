@@ -24,7 +24,7 @@ class Profile(models.Model):
 class Assessment(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, default="Exam")
-    duration = models.IntegerField()
+    duration = models.IntegerField(default=1)
     time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -48,6 +48,7 @@ class QuestionSet(models.Model):
     questionTitle = models.CharField(
         max_length=1023, default="question statement")
     mark = models.IntegerField()
+    multiChoice = models.BooleanField(default=False)
 
     def __str__(self):
         return(str(self.assessment) + " - " + self.questionTitle)
