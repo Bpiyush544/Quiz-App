@@ -302,15 +302,16 @@ h2{
                       
                     </table>
                   </div>
-                  <div class="d-flex flex-column question-list__actions align-items-start text-right"><button
-                    class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
-                    <div class="ui-content align-icon-right"><span class="ui-text submit" aria-hidden="false">Submit
-                      Test</span></div>
-                    </button></div>
                   </div>
                   
                   {% endfor %}
                 </main>
+                <form action="/" id="testSubmitForm">
+                  {% csrf_token %}
+                    <button class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
+                      <div class="ui-content align-icon-right"><span class="ui-text submit" aria-hidden="false">Submit Test</span></div>
+                    </button>
+                </form>
                 </div>
               </div>
             </div>
@@ -319,7 +320,6 @@ h2{
       </div>
     </main>
   </section>
-
   <script>
 
   </script>
@@ -337,6 +337,15 @@ h2{
     crossorigin="anonymous"></script>
 
   <script>
+    var timeRemaining = {{totalTimeAvailable}} - {{totalTimePassedTillNow}};
+    console.log(timeRemaining)
+
+    function submitForm() {
+      document.getElementById("testSubmitForm").submit()
+    } 
+    if (document.getElementById("testSubmitForm")) {
+      setTimeout("submitForm()", timeRemaining*1000); // set timout 
+    }
 
     $(".accor").click(function (params) {
       $(this).toggleClass("togg")

@@ -385,9 +385,9 @@ def takeTest2(request, assessmentName):
     difference = now - old
     # print(difference)
 
-    totalTimePassesTillNow = difference.days*86400 + difference.seconds
+    totalTimePassedTillNow = difference.days*86400 + difference.seconds
     totalTimeAvailable = assessment.duration*60
-    print(totalTimePassesTillNow, totalTimeAvailable)
+    print(totalTimePassedTillNow, totalTimeAvailable)
     # {'section': {{'question': solved/unsolved},
     #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
     for section in sections:
@@ -411,7 +411,7 @@ def takeTest2(request, assessmentName):
                 information[section][question] = 'UnAttempted'
 
     # print(information)
-    return render(request, 'takeTest2.html', {'information': information})
+    return render(request, 'takeTest2.html', {'information': information, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
 
 
 def testQues(request, pk):
