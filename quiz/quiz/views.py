@@ -20,7 +20,7 @@ def assessments(request):
         user = request.POST.get('user')
         name = request.POST.get('name')
         print(user, name)
-        duration = 20
+        duration = 1
         findUser = User.objects.get(username=user)
         ass = Assessment(user=findUser, name=name, duration=duration)
         ass.save()
@@ -104,7 +104,6 @@ def deleteAssessment(request, pk):
 
 def addQues(request, assgn):
     if request.method == "POST":
-        assignmentName = request.POST.get('assignment')
         sectionName = request.POST.get('sectionName')
         problemName = request.POST.get('problemName')
         score = request.POST.get('score')
@@ -116,10 +115,16 @@ def addQues(request, assgn):
         asses = Assessment.objects.get(name=assgn)
         print("this is assess", asses)
         print(sectionName)
+        sectionName = sectionName.strip()
         print(multiChoice, 'This is multiChoice')
         multiChoiceCheck = False
         if multiChoice == 'on':
             multiChoiceCheck = True
+        for section in Section.objects.all():
+            if(section.assessment == asses):
+                print(section, section.name, len(sectionName))
+                if(section.name == sectionName):
+                    print("Yes the sectionName is matching")
         requiredSection = Section.objects.get(
             assessment=asses, name=sectionName)
         print(requiredSection)
@@ -145,6 +150,42 @@ def addQues(request, assgn):
 
 
 def updateQues(request, pk):
+    if request.method == "POST":
+        sectionName = request.POST.get('sectionName')
+        sectionName = sectionName.strip()
+        problemName = request.POST.get('problemName')
+        score = request.POST.get('score')
+        time = request.POST.get('time')
+        description = request.POST.get('description')
+        optionInformation = request.POST.get('optionInformation')
+        multiChoice = request.POST.get('multiChoice')
+        # problemName = request.POST.get('problemName')
+        for ass in Assessment.objects.all():
+            print(ass, ass.id)
+        asses = QuestionSet.objects.get(id=pk).assessment
+        # asses = Assessment.objects.get(id=pk)
+        print("this is assess", asses)
+        print(sectionName)
+        print(multiChoice, 'This is multiChoice')
+        multiChoiceCheck = False
+        if multiChoice == 'on':
+            multiChoiceCheck = True
+        requiredSection = Section.objects.get(
+            assessment=asses, name=sectionName)
+        print(requiredSection)
+        # QuestionSet.objects.filter(id=pk).update(
+        #     section=requiredSection, multiChoice=multiChoiceCheck)
+        print(optionInformation)
+        # options = optionInformation.split('##')
+        # print(options)
+        # for i in range(0, len(options), 2):
+        #     chk = False
+        #     if(options[i+1] == "on"):
+        #         chk = True
+        #     option = OptionSet(Question=question,
+        #                        optionStatement=options[i], correct=chk)
+        #     print(option)
+        #     option.save()
     print(pk)
     # from the pk we can get the Question
     question = QuestionSet.objects.get(id=pk)
@@ -394,16 +435,17 @@ def takeTest2(request, assessmentName):
                 testReport=tempTestReport, section=section)
             tempSectionReport.save()
         Invitation.objects.filter(
-            user=currentUser, assessment=assessment).update(isAttempted=True)
+            invitedTo=currentUser, assessment=assessment).update(isAttempted=True)
     information = {}
     old = TestReport.objects.get(
         user=currentUser, assessment=assessment).time
+    print(old, "Test Started At")
     old = old.replace(tzinfo=None)
     now = datetime.datetime.now()
+    print(now, "Time right now")
     difference = now - old
-    # print(difference)
-
-    totalTimePassedTillNow = difference.days*86400 + difference.seconds
+    print(difference)
+    totalTimePassedTillNow = difference.days*86400 + difference.seconds - 19800
     totalTimeAvailable = assessment.duration*60
     print(totalTimePassedTillNow, totalTimeAvailable)
     # {'section': {{'question': solved/unsolved},
@@ -446,7 +488,7 @@ def testQues(request, pk):
     difference = now - old
     # print(difference)
 
-    totalTimePassedTillNow = difference.days*86400 + difference.seconds
+    totalTimePassedTillNow = difference.days*86400 + difference.seconds - 19800
     totalTimeAvailable = assessment.duration*60
     print(totalTimePassedTillNow, totalTimeAvailable)
     questions = QuestionSet.objects.filter(section=section)
@@ -474,4 +516,4 @@ def testQues(request, pk):
                 information[question][option] = False
     # print(data)
     # print(information)
-    return render(request, 'testQues.html', {'information': information, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
+    return render(request, 'testQues.html', {'information': information, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})

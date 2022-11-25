@@ -352,12 +352,12 @@
                       </div>
                     </form>
                   {% endfor %}
-                  <form method="POST" action="http://127.0.0.1:8000/takeTest/Python/">
+                  <form method="POST" action="http://127.0.0.1:8000/takeTest/{{assessment}}/">
                     {% comment %} http://127.0.0.1:8000/takeTest/Python/ {% endcomment %}
                     {% csrf_token %}
-                    <input type="text" name='sectionId' value="{{sectionId}}">
-                    <input type="text" name="questionsAttempted" id="questionsAttempted">
-                    <button onClick="myFunction()">Save and Go Back</button>
+                    <input type="text" hidden name='sectionId' value="{{sectionId}}">
+                    <input type="text" hidden name="questionsAttempted" id="questionsAttempted">
+                    <button class="btn" onClick="myFunction()" style="color: white; background-color: red" >Save and Go Back</button>
                   </form>
                   <form action="/" id="testSubmitForm">
                     {% csrf_token %}                    

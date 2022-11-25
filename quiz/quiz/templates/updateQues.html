@@ -139,10 +139,18 @@
                     <div class="edit-txt">
                         {% for option in options %}
                         <div style="display:flex;align-items:center;margin-bottom: 50px;position: relative;">
-                            <label class="check"
-                            style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
-                            ><span>a</span> <div class="round"></div><i class="fas fa-check"></i></label>
-                            <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            {% if option.correct %}
+                                <label class="check ok"
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+                                ><span></span> <div class="round"></div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">Unmark as answer</button>
+                            {% else %}
+                                <label class="check"
+                                style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"
+                                ><span></span> <div class="round"></div><i class="fas fa-check"></i></label>
+                                <button type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
+                            {% endif %}
+                            
                             <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                             rows="6">{{option.optionStatement}}</textarea>
                         </div>
@@ -177,7 +185,7 @@
            if (index<=21) {
                let nwitm=`   <div onmouseover='showhide(this)' onmouseout="normal(this)" style="display:flex;align-items:center;margin-bottom:50px;position: relative;">
                            <label onclick="togglebg(this)"
-                               style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span>${valarr[index]}</span> <div class="round"> </div><i class="fas fa-check"></i></label>
+                               style="padding: 12px 10px;display: flex;justify-content: center;align-items: center;flex-direction: column;"><span></span> <div class="round"> </div><i class="fas fa-check"></i></label>
                                <button onclick="togbtn(this)" class="check" type="button" style="position: absolute;right:0px; top:-19px">mark as answer</button>
                            <textarea class="option" style="width: 100%;resize: none;border-radius: 5px;" name="" id="" cols="30"
                                rows="6"></textarea>

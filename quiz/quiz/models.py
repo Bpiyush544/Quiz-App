@@ -26,6 +26,7 @@ class Assessment(models.Model):
     name = models.CharField(max_length=255, default="Exam")
     duration = models.IntegerField(default=1)
     time = models.DateTimeField(auto_now_add=True)
+    released = models.BooleanField(default=False)
 
     def __str__(self):
         return(self.name)
@@ -111,7 +112,7 @@ class Invitation(models.Model):
     link = models.CharField(max_length=1024, default="")
 
     def __str__(self):
-        return str(self.invitedBy) + " " + str(self.assessment)
+        return str(self.invitedBy) + " " + str(self.invitedTo) + " " + str(self.assessment)
 
 
 STATUS_CHOICES = (
