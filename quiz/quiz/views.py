@@ -16,7 +16,15 @@ def home(request):
 
 
 def assessments(request):
-    if request.method == 'POST':
+
+    if request.method == 'POST' and request.POST.get('newTestName') != None:
+        newTestName = request.POST.get('newTestName')
+        oldTestId = request.POST.get('oldTestId')
+        newTestName = newTestName.strip()
+        Assessment.objects.filter(id=oldTestId).update(name=newTestName)
+        print(newTestName, oldTestId)
+
+    elif request.method == 'POST':
         user = request.POST.get('user')
         name = request.POST.get('name')
         print(user, name)

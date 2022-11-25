@@ -231,6 +231,16 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
                         <a href="./delete/{{exam.id}}">
                             <p class="ml-5 my-2">Delete link</p>
                         </a>
+                        <form action="." method="POST">
+                          {% csrf_token %}
+                          <div class="my-2 ml-5">
+                            <input type="text" name="oldTestId" hidden value="{{exam.id}}">
+                            <p class="mb-0">Change TEST NAME</p> <input name="newTestName" type="text">
+                            <button class="btn btn-primary" style="font-size: 0.8rem;">
+                              Submit 
+                            </button>
+                          </div>
+                        </form>
                     </div>
                 </div>
 
