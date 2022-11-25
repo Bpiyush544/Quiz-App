@@ -204,7 +204,6 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
 
                 {% for exam in exams %}
                 
-                
                 <div class="row-2 mt-5">
                     <div class="accor row py-3" data-toggle="collapse" data-target="#first">
                          <div class="left col-md-6 mt-auto"><i class="fa fa-angle-down ml-2"></i> <span class="ml-3">{{exam}}</span><span class="lbl ml-3">DRAFT</span></div><div class="right col-md-6 d-flex justify-content-around align-items-center mt-3 mt-md-0"><i class="fa fa-question"></i><span>4</span> |<i class="fa fa-calendar-alt ml-0"></i><span>14/2/2022</span><i class="fa fa-clock ml-3"></i><span>6:20</span><button class="ml-3 button">View</button></div>
@@ -228,6 +227,9 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
                         </div>
                         <a href="./test/{{exam.id}}/">
                             <p class="ml-5 my-2">Test link</p>
+                        </a>
+                        <a href="./delete/{{exam.id}}">
+                            <p class="ml-5 my-2">Delete link</p>
                         </a>
                     </div>
                 </div>
