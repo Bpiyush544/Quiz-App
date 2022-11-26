@@ -382,6 +382,12 @@ def attempted(request):
     return render(request, 'attempted.html', {'invites': Invitation.objects.all()})
 
 
+def deleteSection(request, pk):
+    print(pk, "THIS IS MY PRIMARY KEY")
+    Section.objects.filter(id=pk).delete()
+    return redirect(request.META.get('HTTP_REFERER'))
+
+
 def testDetails(request, test):
     print(test)
     if request.method == 'POST':
