@@ -206,7 +206,15 @@ body ::selection,html ::selection{background-color:#1ba94c;-webkit-text-fill-col
                 
                 <div class="row-2 mt-5">
                     <div class="accor row py-3" data-toggle="collapse" data-target="#first">
-                         <div class="left col-md-6 mt-auto"><i class="fa fa-angle-down ml-2"></i> <span class="ml-3">{{exam}}</span><span class="lbl ml-3">DRAFT</span></div><div class="right col-md-6 d-flex justify-content-around align-items-center mt-3 mt-md-0"><i class="fa fa-question"></i><span>4</span> |<i class="fa fa-calendar-alt ml-0"></i><span>14/2/2022</span><i class="fa fa-clock ml-3"></i><span>6:20</span><button class="ml-3 button">View</button></div>
+                         <div class="left col-md-6 mt-auto"><i class="fa fa-angle-down ml-2"></i> <span class="ml-3">{{exam}}</span>
+                          <a href="./release/{{exam.id}}/">
+                            {% if exam.released == True%}
+                              <span class="lbl ml-3">DRAFT</span>
+                            {% else %}
+                              <span class="lbl ml-3">RELEASE</span>
+                            {% endif %}
+                          </a>
+                        </div><div class="right col-md-6 d-flex justify-content-around align-items-center mt-3 mt-md-0"><i class="fa fa-question"></i><span>4</span> |<i class="fa fa-calendar-alt ml-0"></i><span>14/2/2022</span><i class="fa fa-clock ml-3"></i><span>6:20</span><button class="ml-3 button">View</button></div>
                      </div>
                     
                  </div>

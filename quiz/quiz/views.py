@@ -42,13 +42,13 @@ def assessments(request):
 
 
 def viewAndEdit(request, ass):
-    
+
     print("The name of the Assignment is : ", ass)
     if request.method == "POST" and request.POST.get('newSectionName'):
-      newSectionName = request.POST.get('newSectionName')
-      sectionId = request.POST.get('sectionId')
-      Section.objects.filter(id = int(sectionId)).update(name = newSectionName)  
-    
+        newSectionName = request.POST.get('newSectionName')
+        sectionId = request.POST.get('sectionId')
+        Section.objects.filter(id=int(sectionId)).update(name=newSectionName)
+
     elif request.method == 'POST':
         assessment = Assessment.objects.get(name=ass)
         sectionName = request.POST.get('sectionName')
@@ -78,6 +78,14 @@ def viewAndEdit(request, ass):
     print(sections)
     return render(request, 'viewAndEdit2.html', {'test': ass, 'questions': questions, 'sections': sections, 'information': information})
 
+
+def release(request, pk):
+    print(pk)
+    if Assessment.objects.get(id=pk).released == True:
+        Assessment.objects.filter(id=pk).update(released=False)
+    else:
+        Assessment.objects.filter(id=pk).update(released=True)
+    return redirect(request.META.get('HTTP_REFERER'))
 
 # def viewAndEdit(request, ass):
 #     if request.method == "POST" and request.POST.get('questionTitle') and request.POST.get('mark'):
