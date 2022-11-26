@@ -177,12 +177,19 @@
               {% comment %} I think the for loop should start from here... {% endcomment %}
               {% for key,value in information.items %}
               <h2>{{key.name}}</h2>
-              <div class="my-2"> 
-                <a href="http://127.0.0.1:8000/deleteSection/{{key.id}}/">
-                  <button class="btn btn-danger">Delete</button>
-                </a>
-                <button class="btn btn-light">Update Section Name</button> - <input type="text">
-              </div>
+              <div style="display: flex;"> 
+                <div style="display: flex; text-align: center; ">
+
+                  <a style="margin: auto;" href="http://127.0.0.1:8000/deleteSection/{{key.id}}/">
+                    <button class="btn btn-danger">Delete</button>
+                  </a>
+                  <form action="." method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="sectionId" hidden value="{{key.id}}">
+                    <button class="btn btn-light">Update Section Name</button> - <input name="newSectionName" type="text">
+                  </form>
+                </div>
+                  </div>
               <div class="table-responsive-xl">
                 <table class="table border px-5" style="box-shadow:0px 2px 3px 0px rgba(0,0,0,0.3) ;">
                   <thead class="mx-5">
@@ -288,7 +295,7 @@
                 <div class="qtype__description font-sz-13 pmT">Assess skills like Data Wrangling, Visualization, ML etc. through
                   Jupyter Notebooks</div>
                 <div class="note color-santa font-sz-11 pmT"></div>
-              </a><a style="background-color: #e6eef0;color:black;display:block" class="qtype text-decoration-none p-3 py-5 border mb-5 data-automation="frontend" href="/work/projects"><span class="demi-bold">Front-end
+              </><a style="background-color: #e6eef0;color:black;display:block" class="qtype text-decoration-none p-3 py-5 border mb-5 data-automation="frontend" href="/work/projects"><span class="demi-bold">Front-end
                   Developer</span>
                 <div class="qtype__description font-sz-13 pmT">Support for React, Angular and other frameworks</div>
                 <div class="note color-santa font-sz-11 pmT"></div>

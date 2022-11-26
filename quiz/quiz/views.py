@@ -42,8 +42,14 @@ def assessments(request):
 
 
 def viewAndEdit(request, ass):
+    
     print("The name of the Assignment is : ", ass)
-    if request.method == 'POST':
+    if request.method == "POST" and request.POST.get('newSectionName'):
+      newSectionName = request.POST.get('newSectionName')
+      sectionId = request.POST.get('sectionId')
+      Section.objects.filter(id = int(sectionId)).update(name = newSectionName)  
+    
+    elif request.method == 'POST':
         assessment = Assessment.objects.get(name=ass)
         sectionName = request.POST.get('sectionName')
         section = Section(assessment=assessment, name=sectionName)
