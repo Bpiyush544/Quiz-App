@@ -547,3 +547,21 @@ def testQues(request, pk):
     # print(data)
     # print(information)
     return render(request, 'testQues.html', {'information': information, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
+
+
+
+
+'''
+
+Not able to understand how we would be able to implement this feature 
+We are using the emails of the user to invite him for the test
+
+so we receive 2 things from frontend one is the email address of the user 
+and the other one is assessment link
+Generating the assessment link is easy
+the difficult thing is genrating a password
+lets just say we generate a 8 word password for that person
+so we send two things to the person one is 1) link of test
+the other thing we are providing is        2) generated password
+
+'''
