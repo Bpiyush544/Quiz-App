@@ -78,7 +78,7 @@
         <ul style="border: none;">
             <h3 style="cursor: pointer;" class="d-flex justify-content-between tog "><span class="mx-0">Reports</span> <i class="fa fa-caret-down"></i></h3>
             <div class="togmenu">
-            <a href="{% url 'invites' %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
+            <a href="{% url 'invites' assessment.id %}"><li><i class="fa fa-user" ></i> <span>Invited</span></li></a>
             <a href="{% url 'unused' %}"><li><i class="fa fa-times" ></i> <span>Unused</span></li></a>   
             <!-- <a href="view_question.html"><li class="d-flex justify-content-between"><span><i class="fa fa-times" ></i>  Unused</span><span class="ml-auto">1</span></li></a>   -->
               <a href="{% url 'attempted' %}"><li><i class="fa fa-edit"></i> <span>Attempted</span></li> </a>             

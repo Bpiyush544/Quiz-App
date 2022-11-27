@@ -76,7 +76,7 @@ def viewAndEdit(request, ass):
         sections.append(Section.objects.get(id=info.id))
     print(questions)
     print(sections)
-    return render(request, 'viewAndEdit2.html', {'test': ass, 'questions': questions, 'sections': sections, 'information': information})
+    return render(request, 'viewAndEdit2.html', {'test': Assessment.objects.get(name=ass), 'questions': questions, 'sections': sections, 'information': information})
 
 
 def release(request, pk):
@@ -265,7 +265,8 @@ def candidateSettings(request, assgn):
             fullName=updatedData[0], workExperience=updatedData[1], city=updatedData[2], rollNo=updatedData[3], email=updatedData[4], gradYear=updatedData[5], cgpa=updatedData[6], gpa=updatedData[7], collegeName=updatedData[8], contactNo=updatedData[9], stream=updatedData[10], major=updatedData[11], degree=updatedData[12], gender=updatedData[13], jobRole=updatedData[14], resume=updatedData[15], disclaimerCheck=updatedData[16])
         # assDetail = CandidateDetail.objects.get(assessment=assessment).update()
     print(assgn)
-    return render(request, 'candidateSettings.html')
+    assessment = Assessment.objects.get(name=assgn)
+    return render(request, 'candidateSettings.html', {'assessment': assessment})
 
 
 def questionView(request, pk):
@@ -362,7 +363,8 @@ def result(request):
     return render(request, 'result.html', {'score': score})
 
 
-def invites(request):
+def invites(request, pk):
+    print(pk)
     if request.method == "POST":
         teacherUser = request.user
         studentUserName = request.POST.get('userName')
@@ -377,8 +379,8 @@ def invites(request):
             print(invite)
             invite.save()
         # print(invitedBy, invitedTo, assessmentTaken)
-
-    return render(request, 'invites.html', {'invites': Invitation.objects.all()})
+    assessment = Assessment.objects.get(id=pk)
+    return render(request, 'invites.html', {'invites': Invitation.objects.all(), 'assessment': assessment})
 
 
 def deleteInvite(request, pk):
