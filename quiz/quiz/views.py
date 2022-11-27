@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitation, Section, TestReport, SectionReport
 import datetime
+import secrets
+import string
 # from django.template.defaulttags import register
 
 # Create your views here.
@@ -365,6 +367,8 @@ def result(request):
 
 def invites(request, pk):
     print(pk)
+    print(''.join(secrets.choice(string.hexdigits + string.punctuation)
+          for i in range(8)))
     if request.method == "POST":
         teacherUser = request.user
         studentUserName = request.POST.get('userName')
@@ -547,8 +551,6 @@ def testQues(request, pk):
     # print(data)
     # print(information)
     return render(request, 'testQues.html', {'information': information, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
-
-
 
 
 '''
