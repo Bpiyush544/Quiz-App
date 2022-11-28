@@ -392,14 +392,10 @@ def invites(request, pk):
         invitedTo = User.objects.get(username=studentUserName)
         assessmentTaken = Assessment.objects.get(name=assessment)
         if Invitation.objects.filter(invitedBy=invitedBy, invitedTo=invitedTo, assessment=assessmentTaken).exists() == False:
+            link = f"http://127.0.0.1:8000/testDetails/{assessmentTaken.name}/"
             invite = Invitation(invitedBy=invitedBy,
-                                invitedTo=invitedTo, assessment=assessmentTaken)
-            # http://127.0.0.1:8000/assessments/test/5/
-            print(invite)
-            if Invitation.objects.filter(invitedBy=invitedBy, invitedTo=invitedTo, assessment=assessment).exists():
-                pass
-            else:
-                invite.save()
+                                invitedTo=invitedTo, assessment=assessmentTaken, link=link)
+            # print(invite)
         # print(invitedBy, invitedTo, assessmentTaken)
     assessment = Assessment.objects.get(id=pk)
     return render(request, 'invites.html', {'invites': Invitation.objects.all(), 'assessment': assessment})
