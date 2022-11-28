@@ -367,9 +367,13 @@ def result(request):
 
 def invites(request, pk):
     print(pk)
-    print(''.join(secrets.choice(string.hexdigits + string.punctuation)
-          for i in range(8)))
-    if request.method == "POST":
+    if request.method == "POST" and request.POST.get('emailInvite') != None:
+        print(''.join(secrets.choice(string.hexdigits + string.punctuation)
+                      for i in range(8)))
+        assessment = Assessment.objects.get(id=pk)
+        link = f"http://127.0.0.1:8000/testDetails/{assessment.name}/"
+        print(link)
+    elif request.method == "POST":
         teacherUser = request.user
         studentUserName = request.POST.get('userName')
         assessment = request.POST.get('assessment')

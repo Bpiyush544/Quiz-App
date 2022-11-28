@@ -135,9 +135,12 @@
         </div>
 
         <div class="content  test mt-3">
-          <h2>Invited</h2>
-
-          <div class="my-3" style="max-width:300px"><input placeholder="search"  type="text" name="" id=""></div>
+          <h2>Invited through Email</h2>
+          <form action="." method="POST" class="form-class">
+            {% csrf_token %}
+              <input placeholder="Email"  type="text" name="emailInvite" id="emailInvite">
+              <button class="btn btn-primary mx-2" style="font-size: 12px;">Invite</button>
+            </form>
             <div class="  mt-3">
                 <!-- <div class="my-3 Question_head"><i class="fas fa-clock"></i><span class=" mx-2 font-weight-bold">Test Duration (mins)</span><i class="fa fa-info"></i><span class="mx-2">45</span><i class="fa fa-edit"></i></div> -->
                 
