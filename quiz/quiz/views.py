@@ -368,11 +368,22 @@ def result(request):
 def invites(request, pk):
     print(pk)
     if request.method == "POST" and request.POST.get('emailInvite') != None:
-        print(''.join(secrets.choice(string.hexdigits + string.punctuation)
-                      for i in range(8)))
+        # print(''.join(secrets.choice(string.hexdigits + string.punctuation)
+        #               for i in range(8)))
+        password = ''.join(secrets.choice(
+            string.hexdigits + string.punctuation) for i in range(8))
         assessment = Assessment.objects.get(id=pk)
+        invitedBy = request.user
+        invitedTo = None
         link = f"http://127.0.0.1:8000/testDetails/{assessment.name}/"
-        print(link)
+        invite = Invitation(invitedBy=invitedBy, link=link, invitedTo=invitedTo,
+                            password=password, assessment=assessment)
+        # print(invite)
+        if Invitation.objects.filter(invitedTo=invitedTo, invitedBy=invitedBy, assessment=assessment).exists():
+            pass
+        else:
+            invite.save()
+        # print(link)
     elif request.method == "POST":
         teacherUser = request.user
         studentUserName = request.POST.get('userName')
@@ -385,7 +396,10 @@ def invites(request, pk):
                                 invitedTo=invitedTo, assessment=assessmentTaken)
             # http://127.0.0.1:8000/assessments/test/5/
             print(invite)
-            invite.save()
+            if Invitation.objects.filter(invitedBy=invitedBy, invitedTo=invitedTo, assessment=assessment).exists():
+                pass
+            else:
+                invite.save()
         # print(invitedBy, invitedTo, assessmentTaken)
     assessment = Assessment.objects.get(id=pk)
     return render(request, 'invites.html', {'invites': Invitation.objects.all(), 'assessment': assessment})
