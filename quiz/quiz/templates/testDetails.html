@@ -440,7 +440,7 @@
                                         <!--    Form starts here    -->
                                                 <form method= "POST" action=".">
                                                     {% csrf_token %}
-                                                    <div class="labeled-input hacker-details d-none"><span
+                                                    {% comment %} <div class="labeled-input hacker-details d-none"><span
                                                             class="label-text">Logged in as</span>
                                                         <div class="d-flex hacker-details__email-container">
                                                             <span class="hacker-details__email"></span><button
@@ -522,22 +522,6 @@
                                                         </div>
                                                     </div>
                                                 {% endif %}
-                                                    {% comment %} <div class="labeled-input"><label for="labeled-input-22"
-                                                            class="label-text is-required-field">Personal Email
-                                                            Address</label>
-                                                        <div class="custom-input theme-m size-medium">
-                                                            <div class="input-wrap">
-                                                                <div class="ui-tooltip-wrapper"><input
-                                                                        id="labeled-input-22" type="text" class="input"
-                                                                        placeholder="Enter your personal email address"
-                                                                        aria-label="Personal Email Address"
-                                                                        aria-invalid="false" name="email_address"
-                                                                        required="" alignment="column" value=""
-                                                                        aria-describedby="tooltip-labeled-input-22">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div> {% endcomment %}
                                                     {% if candidateDetails.gradYear %}
                                                     <div class="labeled-input"><label for="labeled-input-23"
                                                         class="label-text is-required-field">Graduation
@@ -555,15 +539,26 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {% endif %}
-                                                    <div class="labeled-input candidate-details__disclaimer mt-5">
-                                                        <label for="labeled-input-24"
+                                                    {% endif %} {% endcomment %}
+
+                                                    {% if user.is_authenticated == False %}
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" id="exampleInputPassword1">
+                                                        </div>
+                                                        <div class="labeled-input candidate-details__disclaimer mt-5">
+                                                            <label for="labeled-input-24"
                                                             class="label-text is-required-field">
                                                             <h2 style="text-transform: initial;font-size: 18px;" class="candidate-details__disclaimer-heading">
                                                                 Declaration Statement</h2>
-                                                        </label>
-
-                                                        <div class="d-flex  ">
+                                                            </label>
+                                                        {% endif %}
+                                                        <div class="d-flex">
                                                             <input class="mr-2 mt-1" type="checkbox" name="" id="chk" required>
                                                             <label for="chk">I will not
                                                                 consult/copy code from any
