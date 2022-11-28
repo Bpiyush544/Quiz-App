@@ -373,13 +373,14 @@ def invites(request, pk):
         password = ''.join(secrets.choice(
             string.hexdigits + string.punctuation) for i in range(8))
         assessment = Assessment.objects.get(id=pk)
+        email = request.POST.get('emailInvite')
         invitedBy = request.user
         invitedTo = None
         link = f"http://127.0.0.1:8000/testDetails/{assessment.name}/"
         invite = Invitation(invitedBy=invitedBy, link=link, invitedTo=invitedTo,
-                            password=password, assessment=assessment)
+                            password=password, assessment=assessment, email=email)
         # print(invite)
-        if Invitation.objects.filter(invitedTo=invitedTo, invitedBy=invitedBy, assessment=assessment).exists():
+        if Invitation.objects.filter(invitedBy=invitedBy, assessment=assessment, email=email).exists():
             pass
         else:
             invite.save()
@@ -425,10 +426,16 @@ def deleteSection(request, pk):
 def testDetails(request, test):
     print(test)
     if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        print(email, password)
+        assessment = Assessment.objects.get(name=test)
+        if Invitation.objects.filter(email=email, password=password, assessment=assessment).exists():
+            print("yes this exists")
         # copy the code from CandidateSettings function
         # Find out what we have to do with the collected information and where we have to store it
         print(test, "jhbhjbhj")
-        return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
+        # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
 
     assessment = Assessment.objects.get(name=test)
     # next we find all the sections and the information we need
