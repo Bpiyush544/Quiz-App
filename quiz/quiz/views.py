@@ -368,7 +368,7 @@ def invites(request, pk):
             # print(invite)
         # print(invitedBy, invitedTo, assessmentTaken)
     assessment = Assessment.objects.get(id=pk)
-    return render(request, 'invites.html', {'invites': Invitation.objects.all(), 'assessment': assessment})
+    return render(request, 'invites.html', {'invites': Invitation.objects.filter(assessment=assessment), 'assessment': assessment})
 
 
 def deleteInvite(request, pk):
