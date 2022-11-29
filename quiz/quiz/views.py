@@ -6,6 +6,8 @@ from .models import Assessment, QuestionSet, OptionSet, CandidateDetail, Invitat
 import datetime
 import secrets
 import string
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 # from django.template.defaulttags import register
 
 # Create your views here.
@@ -393,6 +395,7 @@ def deleteSection(request, pk):
 def testDetails(request, test):
     print(test)
     if request.method == 'POST':
+        username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
         print(email, password)
@@ -402,6 +405,9 @@ def testDetails(request, test):
         # copy the code from CandidateSettings function
         # Find out what we have to do with the collected information and where we have to store it
         print(test, "jhbhjbhj")
+        user = authenticate(username=username, email=email, password=password)
+        login(request, user)
+        print("Currently logged in person is : ", request.user)
         return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
 
     assessment = Assessment.objects.get(name=test)
@@ -424,7 +430,6 @@ def testDetails(request, test):
 
 def takeTest2(request, assessmentName):
     if request.method == 'POST':
-        print('Hello')
         sectionId = request.POST.get('sectionId')
         questionsAttempted = request.POST.get('questionsAttempted')
         questionsAttempted = questionsAttempted[:len(questionsAttempted)-1]
@@ -434,10 +439,6 @@ def takeTest2(request, assessmentName):
             section=Section.objects.get(id=sectionId)).update(attemptInformation=questionsAttempted)
     currentUser = request.user
     print(currentUser)
-    # User is also required
-    # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
-    # so we have a issue here that anonymous user is not able to take the test because of the current mechanism
-    # so we need to bypass this what we can do is if he is not a
     assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
     if(TestReport.objects.filter(user=currentUser, assessment=assessment).exists()):
@@ -449,9 +450,7 @@ def takeTest2(request, assessmentName):
         difference = now - old
         Invitation.objects.filter(
             invitedTo=currentUser, assessment=assessment).update(isAttempted=True)
-        # print("HELLO AM I HERE?")
     else:
-        # create a test report and all the different sectionReports as well
         tempTestReport = TestReport(user=currentUser, assessment=assessment)
         tempTestReport.save()
         for section in sections:
@@ -463,29 +462,24 @@ def takeTest2(request, assessmentName):
     information = {}
     old = TestReport.objects.get(
         user=currentUser, assessment=assessment).time
-    print(old, "Test Started At")
     old = old.replace(tzinfo=None)
     now = datetime.datetime.now()
-    print(now, "Time right now")
     difference = now - old
-    print(difference)
     totalTimePassedTillNow = difference.days*86400 + difference.seconds - 19800
     totalTimeAvailable = assessment.duration*60
     print(totalTimePassedTillNow, totalTimeAvailable)
     # {'section': {{'question': solved/unsolved},
     #              {'question': solved/unsolved}, {'question': solved/unsolved}}}
+    user = request.user
+    testReport = TestReport.objects.get(user=user, assessment=assessment)
     for section in sections:
-        currentSectionReport = SectionReport.objects.get(section=section)
-        # Now we can access the information about the questions
+        currentSectionReport = SectionReport.objects.get(
+            testReport=testReport, section=section)
         attempts = currentSectionReport.attemptInformation.split(',')
-        # print(attempts, "this is my data")
         info = []
         for attempt in attempts:
             if attempt.split('-')[0] not in info:
                 info.append(attempt.split('-')[0])
-        # print(info)
-        # so at this point i have access to the particular section and the questions in that section as well
-        # this technique will work
         questions = QuestionSet.objects.filter(section=section)
         information[section] = {}
         for question in questions:
@@ -493,14 +487,11 @@ def takeTest2(request, assessmentName):
                 information[section][question] = 'Attempted'
             else:
                 information[section][question] = 'UnAttempted'
-
-    # print(information)
     return render(request, 'takeTest2.html', {'information': information, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
 
 
 def testQues(request, pk):
     sectionId = pk
-    # we have the sectionReport available to us ,now we just need to work upon using that sectionReportInformation
     section = Section.objects.get(id=sectionId)
     currentUser = request.user
     print(currentUser)
@@ -510,14 +501,11 @@ def testQues(request, pk):
     old = old.replace(tzinfo=None)
     now = datetime.datetime.now()
     difference = now - old
-    # print(difference)
-
     totalTimePassedTillNow = difference.days*86400 + difference.seconds - 19800
     totalTimeAvailable = assessment.duration*60
     print(totalTimePassedTillNow, totalTimeAvailable)
     questions = QuestionSet.objects.filter(section=section)
     information = {}
-
     # for question in questions:
     #     information[question] = OptionSet.objects.filter(Question=question)
     # temp = {'question1':OptionSet, 'question2':OptionSet}
@@ -527,8 +515,10 @@ def testQues(request, pk):
     # We have the sectionID from here we can generate the sectionReport that Report will provide us with the required information then we can use that information to mark our unchecked input checkbox
     # info = {'question': {'option': 'attempted/unattempted',
     #                      'option': 'attempted/unattempted', 'option': 'attempted/unattempted'}, }
-    currentSectionReport = SectionReport.objects.get(
-        section=Section.objects.get(id=pk))
+    user = request.user
+    testReport = TestReport.objects.get(user=user, assessment=assessment)
+    currentSectionReport = SectionReport.objects.get(testReport=testReport,
+                                                     section=Section.objects.get(id=pk))
     data = currentSectionReport.attemptInformation.split(',')
     information = {}
     for question in questions:
@@ -538,8 +528,6 @@ def testQues(request, pk):
                 information[question][option] = True
             else:
                 information[question][option] = False
-    # print(data)
-    # print(information)
     return render(request, 'testQues.html', {'information': information, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
 
 
