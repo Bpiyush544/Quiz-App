@@ -545,3 +545,9 @@ so we send two things to the person one is 1) link of test
 the other thing we are providing is        2) generated password
 
 '''
+
+
+def testResult(request, pk):
+    print("HEYY!")
+    print(pk)
+    return render(request, 'testResult.html')
