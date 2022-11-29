@@ -89,36 +89,6 @@ def release(request, pk):
         Assessment.objects.filter(id=pk).update(released=True)
     return redirect(request.META.get('HTTP_REFERER'))
 
-# def viewAndEdit(request, ass):
-#     if request.method == "POST" and request.POST.get('questionTitle') and request.POST.get('mark'):
-#         print(ass)
-#         assessment = []
-#         for obj in Assessment.objects.all():
-#             if str(obj.name) == ass:
-#                 assessment.append(obj)
-#                 break
-#         print(assessment)
-#         questionTitle = request.POST.get("questionTitle")
-#         mark = request.POST.get("mark")
-#         question = QuestionSet(
-#             assessment=assessment[0], questionTitle=questionTitle, mark=mark)
-#         question.save()
-#         return redirect(".")
-#     newObj = []
-#     # print("This is my ASS", ass)
-#     print(QuestionSet.objects.all())
-#     for obj in QuestionSet.objects.all():
-#         if str(obj.assessment) == ass:
-#             newObj.append(obj)
-#     options = []
-#     for obj in OptionSet.objects.all():
-#         if str(obj.Question) == ass:
-#             options.append(obj)
-#     # print(newObj, "     NEWOBJ")
-#     # only update and delete funcnality remains for test , question statement and question options
-#     # all the questions would be displayed here
-#     return render(request, 'viewAndEdit2.html', {'questions': newObj, 'options': options, 'test': ass})
-
 
 def deleteAssessment(request, pk):
     deleteAss = Assessment.objects.get(id=pk)
@@ -300,17 +270,6 @@ def questionDelete(request, pk):
     return redirect("..")
 
 
-# def optionDelete(request, pk):
-#     print(pk)
-#     option = OptionSet.objects.get(id=pk)
-#     option.delete()
-#     # print(option)
-#     return render(request, "secret.html")
-
-# so i am done with pretty much all basic stuff i have to add update and delete functnality and correct option as well
-# and at last the functnality where child gave test and got reportcard
-
-
 def testAssessment(request, pk):
     assessment = Assessment.objects.get(id=pk)
     # so basically we have to use this technique we dont have any other option
@@ -370,12 +329,20 @@ def invites(request, pk):
     if request.method == "POST" and request.POST.get('emailInvite') != None:
         # print(''.join(secrets.choice(string.hexdigits + string.punctuation)
         #               for i in range(8)))
+        username = ''.join(secrets.choice(
+            string.ascii_lowercase + string.ascii_uppercase) for i in range(6))
         password = ''.join(secrets.choice(
             string.hexdigits + string.punctuation) for i in range(8))
         assessment = Assessment.objects.get(id=pk)
         email = request.POST.get('emailInvite')
         invitedBy = request.user
-        invitedTo = None
+        # invitedTo = None
+        user = User.objects.create_user(
+            email=email, password=password, username=username)
+
+        print(user, "this is my new user")
+        user.save()
+        invitedTo = user
         link = f"http://127.0.0.1:8000/testDetails/{assessment.name}/"
         invite = Invitation(invitedBy=invitedBy, link=link, invitedTo=invitedTo,
                             password=password, assessment=assessment, email=email)
@@ -435,7 +402,7 @@ def testDetails(request, test):
         # copy the code from CandidateSettings function
         # Find out what we have to do with the collected information and where we have to store it
         print(test, "jhbhjbhj")
-        # return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
+        return redirect(f'http://127.0.0.1:8000/takeTest/{test}/')
 
     assessment = Assessment.objects.get(name=test)
     # next we find all the sections and the information we need
@@ -469,6 +436,8 @@ def takeTest2(request, assessmentName):
     print(currentUser)
     # User is also required
     # once we get the user and assessmentName we can then create a new TestReport we need to do this in a if else conditional statment which will check whether the testReport is already created or not if the report is already created we will check the testTiming and if it is not created then we will create a new TestReport and with reference to that Section Reports would be created if the testReport was not created before else we would just update the sectionReports
+    # so we have a issue here that anonymous user is not able to take the test because of the current mechanism
+    # so we need to bypass this what we can do is if he is not a
     assessment = Assessment.objects.get(name=assessmentName)
     sections = Section.objects.filter(assessment=assessment)
     if(TestReport.objects.filter(user=currentUser, assessment=assessment).exists()):
