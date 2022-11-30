@@ -548,6 +548,36 @@ the other thing we are providing is        2) generated password
 
 
 def testResult(request, pk):
-    print("HEYY!")
-    print(pk)
+    score = 0
+    # print(type(pk))
+    # print(TestReport.objects.get(id=pk))
+    sectionReports = SectionReport.objects.filter(
+        testReport=TestReport.objects.get(id=pk))
+    # print(sectionReports)
+    answerSet = {}
+    allQuestions = QuestionSet.objects.all()
+    for ques in allQuestions:
+        answerSet[ques.pk] = []
+        originalOptions = OptionSet.objects.filter(Question=ques)
+        for opts in originalOptions:
+            print(opts.correct)
+            if opts.correct == True:
+                answerSet[ques.pk].append(opts.pk)
+    print(answerSet, 'This is the answerSet')
+    querySet = {}
+    for report in sectionReports:
+        attempts = report.attemptInformation.split(',')
+        for attempt in attempts:
+            info = attempt.split('-')
+            # print(info)
+            if info[0] == '' or info[1] == '':
+                continue
+            if int(info[0]) not in querySet:
+                querySet[int(info[0])] = []
+            querySet[int(info[0])].append(int(info[1]))
+            # print(attempt)
+    for query in querySet:
+        if querySet[query] == answerSet[query]:
+            score += QuestionSet.objects.get(id=query).mark
+    print(querySet, score)
     return render(request, 'testResult.html')
