@@ -487,7 +487,7 @@ def takeTest2(request, assessmentName):
                 information[section][question] = 'Attempted'
             else:
                 information[section][question] = 'UnAttempted'
-    return render(request, 'takeTest2.html', {'information': information, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
+    return render(request, 'takeTest2.html', {'information': information, 'testReport': testReport, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
 
 
 def testQues(request, pk):
@@ -528,7 +528,7 @@ def testQues(request, pk):
                 information[question][option] = True
             else:
                 information[question][option] = False
-    return render(request, 'testQues.html', {'information': information, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
+    return render(request, 'testQues.html', {'information': information, 'testReport': testReport, "assessment": assessment, 'sectionId': sectionId, 'totalTimePassedTillNow': totalTimePassedTillNow, 'totalTimeAvailable': totalTimeAvailable})
 
 
 '''
@@ -580,4 +580,4 @@ def testResult(request, pk):
         if querySet[query] == answerSet[query]:
             score += QuestionSet.objects.get(id=query).mark
     print(querySet, score)
-    return render(request, 'testResult.html')
+    return render(request, 'testResult.html', {'score': score})

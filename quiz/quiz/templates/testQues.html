@@ -359,7 +359,7 @@
                     <input type="text" hidden name="questionsAttempted" id="questionsAttempted">
                     <button class="btn" onClick="myFunction()" style="color: white; background-color: red" >Save and Go Back</button>
                   </form>
-                  <form action="/" id="testSubmitForm">
+                  <form action="http://127.0.0.1:8000/testResult/{{testReport.id}}/" id="testSubmitForm">
                     {% csrf_token %}                    
                     <div style="margin: auto">
                       <button class="ui-btn ui-btn-normal btn-danger mt-3 solution__clear-selection ui-btn-styled"

@@ -306,7 +306,7 @@ h2{
                   
                   {% endfor %}
                 </main>
-                <form action="/" id="testSubmitForm">
+                <form action="http://127.0.0.1:8000/testResult/{{testReport.id}}/" id="testSubmitForm">
                   {% csrf_token %}
                     <button class="ui-btn ui-btn-normal ml-auto ui-btn-line-primary btn-danger question-list__submit ui-btn-styled">
                       <div class="ui-content align-icon-right"><span class="ui-text submit" aria-hidden="false">Submit Test</span></div>
